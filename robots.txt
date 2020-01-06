@@ -1,0 +1,4 @@
+Sitemap: https://SpikeInterface.github.io/sitemapindex.xml
+
+User-Agent: *
+Host: SpikeInterface.github.io
