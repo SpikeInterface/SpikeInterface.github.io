@@ -32,7 +32,10 @@ Some ideas we want to test here:
     
   * make benchmark for spike collision
   * make benchmark for drift
+  * make benchmark if high density make better results than lower density
+  * example for parameters optimisations
   * test if "agreement sorting" is relevant
+  
 
 
   
