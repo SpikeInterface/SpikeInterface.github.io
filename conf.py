@@ -17,7 +17,7 @@ import time
 
 # Data about this site
 BLOG_AUTHOR = "spikeinterface team"  # (translatable)
-BLOG_TITLE = "spikeinterfcae report"  # (translatable)
+BLOG_TITLE = "spikeinterface report"  # (translatable)
 # This is the main URL for your site. It will be used
 # in a prominent link. Don't forget the protocol (http/https)!
 SITE_URL = "https://SpikeInterface.github.io/"
@@ -139,10 +139,13 @@ TRANSLATIONS_PATTERN = '{path}.{lang}.{ext}'
 
 NAVIGATION_LINKS = {
     DEFAULT_LANG: (
-        ("/archive.html", "Archive"),
-        ("/categories/", "Tags"),
-        ("/rss.xml", "RSS feed"),
-    ),
+     #~ ("/archive.html", "Archive"),
+        #~ ("/categories/", "Tags"),
+        #~ ("/rss.xml", "RSS feed"),
+    
+        ("/index.html", "Home"),
+        
+       ),
 }
 
 # Alternative navigation links. Works the same way NAVIGATION_LINKS does,
@@ -153,7 +156,8 @@ NAVIGATION_ALT_LINKS = {
 }
 
 # Name of the theme to use.
-THEME = "bootblog4"
+# THEME = "bootblog4"
+THEME = "bootstrap4"
 
 # Primary color of your theme. This will be used to customize your theme.
 # Must be a HEX value.
@@ -649,7 +653,11 @@ GITHUB_REMOTE_NAME = 'origin'
 
 # Whether or not github_deploy should commit to the source branch automatically
 # before deploying.
-GITHUB_COMMIT_SOURCE = True
+# GITHUB_COMMIT_SOURCE = True
+
+# samuel garcia : we can push src independently with this
+GITHUB_COMMIT_SOURCE = False
+
 
 # Where the output site should be located
 # If you don't use an absolute path, it will be considered as relative
