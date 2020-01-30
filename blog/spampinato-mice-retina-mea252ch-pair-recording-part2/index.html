@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spampinato mice retina mea252ch pair recording - part2 | spikeinterface report</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part2/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="spikeinterface team">
+<link rel="prev" href="../spampinato-mice-retina-mea252ch-pair-recording-part1/" title="Spampinato mice retina mea252ch pair recording - part1" type="text/html">
+<meta property="og:site_name" content="spikeinterface report">
+<meta property="og:title" content="Spampinato mice retina mea252ch pair recording - part2">
+<meta property="og:url" content="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part2/">
+<meta property="og:description" content="Sorter comparison with ground truth recordings¶@author : Samuel Garcia
+Giulia  Spampinato from Institut de la Vision, Paris, have publish data from mice retina recorded invitro with from dense array.
+">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2020-01-30T14:58:43+01:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="https://SpikeInterface.github.io/">
+
+            <span id="blog-title">spikeinterface report</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../../index.html" class="nav-link">Home</a>
+                </li>
+<li class="nav-item">
+<a href="../../archive.html" class="nav-link">Notebook examples</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right">
+<li class="nav-item">
+    <a href="index.ipynb" id="sourcelink" class="nav-link">Source</a>
+    </li>
+
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+        
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Spampinato mice retina mea252ch pair recording - part2</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard p-author h-card"><span class="byline-name fn p-name" itemprop="author">
+                    spikeinterface team
+            </span></p>
+            <p class="dateline">
+            <a href="." rel="bookmark">
+            <time class="published dt-published" datetime="2020-01-30T14:58:43+01:00" itemprop="datePublished" title="2020-01-30 14:58">2020-01-30 14:58</time></a>
+            </p>
+            
+        <p class="sourceline"><a href="index.ipynb" class="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Sorter-comparison-with-ground-truth-recordings">Sorter comparison with ground truth recordings<a class="anchor-link" href="#Sorter-comparison-with-ground-truth-recordings">¶</a>
+</h2>
+<p>@author : Samuel Garcia</p>
+<p>Giulia  Spampinato from Institut de la Vision, Paris, have publish data from mice retina recorded invitro with from dense array.
+The data contain one ground truth to benchmark spike sorting tools. The ground truth is recorded with juxta celullar pipet.</p>
+<p>Here the official publication of this open dataset:
+<a href="https://zenodo.org/record/1205233#.W9mq1HWLTIF">https://zenodo.org/record/1205233#.W9mq1HWLTIF</a></p>
+<p>This datasets was used by Pierre Yger publish spyking circus:
+<a href="https://elifesciences.org/articles/34518">https://elifesciences.org/articles/34518</a></p>
+<p>In the original dataset, 19 files are provided.
+here we volontary keep only 9 files.
+See carrefully the notebook : <strong>spampinato-mice-retina-mea252ch-pair-recording-part1</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="How-to-reproduce-this-notebook">How to reproduce this notebook<a class="anchor-link" href="#How-to-reproduce-this-notebook">¶</a>
+</h3>
+<ol>
+<li>to create a folder <strong>basedir</strong> somwhere.</li>
+<li>download all files in zenodo link</li>
+<li>put them all in a subfolder <strong>basedir/original_files</strong> (20160415_patch2.tar.gz, ...)</li>
+<li>and then execute cells by cell this notebook</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import everything</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">getpass</span>
+
+<span class="n">kilosort2_path</span> <span class="o">=</span> <span class="s1">'/home/samuel/Documents/Spikeinterface/Kilosort2'</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"KILOSORT2_PATH"</span><span class="p">]</span> <span class="o">=</span> <span class="n">kilosort2_path</span>
+
+<span class="n">kilosort_path</span> <span class="o">=</span> <span class="s1">'/home/samuel/Documents/Spikeinterface/KiloSort/'</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"KILOSORT_PATH"</span><span class="p">]</span> <span class="o">=</span> <span class="n">kilosort_path</span>
+
+<span class="n">ironclust_path</span> <span class="o">=</span> <span class="s1">'/home/samuel/Documents/Spikeinterface/ironclust'</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"IRONCLUST_PATH"</span><span class="p">]</span> <span class="o">=</span> <span class="n">ironclust_path</span>
+
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="k">import</span> <span class="n">Path</span>
+
+
+<span class="kn">import</span> <span class="nn">spikeinterface</span> <span class="k">as</span> <span class="nn">si</span>
+<span class="kn">import</span> <span class="nn">spikeinterface.extractors</span> <span class="k">as</span> <span class="nn">se</span>
+<span class="kn">import</span> <span class="nn">spikeinterface.sorters</span> <span class="k">as</span> <span class="nn">ss</span>
+<span class="kn">import</span> <span class="nn">spikeinterface.widgets</span> <span class="k">as</span> <span class="nn">sw</span>
+
+<span class="kn">from</span> <span class="nn">spikeinterface.comparison</span> <span class="k">import</span> <span class="n">GroundTruthStudy</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># my working path</span>
+<span class="n">basedir</span> <span class="o">=</span> <span class="s1">'/media/samuel/dataspikesorting/DataSpikeSortingHD2/Pierre/zenodo/'</span>
+
+<span class="c1"># input file</span>
+<span class="n">recording_folder</span> <span class="o">=</span> <span class="n">basedir</span> <span class="o">+</span> <span class="s1">'original_files/'</span>
+
+<span class="c1"># ground truth information</span>
+<span class="n">ground_truth_folder</span> <span class="o">=</span> <span class="n">basedir</span> <span class="o">+</span> <span class="s1">'ground_truth/'</span>
+
+<span class="c1"># where output will be</span>
+<span class="n">study_folder</span> <span class="o">=</span> <span class="n">basedir</span> <span class="o">+</span> <span class="s1">'study_gt252/'</span>
+
+<span class="c1"># sorter list</span>
+<span class="n">sorter_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'tridesclous'</span><span class="p">]</span>
+
+<span class="c1"># selected recordings (8/19)</span>
+<span class="n">rec_names</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">'20160415_patch2'</span><span class="p">,</span>
+    <span class="s1">'20170803_patch1'</span><span class="p">,</span>
+    <span class="s1">'20160426_patch3'</span><span class="p">,</span> 
+    <span class="s1">'20170725_patch1'</span><span class="p">,</span>
+    <span class="s1">'20170621_patch1'</span><span class="p">,</span>
+    <span class="s1">'20160426_patch2'</span><span class="p">,</span> 
+    <span class="s1">'20170728_patch2'</span><span class="p">,</span>
+    <span class="s1">'20170713_patch1'</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id=" Step-1-:-clean-original-dataset"> Step 1 : clean original dataset<a class="anchor-link" href="#%C2%A0Step-1-:-clean-original-dataset">¶</a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Setup-study">Setup study<a class="anchor-link" href="#Setup-study">¶</a>
+</h3>
+<p>In this step:</p>
+<ul>
+<li>we create a dict of (recordings+sorting)</li>
+<li>and call the function <code>setup_comparison_study(study_folder, gt_dict)</code>
+</li>
+</ul>
+<p>Internanly spiketoolkit copy all recordings and ground truth sorting into a n organised folder.</p>
+<p>Important note :</p>
+<ul>
+<li>the file have 256 channels but only 252 are usefull.
+The PRB file contain all channels needed so we need to explicit <strong>grouping_property='group'</strong>
+to be sure to only take in account the channel in the unique group.</li>
+<li>This step have to run only once and take some times because of copy.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gt_dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">rec_name</span> <span class="ow">in</span> <span class="n">rec_names</span><span class="p">:</span>
+
+    <span class="c1"># find raw file</span>
+    <span class="n">dirname</span> <span class="o">=</span> <span class="n">recording_folder</span> <span class="o">+</span> <span class="n">rec_name</span> <span class="o">+</span> <span class="s1">'/'</span>
+    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">dirname</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">'.raw'</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">'juxta.raw'</span><span class="p">):</span>
+            <span class="n">mea_filename</span> <span class="o">=</span> <span class="n">dirname</span> <span class="o">+</span> <span class="n">f</span>
+
+    <span class="c1"># raw files have an internal offset that depend on the channel count</span>
+    <span class="c1"># a simple built header can be parsed to get it</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">mea_filename</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'.raw'</span><span class="p">,</span> <span class="s1">'.txt'</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">'padding = (\d+)'</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="c1"># recording</span>
+    <span class="n">rec</span> <span class="o">=</span> <span class="n">se</span><span class="o">.</span><span class="n">BinDatRecordingExtractor</span><span class="p">(</span><span class="n">mea_filename</span><span class="p">,</span> <span class="mf">20000.</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="s1">'uint16'</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="n">offset</span><span class="p">,</span> <span class="n">time_axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># this reduce channel count to 252</span>
+    <span class="n">rec</span> <span class="o">=</span> <span class="n">se</span><span class="o">.</span><span class="n">load_probe_file</span><span class="p">(</span><span class="n">rec</span><span class="p">,</span> <span class="n">basedir</span> <span class="o">+</span> <span class="s1">'mea_256.prb'</span><span class="p">)</span>
+
+    <span class="c1"># gt sorting</span>
+    <span class="n">gt_indexes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">ground_truth_folder</span> <span class="o">+</span> <span class="n">rec_name</span> <span class="o">+</span> <span class="s1">'/juxta_peak_indexes.raw'</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">'int64'</span><span class="p">)</span>
+    <span class="n">sorting_gt</span> <span class="o">=</span> <span class="n">se</span><span class="o">.</span><span class="n">NumpySortingExtractor</span><span class="p">()</span>
+    <span class="n">sorting_gt</span><span class="o">.</span><span class="n">set_times_labels</span><span class="p">(</span><span class="n">gt_indexes</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">gt_indexes</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">'int64'</span><span class="p">))</span>
+    <span class="n">sorting_gt</span><span class="o">.</span><span class="n">set_sampling_frequency</span><span class="p">(</span><span class="mf">20000.0</span><span class="p">)</span>
+
+    <span class="n">gt_dict</span><span class="p">[</span><span class="n">rec_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">rec</span><span class="p">,</span> <span class="n">sorting_gt</span><span class="p">)</span>
+
+
+<span class="n">study</span> <span class="o">=</span> <span class="n">GroundTruthStudy</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">study_folder</span><span class="p">,</span> <span class="n">gt_dict</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>&lt;&gt;:13: DeprecationWarning: invalid escape sequence \d
+&lt;&gt;:13: DeprecationWarning: invalid escape sequence \d
+&lt;&gt;:13: DeprecationWarning: invalid escape sequence \d
+&lt;ipython-input-4-00779a2fb746&gt;:13: DeprecationWarning: invalid escape sequence \d
+  offset = int(re.findall('padding = (\d+)', f.read())[0])
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Get-signal-to-noise-ratio-for-all-units">Get signal to noise ratio for all units<a class="anchor-link" href="#Get-signal-to-noise-ratio-for-all-units">¶</a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">study</span> <span class="o">=</span> <span class="n">GroundTruthStudy</span><span class="p">(</span><span class="n">study_folder</span><span class="p">)</span>
+<span class="n">snr</span> <span class="o">=</span> <span class="n">study</span><span class="o">.</span><span class="n">concat_all_snr</span><span class="p">()</span>
+<span class="n">snr</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[3]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+      <th></th>
+      <th>snr</th>
+    </tr>
+<tr>
+<th>rec_name</th>
+      <th>gt_unit_id</th>
+      <th></th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+<th>20160415_patch2</th>
+      <th>0</th>
+      <td>7.647741</td>
+    </tr>
+<tr>
+<th>20170803_patch1</th>
+      <th>0</th>
+      <td>13.230232</td>
+    </tr>
+<tr>
+<th>20160426_patch3</th>
+      <th>0</th>
+      <td>7.270211</td>
+    </tr>
+<tr>
+<th>20170725_patch1</th>
+      <th>0</th>
+      <td>28.532387</td>
+    </tr>
+<tr>
+<th>20170621_patch1</th>
+      <th>0</th>
+      <td>15.133425</td>
+    </tr>
+<tr>
+<th>20160426_patch2</th>
+      <th>0</th>
+      <td>4.661795</td>
+    </tr>
+<tr>
+<th>20170728_patch2</th>
+      <th>0</th>
+      <td>23.652615</td>
+    </tr>
+<tr>
+<th>20170713_patch1</th>
+      <th>0</th>
+      <td>14.934497</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">snr</span><span class="p">[</span><span class="s1">'snr'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'GT units SNR'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[4]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Text(0.5, 0, 'GT units SNR')</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Run-all-sorters">Run all sorters<a class="anchor-link" href="#Run-all-sorters">¶</a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sorter_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'herdingspikes'</span><span class="p">,</span> <span class="s1">'ironclust'</span><span class="p">,</span> <span class="s1">'kilosort2'</span><span class="p">,</span>  <span class="s1">'kilosort'</span><span class="p">,</span>
+                <span class="s1">'spykingcircus'</span><span class="p">,</span> <span class="s1">'tridesclous'</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">study</span> <span class="o">=</span> <span class="n">GroundTruthStudy</span><span class="p">(</span><span class="n">study_folder</span><span class="p">)</span>
+
+<span class="n">study</span><span class="o">.</span><span class="n">run_sorters</span><span class="p">(</span><span class="n">sorter_list</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'keep'</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>WARNING! The recording contains group. In order to spike sort by 'group' use grouping_property='group' as argument.
+# Generating new position and neighbor files from data file
+# Not Masking any Channels
+# Sampling rate: 20000
+# Localization On
+# Number of recorded channels: 252
+# Analysing frames: 6000000; Seconds: 300.0
+# Frames before spike in cutout: 4
+# Frames after spike in cutout: 20
+# tcuts: 32 48
+# tInc: 100000
+# Analysing frames from -32 to 100048  (0.0%)
+# Analysing frames from 99968 to 200048  (1.7%)
+# Analysing frames from 199968 to 300048  (3.3%)
+# Analysing frames from 299968 to 400048  (5.0%)
+# Analysing frames from 399968 to 500048  (6.7%)
+# Analysing frames from 499968 to 600048  (8.3%)
+# Analysing frames from 599968 to 700048  (10.0%)
+# Analysing frames from 699968 to 800048  (11.7%)
+# Analysing frames from 799968 to 900048  (13.3%)
+# Analysing frames from 899968 to 1000048  (15.0%)
+# Analysing frames from 999968 to 1100048  (16.7%)
+# Analysing frames from 1099968 to 1200048  (18.3%)
+# Analysing frames from 1199968 to 1300048  (20.0%)
+# Analysing frames from 1299968 to 1400048  (21.7%)
+# Analysing frames from 1399968 to 1500048  (23.3%)
+# Analysing frames from 1499968 to 1600048  (25.0%)
+# Analysing frames from 1599968 to 1700048  (26.7%)
+# Analysing frames from 1699968 to 1800048  (28.3%)
+# Analysing frames from 1799968 to 1900048  (30.0%)
+# Analysing frames from 1899968 to 2000048  (31.7%)
+# Analysing frames from 1999968 to 2100048  (33.3%)
+# Analysing frames from 2099968 to 2200048  (35.0%)
+# Analysing frames from 2199968 to 2300048  (36.7%)
+# Analysing frames from 2299968 to 2400048  (38.3%)
+# Analysing frames from 2399968 to 2500048  (40.0%)
+# Analysing frames from 2499968 to 2600048  (41.7%)
+# Analysing frames from 2599968 to 2700048  (43.3%)
+# Analysing frames from 2699968 to 2800048  (45.0%)
+# Analysing frames from 2799968 to 2900048  (46.7%)
+# Analysing frames from 2899968 to 3000048  (48.3%)
+# Analysing frames from 2999968 to 3100048  (50.0%)
+# Analysing frames from 3099968 to 3200048  (51.7%)
+# Analysing frames from 3199968 to 3300048  (53.3%)
+# Analysing frames from 3299968 to 3400048  (55.0%)
+# Analysing frames from 3399968 to 3500048  (56.7%)
+# Analysing frames from 3499968 to 3600048  (58.3%)
+# Analysing frames from 3599968 to 3700048  (60.0%)
+# Analysing frames from 3699968 to 3800048  (61.7%)
+# Analysing frames from 3799968 to 3900048  (63.3%)
+# Analysing frames from 3899968 to 4000048  (65.0%)
+# Analysing frames from 3999968 to 4100048  (66.7%)
+# Analysing frames from 4099968 to 4200048  (68.3%)
+# Analysing frames from 4199968 to 4300048  (70.0%)
+# Analysing frames from 4299968 to 4400048  (71.7%)
+# Analysing frames from 4399968 to 4500048  (73.3%)
+# Analysing frames from 4499968 to 4600048  (75.0%)
+# Analysing frames from 4599968 to 4700048  (76.7%)
+# Analysing frames from 4699968 to 4800048  (78.3%)
+# Analysing frames from 4799968 to 4900048  (80.0%)
+# Analysing frames from 4899968 to 5000048  (81.7%)
+# Analysing frames from 4999968 to 5100048  (83.3%)
+# Analysing frames from 5099968 to 5200048  (85.0%)
+# Analysing frames from 5199968 to 5300048  (86.7%)
+# Analysing frames from 5299968 to 5400048  (88.3%)
+# Analysing frames from 5399968 to 5500048  (90.0%)
+# Analysing frames from 5499968 to 5600048  (91.7%)
+# Analysing frames from 5599968 to 5700048  (93.3%)
+# Analysing frames from 5699968 to 5800048  (95.0%)
+# Analysing frames from 5799968 to 5900048  (96.7%)
+# Analysing frames from 5899968 to 6000000  (98.3%)
+# Detection completed, time taken: 0:02:56.538890
+# Time per frame: 0:00:00.029423
+# Time per sample: 0:00:00.000117
+Loaded 486501 spikes.
+Fitting dimensionality reduction using all spikes...
+...projecting...
+...done
+Clustering...
+Clustering 486501 spikes...
+number of seeds: 16765
+seeds/job: 1398
+using 12 cpus
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>[Parallel(n_jobs=12)]: Using backend LokyBackend with 12 concurrent workers.
+[Parallel(n_jobs=12)]: Done   3 out of  12 | elapsed:   30.8s remaining:  1.5min
+[Parallel(n_jobs=12)]: Done  10 out of  12 | elapsed:   33.3s remaining:    6.7s
+[Parallel(n_jobs=12)]: Done  12 out of  12 | elapsed:   33.6s finished
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Number of estimated units: 1684
+Saving to /media/samuel/dataspikesorting/DataSpikeSortingHD2/Pierre/zenodo/study_gt252/sorter_folders/20160415_patch2/herdingspikes/HS2_sorted.hdf5
+WARNING! The recording contains group. In order to spike sort by 'group' use grouping_property='group' as argument.
+RUNNING SHELL SCRIPT: /tmp/tmp_shellscript09fbnvnt/script.sh
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/usr/lib/python3.6/subprocess.py:786: ResourceWarning: subprocess 27949 is still running
+  ResourceWarning, source=self)
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>WARNING! The recording contains group. In order to spike sort by 'group' use grouping_property='group' as argument.
+RUNNING SHELL SCRIPT: /tmp/tmp_shellscriptcdk1ufup/script.sh
+WARNING! The recording contains group. In order to spike sort by 'group' use grouping_property='group' as argument.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Run-comparison-with-ground-truth-and-retreive-result-tables">Run comparison with ground truth and retreive result tables<a class="anchor-link" href="#Run-comparison-with-ground-truth-and-retreive-result-tables">¶</a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># this copy sorting is necessary to copy results from sorter</span>
+<span class="c1"># into a centralize folder with all results</span>
+<span class="n">study</span><span class="o">.</span><span class="n">copy_sortings</span><span class="p">()</span>
+
+<span class="c1"># this run all comparison sto GT</span>
+<span class="n">study</span><span class="o">.</span><span class="n">run_comparisons</span><span class="p">(</span><span class="n">exhaustive_gt</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">match_score</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">overmerged_score</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># this retrieve results</span>
+<span class="n">comparisons</span> <span class="o">=</span> <span class="n">study</span><span class="o">.</span><span class="n">comparisons</span>
+<span class="n">dataframes</span> <span class="o">=</span> <span class="n">study</span><span class="o">.</span><span class="n">aggregate_dataframes</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Run times</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataframes</span><span class="p">[</span><span class="s1">'run_times'</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dataframes</span><span class="p">[</span><span class="s1">'run_times'</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="s1">'sorter_name'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'run_time'</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">sorter_list</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set_palette</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">"Set1"</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">'log'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Run time (s)'</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="kc">None</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">sorter_list</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">'right'</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id=" accuracy/precision/recall-scores-per-sorters"> accuracy/precision/recall scores per sorters<a class="anchor-link" href="#%C2%A0accuracy/precision/recall-scores-per-sorters">¶</a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set_palette</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">"Set1"</span><span class="p">))</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">dataframes</span><span class="p">[</span><span class="s1">'perf_by_units'</span><span class="p">],</span> <span class="n">id_vars</span><span class="o">=</span><span class="s1">'sorter_name'</span><span class="p">,</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">'metric'</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s1">'score'</span><span class="p">,</span> 
+        <span class="n">value_vars</span><span class="o">=</span><span class="p">(</span><span class="s1">'accuracy'</span><span class="p">,</span><span class="s1">'precision'</span><span class="p">,</span> <span class="s1">'recall'</span><span class="p">))</span>
+<span class="c1"># df.assign(Generation=df.metric.map({'metric':'Metric','accuracy': 'Accuracy', 'precision': 'Precision', 'recall': 'Recall'}))</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">'sorter_name'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'score'</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">'metric'</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">'swarm'</span><span class="p">,</span> <span class="n">dodge</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> 
+                <span class="n">order</span><span class="o">=</span><span class="n">sorter_list</span><span class="p">,</span> <span class="n">legend_out</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">fig</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">'Accuracy'</span><span class="p">,</span> <span class="s1">'Precision'</span><span class="p">,</span> <span class="s1">'Recall'</span><span class="p">],</span> <span class="n">labelspacing</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+          <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">borderaxespad</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">sorter_list</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">'center'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="kc">None</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Score'</span><span class="p">);</span>
+<span class="n">clear_axes</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_palette</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">"deep"</span><span class="p">))</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dataframes</span><span class="p">[</span><span class="s1">'perf_by_units'</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="s1">'precision'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'recall'</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s1">'sorter_name'</span><span class="p">,</span> 
+                <span class="n">col_wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">col_order</span><span class="o">=</span><span class="n">sorter_list</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Accuracy vns SNR</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">dataframes</span><span class="p">[</span><span class="s1">'perf_by_units'</span><span class="p">]</span>
+
+
+<span class="c1"># add snr to the by-unit table</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'snr'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="k">for</span> <span class="n">gt_id</span> <span class="ow">in</span> <span class="n">snr</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">'snr'</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'gt_unit_id'</span><span class="p">]</span><span class="o">==</span><span class="n">gt_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">snr</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">gt_id</span><span class="p">,</span> <span class="s1">'snr'</span><span class="p">]</span>
+<span class="n">df</span>
+
+
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set_palette</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">"deep"</span><span class="p">))</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dataframes</span><span class="p">[</span><span class="s1">'perf_by_units'</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="s1">'snr'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'accuracy'</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s1">'sorter_name'</span><span class="p">,</span> 
+                <span class="n">col_wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">col_order</span><span class="o">=</span><span class="n">sorter_list</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">axes</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">sorter_list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">''</span><span class="p">)</span>
+
+    <span class="n">g</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'SNR'</span><span class="p">);</span>
+
+<span class="n">g</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Accuracy'</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul class="pager hidden-print">
+<li class="previous">
+                <a href="../spampinato-mice-retina-mea252ch-pair-recording-part1/" rel="prev" title="Spampinato mice retina mea252ch pair recording - part1">Previous post</a>
+            </li>
+        </ul></nav></aside><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        </script></article><!--End of body content--><footer id="footer">
+            Contents © 2020         <a href="mailto:sam.garcia.die@gmail.com">spikeinterface team</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+            
+        </footer>
+</div>
+</div>
+
+
+        <script src="../../assets/js/all-nocdn.js"></script><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>
