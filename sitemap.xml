@@ -15,11 +15,11 @@
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/archive.html</loc>
-  <lastmod>2020-01-30T13:58:00Z</lastmod>
+  <lastmod>2020-02-19T13:07:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/</loc>
-  <lastmod>2020-01-30T13:58:00Z</lastmod>
+  <lastmod>2020-02-19T13:07:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/example-of-ground-truth-comparison-study/</loc>
@@ -28,6 +28,10 @@
  <url>
   <loc>https://SpikeInterface.github.io/blog/example-of-parameters-optimization/</loc>
   <lastmod>2020-01-30T13:34:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://SpikeInterface.github.io/blog/ground-truth-comparison-with-mearec-neuropixel/</loc>
+  <lastmod>2020-02-19T13:07:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/</loc>
