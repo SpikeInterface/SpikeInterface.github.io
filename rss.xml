@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>spikeinterface report</title><link>https://SpikeInterface.github.io/</link><description>spikeinterface report</description><atom:link href="https://SpikeInterface.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:sam.garcia.die@gmail.com"&gt;spikeinterface team&lt;/a&gt; </copyright><lastBuildDate>Fri, 28 Feb 2020 15:34:57 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Ground truth comparison with mearec neuropixel</title><link>https://SpikeInterface.github.io/blog/ground-truth-comparison-with-mearec-neuropixel/</link><dc:creator>spikeinterface team</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>spikeinterface report</title><link>https://SpikeInterface.github.io/</link><description>spikeinterface report</description><atom:link href="https://SpikeInterface.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:sam.garcia.die@gmail.com"&gt;spikeinterface team&lt;/a&gt; </copyright><lastBuildDate>Fri, 28 Feb 2020 15:35:26 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Ground truth comparison with mearec neuropixel</title><link>https://SpikeInterface.github.io/blog/ground-truth-comparison-with-mearec-neuropixel/</link><dc:creator>spikeinterface team</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Ground-truth-comparison-on-neuropixel-simulated-with-mearec"&gt;Ground truth comparison on neuropixel simulated with mearec&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/ground-truth-comparison-with-mearec-neuropixel/#Ground-truth-comparison-on-neuropixel-simulated-with-mearec"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Author : Samuel Garcia&lt;/p&gt;
 &lt;p&gt;This notebook shows how &lt;a href="https://github.com/SpikeInterface"&gt;SpikeInterface&lt;/a&gt; is used to perform a ground truth comparisong for multiple spike sorters on a simulated datsets with mearec that mimic a neuropixel dataset.&lt;/p&gt;
-&lt;p&gt;The dataset have been simulated by Alessio Buccino and Samuel Garcia.
-Duration : 600s
-number of units : 250
-Noise : 10uV
-Nb channel: 384
-No drift.&lt;/p&gt;
+&lt;p&gt;The dataset have been simulated by Alessio Buccino and Samuel Garcia&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Duration : 600s&lt;/li&gt;
+&lt;li&gt;number of units : 250&lt;/li&gt;
+&lt;li&gt;Noise : 10uV&lt;/li&gt;
+&lt;li&gt;Nb channel: 384&lt;/li&gt;
+&lt;li&gt;No drift.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;Note the notebook assumes the recording is alreay sorted, the neccessary data can be downloaded here:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;TODO: put the new URL&lt;/strong&gt;&lt;/p&gt;
 
