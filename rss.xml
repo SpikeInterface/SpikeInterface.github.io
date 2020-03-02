@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>spikeinterface report</title><link>https://SpikeInterface.github.io/</link><description>spikeinterface report</description><atom:link href="https://SpikeInterface.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:sam.garcia.die@gmail.com"&gt;spikeinterface team&lt;/a&gt; </copyright><lastBuildDate>Mon, 02 Mar 2020 12:04:34 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Check if duration change the quality for spike sorting</title><link>https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/</link><dc:creator>spikeinterface team</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>spikeinterface report</title><link>https://SpikeInterface.github.io/</link><description>spikeinterface report</description><atom:link href="https://SpikeInterface.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:sam.garcia.die@gmail.com"&gt;spikeinterface team&lt;/a&gt; </copyright><lastBuildDate>Mon, 02 Mar 2020 12:39:16 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Check if duration change the quality for spike sorting</title><link>https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/</link><dc:creator>spikeinterface team</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Check-if-duration-change-the-quality-for-spike-sorting"&gt;Check if duration change the quality for spike sorting&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#Check-if-duration-change-the-quality-for-spike-sorting"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Here a very simple notebook to check the duration for doing spike sorting.&lt;/p&gt;
@@ -1594,13 +1594,13 @@ this must a special case of this dataset and have to be instigate more.&lt;/p&gt
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Looking at the number of "num_false_positive" and "num_well_detected" the situation is really strange.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;kilosort not affected by the duration&lt;/li&gt;
-&lt;li&gt;herdingspikes have a really strange behavior : yje longer the duration, the more redundant units it has&lt;/li&gt;
+&lt;li&gt;kilosort : not affected by the duration&lt;/li&gt;
+&lt;li&gt;herdingspikes (one of the more affected): the longer the duration, the more "num_false_positive"&lt;/li&gt;
 &lt;li&gt;ironclust seams to have a bit "num_false_positive" for longer duration&lt;/li&gt;
-&lt;li&gt;kilosrt2 have random "num_false_positive" accros durations&lt;/li&gt;
-&lt;li&gt;tridesclous have a bit more "num_false_positive" for long duration&lt;/li&gt;
+&lt;li&gt;kilsort2 have random "num_false_positive" across durations&lt;/li&gt;
+&lt;li&gt;tridesclous have a few bit more "num_false_positive" for long duration&lt;/li&gt;
 &lt;li&gt;moutainsort is totaly affected by the duration.&lt;/li&gt;
-&lt;li&gt;spykingcircus : affected by long duration more 'num_false_positive' units.&lt;/li&gt;
+&lt;li&gt;spykingcircus :affected by long duration more "num_false_positive" units.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
