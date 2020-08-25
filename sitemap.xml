@@ -15,15 +15,23 @@
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/archive.html</loc>
-  <lastmod>2020-08-23T15:34:00Z</lastmod>
+  <lastmod>2020-08-25T09:53:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/</loc>
-  <lastmod>2020-08-23T15:34:00Z</lastmod>
+  <lastmod>2020-08-25T09:53:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/</loc>
   <lastmod>2020-04-10T00:25:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-3brain-biocam-recording-from-a-retina/</loc>
+  <lastmod>2020-08-25T09:53:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-neuropixels-recording-2/</loc>
+  <lastmod>2020-08-25T09:53:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-neuropixels-recording/</loc>
