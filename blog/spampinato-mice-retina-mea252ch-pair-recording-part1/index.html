@@ -10,7 +10,7 @@
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
 <meta name="theme-color" content="#5670d4">
 <meta name="generator" content="Nikola (getnikola.com)">
-<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../rss.xml">
 <link rel="canonical" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/">
 <!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="spikeinterface team">
 <link rel="prev" href="../example-of-parameters-optimization/" title="Example of parameters optimization" type="text/html">
@@ -31,7 +31,7 @@
 navbar-dark bg-dark
 "><div class="container">
 <!-- This keeps the margins nice -->
-        <a class="navbar-brand" href="https://SpikeInterface.github.io/">
+        <a class="navbar-brand" href="../../">
 
             <span id="blog-title">spikeinterface report</span>
         </a>
@@ -45,7 +45,7 @@ navbar-dark bg-dark
 <a href="../../index.html" class="nav-link">Home</a>
                 </li>
 <li class="nav-item">
-<a href="../../archive.html" class="nav-link">Notebook examples</a>
+<a href="../../archive.html" class="nav-link">Notebook archives</a>
 
                 
             </li>
@@ -219,7 +219,7 @@ Feel free to modify this list as you want you your own criteria.</p>
 <span class="o">%</span><span class="k">matplotlib</span> notebook
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -240,12 +240,12 @@ Feel free to modify this list as you want you your own criteria.</p>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># this tridesclous utils are imported only for juxta detection to keep this script simple</span>
-<span class="kn">from</span> <span class="nn">tridesclous.peakdetector</span> <span class="k">import</span>  <span class="n">detect_peaks_in_chunk</span>
-<span class="kn">from</span> <span class="nn">tridesclous.tools</span> <span class="k">import</span> <span class="n">median_mad</span>
-<span class="kn">from</span> <span class="nn">tridesclous.waveformtools</span> <span class="k">import</span> <span class="n">extract_chunks</span>
+<span class="kn">from</span> <span class="nn">tridesclous.peakdetector</span> <span class="kn">import</span>  <span class="n">detect_peaks_in_chunk</span>
+<span class="kn">from</span> <span class="nn">tridesclous.tools</span> <span class="kn">import</span> <span class="n">median_mad</span>
+<span class="kn">from</span> <span class="nn">tridesclous.waveformtools</span> <span class="kn">import</span> <span class="n">extract_chunks</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -261,7 +261,7 @@ Feel free to modify this list as you want you your own criteria.</p>
              <span class="s1">'20170713_patch1'</span><span class="p">,</span> <span class="s1">'20160415_patch2'</span><span class="p">,</span> <span class="s1">'20170706_patch2'</span><span class="p">,</span> <span class="s1">'20170803_patch1'</span><span class="p">]</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -292,7 +292,7 @@ Feel free to modify this list as you want you your own criteria.</p>
     <span class="n">t</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">recording_folder</span><span class="o">+</span><span class="n">rec_name</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -411,7 +411,7 @@ Feel free to modify this list as you want you your own criteria.</p>
 <span class="n">gt_info</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">ground_truth_folder</span><span class="o">+</span><span class="s1">'gt_info.xlsx'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -474,7 +474,7 @@ Feel free to modify this list as you want you your own criteria.</p>
     
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -515,7 +515,7 @@ Feel free to modify this list as you want you your own criteria.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20170706_patch2'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -525,7 +525,7 @@ Feel free to modify this list as you want you your own criteria.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -561,7 +561,7 @@ Missed events are obvious in the middle part of recording.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20170629_patch2'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -571,7 +571,7 @@ Missed events are obvious in the middle part of recording.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -606,7 +606,7 @@ Missed events are obvious in the middle part of recording.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20170622_patch2'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -616,7 +616,7 @@ Missed events are obvious in the middle part of recording.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -652,7 +652,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20170726_patch1'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -662,7 +662,7 @@ Some spikes are clearly missed at the begnning.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -697,7 +697,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20170706_patch1'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -707,7 +707,7 @@ Some spikes are clearly missed at the begnning.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -742,7 +742,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20170706_patch3'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -752,7 +752,7 @@ Some spikes are clearly missed at the begnning.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -787,7 +787,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20170627_patch1'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -797,7 +797,7 @@ Some spikes are clearly missed at the begnning.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -832,7 +832,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20170630_patch1'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -842,7 +842,7 @@ Some spikes are clearly missed at the begnning.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -877,7 +877,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20170629_patch3'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -887,7 +887,7 @@ Some spikes are clearly missed at the begnning.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -922,7 +922,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20170623_patch1'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -932,7 +932,7 @@ Some spikes are clearly missed at the begnning.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -977,7 +977,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20170713_patch1'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -987,7 +987,7 @@ Some spikes are clearly missed at the begnning.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -1022,7 +1022,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20160415_patch2'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -1032,7 +1032,7 @@ Some spikes are clearly missed at the begnning.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -1065,7 +1065,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20170803_patch1'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -1075,7 +1075,7 @@ Some spikes are clearly missed at the begnning.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -1110,7 +1110,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20160426_patch3'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -1120,7 +1120,7 @@ Some spikes are clearly missed at the begnning.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -1155,7 +1155,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20170725_patch1'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -1165,7 +1165,7 @@ Some spikes are clearly missed at the begnning.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -1198,7 +1198,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20170621_patch1'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -1208,7 +1208,7 @@ Some spikes are clearly missed at the begnning.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -1241,7 +1241,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20160426_patch2'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -1251,7 +1251,7 @@ Some spikes are clearly missed at the begnning.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -1286,7 +1286,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20170728_patch2'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -1296,7 +1296,7 @@ Some spikes are clearly missed at the begnning.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -1327,6 +1327,19 @@ Some spikes are clearly missed at the begnning.</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
 </div>
 </div>
     </div>

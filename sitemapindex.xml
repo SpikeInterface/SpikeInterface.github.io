@@ -6,11 +6,15 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
+  <loc>https://SpikeInterface.github.io/categories/paper.xml</loc>
+  <lastmod>2020-08-26T07:41:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://SpikeInterface.github.io/rss.xml</loc>
-  <lastmod>2020-08-25T09:53:00Z</lastmod>
+  <lastmod>2020-08-26T07:41:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://SpikeInterface.github.io/sitemap.xml</loc>
-  <lastmod>2020-08-25T09:53:00Z</lastmod>
+  <lastmod>2020-08-26T07:41:00Z</lastmod>
  </sitemap>
 </sitemapindex>

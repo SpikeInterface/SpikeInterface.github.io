@@ -10,7 +10,7 @@
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
 <meta name="theme-color" content="#5670d4">
 <meta name="generator" content="Nikola (getnikola.com)">
-<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../rss.xml">
 <link rel="canonical" href="https://SpikeInterface.github.io/blog/example-of-ground-truth-comparison-study/">
 <!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="spikeinterface team">
 <link rel="next" href="../example-of-parameters-optimization/" title="Example of parameters optimization" type="text/html">
@@ -31,7 +31,7 @@ Note the notebook assumes the re">
 navbar-dark bg-dark
 "><div class="container">
 <!-- This keeps the margins nice -->
-        <a class="navbar-brand" href="https://SpikeInterface.github.io/">
+        <a class="navbar-brand" href="../../">
 
             <span id="blog-title">spikeinterface report</span>
         </a>
@@ -45,7 +45,7 @@ navbar-dark bg-dark
 <a href="../../index.html" class="nav-link">Home</a>
                 </li>
 <li class="nav-item">
-<a href="../../archive.html" class="nav-link">Notebook examples</a>
+<a href="../../archive.html" class="nav-link">Notebook archives</a>
 
                 
             </li>
@@ -121,7 +121,7 @@ navbar-dark bg-dark
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="k">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
 
 <span class="kn">import</span> <span class="nn">spikeinterface</span> <span class="k">as</span> <span class="nn">si</span>
@@ -129,10 +129,10 @@ navbar-dark bg-dark
 <span class="kn">import</span> <span class="nn">spikeinterface.sorters</span> <span class="k">as</span> <span class="nn">ss</span>
 <span class="kn">import</span> <span class="nn">spikeinterface.widgets</span> <span class="k">as</span> <span class="nn">sw</span>
 
-<span class="kn">from</span> <span class="nn">spikeinterface.comparison</span> <span class="k">import</span> <span class="n">GroundTruthStudy</span>
+<span class="kn">from</span> <span class="nn">spikeinterface.comparison</span> <span class="kn">import</span> <span class="n">GroundTruthStudy</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -142,7 +142,7 @@ navbar-dark bg-dark
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stderr output_text">
@@ -182,7 +182,7 @@ navbar-dark bg-dark
     <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">'right'</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>    
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -208,7 +208,7 @@ navbar-dark bg-dark
 <span class="n">ss</span><span class="o">.</span><span class="n">print_sorter_versions</span><span class="p">()</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -218,7 +218,7 @@ navbar-dark bg-dark
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -264,7 +264,7 @@ tridesclous: 1.5.0
 <span class="n">study_folder</span> <span class="o">=</span> <span class="n">p</span> <span class="o">/</span> <span class="s1">'study_mearec_SqMEA1015um/'</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -296,7 +296,7 @@ tridesclous: 1.5.0
 <span class="n">study</span> <span class="o">=</span> <span class="n">GroundTruthStudy</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">study_folder</span><span class="p">,</span> <span class="n">gt_dict</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -320,7 +320,7 @@ tridesclous: 1.5.0
                 <span class="s1">'spykingcircus'</span><span class="p">,</span> <span class="s1">'tridesclous'</span><span class="p">]</span> <span class="c1"># </span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -339,7 +339,7 @@ tridesclous: 1.5.0
 <span class="n">study</span><span class="o">.</span><span class="n">run_sorters</span><span class="p">(</span><span class="n">sorter_list</span><span class="p">,</span> <span class="n">sorter_params</span><span class="o">=</span><span class="n">sorter_params</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'keep'</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -364,7 +364,7 @@ tridesclous: 1.5.0
 <span class="n">snr</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -374,7 +374,7 @@ tridesclous: 1.5.0
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[7]:</div>
+    <div class="prompt output_prompt">Out[7]:</div>
 
 
 
@@ -478,7 +478,7 @@ tridesclous: 1.5.0
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'GT units SNR'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -488,7 +488,7 @@ tridesclous: 1.5.0
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[36]:</div>
+    <div class="prompt output_prompt">Out[36]:</div>
 
 
 
@@ -501,7 +501,7 @@ tridesclous: 1.5.0
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -539,7 +539,7 @@ tridesclous: 1.5.0
 <span class="n">study</span><span class="o">.</span><span class="n">run_comparisons</span><span class="p">(</span><span class="n">exhaustive_gt</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">match_score</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">overmerged_score</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -554,7 +554,7 @@ tridesclous: 1.5.0
 <span class="n">dataframes</span> <span class="o">=</span> <span class="n">study</span><span class="o">.</span><span class="n">aggregate_dataframes</span><span class="p">()</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -577,7 +577,7 @@ tridesclous: 1.5.0
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataframes</span><span class="p">[</span><span class="s1">'run_times'</span><span class="p">]</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -587,7 +587,7 @@ tridesclous: 1.5.0
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[11]:</div>
+    <div class="prompt output_prompt">Out[11]:</div>
 
 
 
@@ -675,7 +675,7 @@ tridesclous: 1.5.0
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">sorter_list</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">'right'</span><span class="p">);</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -685,7 +685,7 @@ tridesclous: 1.5.0
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -721,7 +721,7 @@ tridesclous: 1.5.0
     <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">rec_name</span><span class="o">+</span><span class="s1">'   '</span><span class="o">+</span> <span class="n">sorter_name</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -731,7 +731,7 @@ tridesclous: 1.5.0
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -744,7 +744,7 @@ tridesclous: 1.5.0
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -757,7 +757,7 @@ tridesclous: 1.5.0
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -770,7 +770,7 @@ tridesclous: 1.5.0
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -783,7 +783,7 @@ tridesclous: 1.5.0
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -796,7 +796,7 @@ tridesclous: 1.5.0
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -843,7 +843,7 @@ tridesclous: 1.5.0
 <span class="n">clear_axes</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -853,7 +853,7 @@ tridesclous: 1.5.0
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -890,7 +890,7 @@ Here this is another possible way to present the results.</p>
                 <span class="n">col_wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">col_order</span><span class="o">=</span><span class="n">sorter_list</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -900,7 +900,7 @@ Here this is another possible way to present the results.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -957,7 +957,7 @@ Here this is another possible way to present the results.</p>
 <span class="n">clear_axes</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -967,7 +967,7 @@ Here this is another possible way to present the results.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -1020,7 +1020,7 @@ Here this is another possible way to present the results.</p>
 <span class="n">g</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Accuracy'</span><span class="p">);</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -1030,7 +1030,7 @@ Here this is another possible way to present the results.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stderr output_text">
@@ -1045,7 +1045,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -1056,6 +1056,19 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
 </div>
 </div>
 
