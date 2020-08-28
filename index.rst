@@ -14,12 +14,12 @@
 intro
 =====
 
-**spikeinterface report** is a collection of notebooks that :
+**spikeinterface report** is a collection of notebooks that
 
-* demonstrate what can be done with the spikeinterface tool
-* show detailed benchmarks for spike sorter
-* serve as a sandbox for future benchmark that can be integrated in spikeforest
-* test some idea
+* demonstrate what can be done with [spikeinterface](https://github.com/SpikeInterface).
+* show detailed benchmarks for spike sorters.
+* serve as a sandbox for future benchmarks that can be integrated in the [spikeforest](https://spikeforest.flatironinstitute.org/) website.
+* test out ideas...
 
 
 All notebooks examples
@@ -28,32 +28,32 @@ All notebooks examples
 .. post-list::
    :stop: 10
 
-Notebooks for the `preprint in bioxiv <https://www.biorxiv.org/content/10.1101/796599v2>`_
-==========================================================================================
+Notebooks reproducing the figures in the `preprint on bioxiv <https://www.biorxiv.org/content/10.1101/796599v2>`_
+================================================================================================================
 
 .. post-list::
    :tags: paper
 
 
   
-Some ideas we want  to test here (or yet started):
-==================================================
+Some ideas we want to test here:
+================================
 
-* compute agreement accross sorter for none groundth truth dataset
-* make benchmark for sorters that separate:
+* compute agreement accross sorters for dataset withoput ground truth
+* make benchmarks for sorters that separate:
 
     * the accuracy per GT units
-    * how many units are detected
+    * how many units are detected (true and false positives)
 
-Actual benchmarks make an average of accuracy that mix theses metrics
-so a sorter with high accuracy but that do not detect a cell will have a low
-average accuracy.
+Often benchmarks report an average of accuracy that mix theses metrics
+so a sorter with high accuracy but that does not detect all neurons may have a lower
+average accuracy than one detecting more neurons with less precision.
 
-* make benchmark for spike collision
-* make benchmark for drift
-* make benchmark if high density make better results than lower density
+* benchmarks specifically for spike collisions
+* benchmarks for probe drift
+* benchmarks investigating if high density probes yield better results than lower density probes
 * example for parameters optimisations
-* test if "agreement sorting" is relevant
+* further testing of the "ensemble sorting" method
 
 
 

@@ -7,62 +7,62 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://SpikeInterface.github.io/</loc>
-  <lastmod>2020-08-26T07:32:00Z</lastmod>
+  <lastmod>2020-04-10T00:25:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/2020/</loc>
-  <lastmod>2020-08-26T07:32:00Z</lastmod>
+  <lastmod>2020-04-10T00:25:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/archive.html</loc>
-  <lastmod>2020-08-26T07:41:00Z</lastmod>
+  <lastmod>2020-08-28T18:41:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/</loc>
-  <lastmod>2020-08-26T07:32:00Z</lastmod>
+  <lastmod>2020-08-25T09:53:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/</loc>
-  <lastmod>2020-08-26T07:32:00Z</lastmod>
+  <lastmod>2020-04-10T00:25:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-3brain-biocam-recording-from-a-retina/</loc>
-  <lastmod>2020-08-26T07:32:00Z</lastmod>
+  <lastmod>2020-08-25T09:53:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-neuropixels-recording-2/</loc>
-  <lastmod>2020-08-26T07:32:00Z</lastmod>
+  <lastmod>2020-08-25T09:53:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-neuropixels-recording/</loc>
-  <lastmod>2020-08-26T07:32:00Z</lastmod>
+  <lastmod>2020-08-23T15:34:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/example-of-ground-truth-comparison-study/</loc>
-  <lastmod>2020-08-26T07:32:00Z</lastmod>
+  <lastmod>2020-04-10T00:25:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/example-of-parameters-optimization/</loc>
-  <lastmod>2020-08-26T07:32:00Z</lastmod>
+  <lastmod>2020-04-10T00:25:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/ground-truth-comparison-and-ensemble-sorting-of-a-synthetic-neuropixels-recording/</loc>
-  <lastmod>2020-08-26T07:32:00Z</lastmod>
+  <lastmod>2020-08-23T15:34:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/</loc>
-  <lastmod>2020-08-26T07:32:00Z</lastmod>
+  <lastmod>2020-04-10T00:25:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part2/</loc>
-  <lastmod>2020-08-26T07:32:00Z</lastmod>
+  <lastmod>2020-04-10T00:25:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/categories/</loc>
-  <lastmod>2020-08-26T07:41:00Z</lastmod>
+  <lastmod>2020-08-28T18:41:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/categories/paper/</loc>
-  <lastmod>2020-08-26T07:41:00Z</lastmod>
+  <lastmod>2020-08-28T18:41:00Z</lastmod>
  </url>
 </urlset>
