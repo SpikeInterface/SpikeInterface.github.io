@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>spikeinterface report</title><link>https://SpikeInterface.github.io/</link><description>spikeinterface report</description><atom:link href="https://SpikeInterface.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:sam.garcia.die@gmail.com"&gt;spikeinterface team&lt;/a&gt; </copyright><lastBuildDate>Wed, 02 Sep 2020 10:11:23 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Ensemble sorting of a 3Brain Biocam recording from a retina</title><link>https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-3brain-biocam-recording-from-a-retina/</link><dc:creator>spikeinterface team</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>spikeinterface report</title><link>https://SpikeInterface.github.io/</link><description>spikeinterface report</description><atom:link href="https://SpikeInterface.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:sam.garcia.die@gmail.com"&gt;spikeinterface team&lt;/a&gt; </copyright><lastBuildDate>Tue, 29 Sep 2020 17:00:10 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Ensemble sorting of a 3Brain Biocam recording from a retina</title><link>https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-3brain-biocam-recording-from-a-retina/</link><dc:creator>spikeinterface team</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Ensemble-sorting-of-a-3Brain-Biocam-recording-from-a-mouse-retina"&gt;Ensemble sorting of a 3Brain Biocam recording from a mouse retina&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-3brain-biocam-recording-from-a-retina/#Ensemble-sorting-of-a-3Brain-Biocam-recording-from-a-mouse-retina"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This notebook reproduces supplemental figure S3 from the paper &lt;a href="https://www.biorxiv.org/content/10.1101/796599v2"&gt;&lt;strong&gt;SpikeInterface, a unified framework for spike sorting&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
@@ -11,11 +11,25 @@
 &lt;li&gt;the raw data: &lt;a href="https://girder.dandiarchive.org/api/v1/item/5f2d8245ee8baa608594a40c/download"&gt;sub-P29-16-05-14-retina02-left_ecephys.nwb&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The file should be in the same directory where the notebook is located (otherwise adjust paths below).&lt;/p&gt;
-&lt;p&gt;Requirements:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://github.com/SpikeInterface"&gt;Spikeinterface&lt;/a&gt;: &lt;code&gt;pip install spikeinterface&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
 &lt;p&gt;Author: &lt;a href="http://homepages.inf.ed.ac.uk/mhennig/"&gt;Matthias Hennig&lt;/a&gt;, University of Edinburgh, 24 Aug 2020&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h4 id="Requirements"&gt;Requirements&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-3brain-biocam-recording-from-a-retina/#Requirements"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;For this need you will need the following Python packages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;numpy&lt;/li&gt;
+&lt;li&gt;pandas&lt;/li&gt;
+&lt;li&gt;matplotlib&lt;/li&gt;
+&lt;li&gt;seaborn&lt;/li&gt;
+&lt;li&gt;spikeinterface&lt;/li&gt;
+&lt;li&gt;dandi&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To run the MATLAB-based sorters, you would also need a MATLAB license.
+For other sorters, please refer to the documentation on &lt;a href="https://spikeinterface.readthedocs.io/en/latest/sortersinfo.html"&gt;how to install sorters&lt;/a&gt;.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -485,11 +499,25 @@ Multicomaprison step 4: extract agreement from graph
 &lt;li&gt;the raw data: &lt;a href="https://girder.dandiarchive.org/api/v1/item/5f2e9568ee8baa608594bcaa/download"&gt;sub-c1_ecephys.nwb&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;This file should be in the same directory where the notebook is located (otherwise adjust paths below).&lt;/p&gt;
-&lt;p&gt;Requirements:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://github.com/SpikeInterface"&gt;Spikeinterface&lt;/a&gt;: &lt;code&gt;pip install spikeinterface&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
 &lt;p&gt;Author: &lt;a href="http://homepages.inf.ed.ac.uk/mhennig/"&gt;Matthias Hennig&lt;/a&gt;, University of Edinburgh, 25 Aug 2020&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h4 id="Requirements"&gt;Requirements&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-neuropixels-recording-2/#Requirements"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;For this need you will need the following Python packages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;numpy&lt;/li&gt;
+&lt;li&gt;pandas&lt;/li&gt;
+&lt;li&gt;matplotlib&lt;/li&gt;
+&lt;li&gt;seaborn&lt;/li&gt;
+&lt;li&gt;spikeinterface&lt;/li&gt;
+&lt;li&gt;dandi&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To run the MATLAB-based sorters, you would also need a MATLAB license.
+For other sorters, please refer to the documentation on &lt;a href="https://spikeinterface.readthedocs.io/en/latest/sortersinfo.html"&gt;how to install sorters&lt;/a&gt;.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -931,7 +959,7 @@ Multicomaprison step 4: extract agreement from graph
 &lt;/div&gt;&lt;/div&gt;</description><category>paper</category><guid>https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-neuropixels-recording-2/</guid><pubDate>Tue, 25 Aug 2020 09:49:41 GMT</pubDate></item><item><title>Ground truth comparison and ensemble sorting of a synthetic Neuropixels recording</title><link>https://SpikeInterface.github.io/blog/ground-truth-comparison-and-ensemble-sorting-of-a-synthetic-neuropixels-recording/</link><dc:creator>spikeinterface team</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Ground-truth-comparison-and-ensemble-sorting-of-a-synthetic-Neuropixels-recording"&gt;Ground truth comparison and ensemble sorting of a synthetic Neuropixels recording&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/ground-truth-comparison-and-ensemble-sorting-of-a-synthetic-neuropixels-recording/#Ground-truth-comparison-and-ensemble-sorting-of-a-synthetic-Neuropixels-recording"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This notebook reproduces figures 2 and 3 from the paper &lt;a href="https://www.biorxiv.org/content/10.1101/796599v2"&gt;&lt;strong&gt;SpikeInterface, a unified framework for spike sorting&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="Ground-truth-comparison-and-ensemble-sorting-of-a-synthetic-Neuropixels-recording"&gt;Ground-truth comparison and ensemble sorting of a synthetic Neuropixels recording&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/ground-truth-comparison-and-ensemble-sorting-of-a-synthetic-neuropixels-recording/#Ground-truth-comparison-and-ensemble-sorting-of-a-synthetic-Neuropixels-recording"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This notebook reproduces figures 2 and 3 from the paper &lt;a href="https://www.biorxiv.org/content/10.1101/796599v2"&gt;&lt;strong&gt;SpikeInterface, a unified framework for spike sorting&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The data set for this notebook is available on the Dandi Archive: &lt;a href="https://gui.dandiarchive.org/#/dandiset/000034"&gt;https://gui.dandiarchive.org/#/dandiset/000034&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The entire data archive can be downloaded with the command &lt;code&gt;dandi download https://gui.dandiarchive.org/#/dandiset/000034/draft&lt;/code&gt; (about 75GB).&lt;/p&gt;
 &lt;p&gt;The data file required to run the code is:&lt;/p&gt;
@@ -939,12 +967,26 @@ Multicomaprison step 4: extract agreement from graph
 &lt;li&gt;the raw data: &lt;a href="https://girder.dandiarchive.org/api/v1/item/5f2c0e33ee8baa608594a16b/download"&gt;sub-MEAREC-250neuron-Neuropixels_ecephys.nwb&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;This file should be in the same directory where the notebook is located (otherwise adjust paths below).&lt;/p&gt;
-&lt;p&gt;Requirements:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://github.com/SpikeInterface"&gt;Spikeinterface&lt;/a&gt;: &lt;code&gt;pip install spikeinterface&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;[matplotlib-venn](&lt;a href="https://github.com/konstantint/matplotlib-venn"&gt;https://github.com/konstantint/matplotlib-venn&lt;/a&gt;]: &lt;code&gt;pip install matplotlib-venn&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
 &lt;p&gt;Author: &lt;a href="http://homepages.inf.ed.ac.uk/mhennig/"&gt;Matthias Hennig&lt;/a&gt;, University of Edinburgh, 22 Aug 2020&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h4 id="Requirements"&gt;Requirements&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/ground-truth-comparison-and-ensemble-sorting-of-a-synthetic-neuropixels-recording/#Requirements"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;For this need you will need the following Python packages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;numpy&lt;/li&gt;
+&lt;li&gt;pandas&lt;/li&gt;
+&lt;li&gt;matplotlib&lt;/li&gt;
+&lt;li&gt;seaborn&lt;/li&gt;
+&lt;li&gt;spikeinterface&lt;/li&gt;
+&lt;li&gt;dandi&lt;/li&gt;
+&lt;li&gt;matplotlib-venn&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To run the MATLAB-based sorters, you would also need a MATLAB license.
+For other sorters, please refer to the documentation on &lt;a href="https://spikeinterface.readthedocs.io/en/latest/sortersinfo.html"&gt;how to install sorters&lt;/a&gt;.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1968,12 +2010,26 @@ HDS [214, 1, 0, 0, 1, 0]
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;These files should be in the same directory where the notebook is located (otherwise adjust paths below).&lt;/p&gt;
-&lt;p&gt;Requirements:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://github.com/SpikeInterface"&gt;Spikeinterface&lt;/a&gt;: &lt;code&gt;pip install spikeinterface&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/konstantint/matplotlib-venn"&gt;matplotlib-venn&lt;/a&gt;: &lt;code&gt;pip install matplotlib-venn&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
 &lt;p&gt;Author: &lt;a href="http://homepages.inf.ed.ac.uk/mhennig/"&gt;Matthias Hennig&lt;/a&gt;, University of Edinburgh, 24 Aug 2020&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h4 id="Requirements"&gt;Requirements&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-neuropixels-recording/#Requirements"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;For this need you will need the following Python packages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;numpy&lt;/li&gt;
+&lt;li&gt;pandas&lt;/li&gt;
+&lt;li&gt;matplotlib&lt;/li&gt;
+&lt;li&gt;seaborn&lt;/li&gt;
+&lt;li&gt;spikeinterface&lt;/li&gt;
+&lt;li&gt;dandi&lt;/li&gt;
+&lt;li&gt;matplotlib-venn&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To run the MATLAB-based sorters, you would also need a MATLAB license.
+For other sorters, please refer to the documentation on &lt;a href="https://spikeinterface.readthedocs.io/en/latest/sortersinfo.html"&gt;how to install sorters&lt;/a&gt;.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2955,20 +3011,48 @@ HDS   1.630435   1.086957   3.0   2.0
 &lt;/div&gt;
 
 &lt;/div&gt;&lt;/div&gt;</description><category>paper</category><guid>https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-neuropixels-recording/</guid><pubDate>Sun, 23 Aug 2020 15:29:46 GMT</pubDate></item><item><title>Check if duration change the quality for spike sorting</title><link>https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/</link><dc:creator>spikeinterface team</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Check-if-duration-change-the-quality-for-spike-sorting"&gt;Check if duration change the quality for spike sorting&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#Check-if-duration-change-the-quality-for-spike-sorting"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Here a very simple notebook to check the duration for doing spike sorting.&lt;/p&gt;
-&lt;p&gt;Obviously each sorter engine need a minimuum of events to detect a "cluster" and so a unit.
-If a neuron do fire enougth during a recording it won't be detected.
-The number of event per units depend on the recording dutaion and the each individual firing rates.&lt;/p&gt;
-&lt;p&gt;Lets vary, the duration with the same firing rate and benchmark some sorter to check this.&lt;/p&gt;
-&lt;p&gt;Here the file is generated with MEArec with a neuronexus templates. This kind of datset is quite easy.
-The "SYNTH_MEAREC_NEURONEXUS" in spikeforest give quite good results for all sorters. The duration is 600s on spikeforest.&lt;/p&gt;
-&lt;p&gt;Here we have generated a new but similar file with a duration of 1800s. And then we have shorten it to 60s, 300s, 600s and 1800s (original).&lt;/p&gt;
-&lt;p&gt;Lets see if sorters are robust to few events.&lt;/p&gt;
-&lt;p&gt;Lets see if sorters are able to deal with long durations and tooo much events.&lt;/p&gt;
+&lt;h2 id="Does-the-recording's-duration-affect-the-quality-of-spike-sorting?"&gt;Does the recording's duration affect the quality of spike sorting?&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#Does-the-recording's-duration-affect-the-quality-of-spike-sorting?"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This notebook investigates if and how the duration of the recording affects spike sorting.&lt;/p&gt;
+&lt;p&gt;Obviously, each sorter engine needs a minimum number of events to detect a "cluster", and therefore a unit.
+If a neuron doesn't fire enough during a recording it won't be detected.
+The number of event per units depends on the recording duration and the each individual firing rates.&lt;/p&gt;
+&lt;p&gt;In order to test this phenomenon, we use the same dataset (with the same neurons and firing rates), but we vary the 
+duration of the recording.&lt;/p&gt;
+&lt;p&gt;The simulated recording is generated with &lt;a href="https://github.com/alejoe91/MEArec"&gt;MEArec&lt;/a&gt; using a Neuronexus-32 probe. 
+This specific dataset seems  &lt;em&gt;relatively&lt;/em&gt; easy to sort. The "SYNTH_MEAREC_NEURONEXUS" dataset in 
+&lt;a href="https://spikeforest.flatironinstitute.org/"&gt;SpikeForest&lt;/a&gt;&lt;br&gt;
+(which uses the same probe),  in fact, shows quite good results for all sorters. The original duration is 600s (10 min).&lt;/p&gt;
+&lt;p&gt;Here we have generated a new but similar recording with a duration of 1800s. Then we have shortened it to 60s, 300s, 
+600s and 1800s (original). The recording can be downloaded from Zenodo: &lt;a href="https://doi.org/10.5281/zenodo.4058272"&gt;https://doi.org/10.5281/zenodo.4058272&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Let's see if spike sorters are robust to fewer events and if are able to deal with long durations or they end up 
+finding too many events.&lt;/p&gt;
+&lt;p&gt;Author: &lt;a href="https://github.com/samuelgarcia"&gt;Samuel Garcia&lt;/a&gt;, CRNL, Lyon&lt;/p&gt;
 
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h4 id="Requirements"&gt;Requirements&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#Requirements"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;For this need you will need the following Python packages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;numpy&lt;/li&gt;
+&lt;li&gt;pandas&lt;/li&gt;
+&lt;li&gt;matplotlib&lt;/li&gt;
+&lt;li&gt;seaborn&lt;/li&gt;
+&lt;li&gt;spikeinterface&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To run the MATLAB-based sorters, you would also need a MATLAB license.
+For other sorters, please refer to the documentation on &lt;a href="https://spikeinterface.readthedocs.io/en/latest/sortersinfo.html"&gt;how to install sorters&lt;/a&gt;.&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h4 id="Installation-and-imports"&gt;Installation and imports&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#Installation-and-imports"&gt;¶&lt;/a&gt;&lt;/h4&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2977,34 +3061,22 @@ The "SYNTH_MEAREC_NEURONEXUS" in spikeforest give quite good results for all sor
 &lt;div class="prompt input_prompt"&gt;In [1]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# import everything&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nn"&gt;getpass&lt;/span&gt;
-
-&lt;span class="n"&gt;kilosort2_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'/home/samuel/Documents/Spikeinterface/Kilosort2'&lt;/span&gt;
-&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;environ&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"KILOSORT2_PATH"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;kilosort2_path&lt;/span&gt;
-
-&lt;span class="n"&gt;kilosort_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'/home/samuel/Documents/Spikeinterface/KiloSort/'&lt;/span&gt;
-&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;environ&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"KILOSORT_PATH"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;kilosort_path&lt;/span&gt;
-
-&lt;span class="n"&gt;ironclust_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'/home/samuel/Documents/Spikeinterface/ironclust'&lt;/span&gt;
-&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;environ&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"IRONCLUST_PATH"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ironclust_path&lt;/span&gt;
-
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;seaborn&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;sns&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pathlib&lt;/span&gt; &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Path&lt;/span&gt;
-
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pathlib&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Path&lt;/span&gt;
 
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;spikeinterface&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;si&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;spikeinterface.extractors&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;se&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;spikeinterface.sorters&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;ss&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;spikeinterface.widgets&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;sw&lt;/span&gt;
 
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;spikeinterface.comparison&lt;/span&gt; &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="n"&gt;GroundTruthStudy&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;spikeinterface.comparison&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;GroundTruthStudy&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -3014,7 +3086,7 @@ The "SYNTH_MEAREC_NEURONEXUS" in spikeforest give quite good results for all sor
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 &lt;div class="output_subarea output_stream output_stderr output_text"&gt;
@@ -3024,6 +3096,34 @@ The "SYNTH_MEAREC_NEURONEXUS" in spikeforest give quite good results for all sor
 &lt;/div&gt;
 &lt;/div&gt;
 
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# clone and install MATLAB sorters&lt;/span&gt;
+
+&lt;span class="c1"&gt;# kilosort2&lt;/span&gt;
+&lt;span class="o"&gt;!&lt;/span&gt;git clone https://github.com/MouseLand/Kilosort2.git
+&lt;span class="n"&gt;kilosort2_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'./Kilosort2'&lt;/span&gt;
+&lt;span class="n"&gt;ss&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Kilosort2Sorter&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_kilosort2_path&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;kilosort2_path&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# kilosort&lt;/span&gt;
+&lt;span class="o"&gt;!&lt;/span&gt;git clone https://github.com/cortex-lab/KiloSort.git
+&lt;span class="n"&gt;kilosort_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'./KiloSort'&lt;/span&gt;
+&lt;span class="n"&gt;ss&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;KilosortSorter&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_kilosort_path&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;kilosort_path&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# ironclust&lt;/span&gt;
+&lt;span class="o"&gt;!&lt;/span&gt;git clone https://github.com/flatironinstitute/ironclust.git
+&lt;span class="n"&gt;ironclust_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'./ironclust'&lt;/span&gt;
+&lt;span class="n"&gt;ss&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;IronclustSorter&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ironclust_path&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ironclust_path&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -3054,14 +3154,13 @@ The "SYNTH_MEAREC_NEURONEXUS" in spikeforest give quite good results for all sor
     &lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;spines&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'right'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_visible&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;    
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Check-spikeinterface-version-and-sorter-version"&gt;Check spikeinterface version and sorter version&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#Check-spikeinterface-version-and-sorter-version"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -3076,7 +3175,7 @@ The "SYNTH_MEAREC_NEURONEXUS" in spikeforest give quite good results for all sor
 &lt;span class="n"&gt;ss&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;print_sorter_versions&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -3086,7 +3185,7 @@ The "SYNTH_MEAREC_NEURONEXUS" in spikeforest give quite good results for all sor
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
@@ -3114,8 +3213,7 @@ tridesclous: 1.5.0
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Setup-global-path"&gt;Setup global path&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#Setup-global-path"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -3126,18 +3224,18 @@ tridesclous: 1.5.0
 &lt;div class="prompt input_prompt"&gt;In [4]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Path&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'/home/samuel/Documents/DataSpikeSorting/mearec/'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Change this path to point to where you downloaded the dataset&lt;/span&gt;
+&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Path&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'/home/samuel/Documents/DataSpikeSorting/mearec/'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;study_folder&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="s1"&gt;'study_mearec_neuronexus_several_durations/'&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Setup-ground-truth-study"&gt;Setup ground truth study&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#Setup-ground-truth-study"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -3151,7 +3249,7 @@ tridesclous: 1.5.0
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;mearec_filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="s1"&gt;'recordings_250cells_Neuronexus-32chans_duration1800s_noise10.0uV_2020-02-28.h5'&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -3171,18 +3269,17 @@ tridesclous: 1.5.0
 &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;duration&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;durations&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
     &lt;span class="n"&gt;sub_rec&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;se&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SubRecordingExtractor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rec&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;start_frame&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;end_frame&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;duration&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;fs&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
     &lt;span class="n"&gt;sub_sorting&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;se&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SubSortingExtractor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gt_sorting&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;start_frame&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;end_frame&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;duration&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;fs&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-    &lt;span class="n"&gt;gt_dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="s1"&gt;'rec&lt;/span&gt;&lt;span class="si"&gt;{duration}&lt;/span&gt;&lt;span class="s1"&gt;'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sub_rec&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sub_sorting&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;gt_dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s1"&gt;'rec&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;duration&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s1"&gt;'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sub_rec&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sub_sorting&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;study&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;GroundTruthStudy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;create&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;study_folder&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;gt_dict&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Run-all-sorters"&gt;Run all sorters&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#Run-all-sorters"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -3194,10 +3291,10 @@ tridesclous: 1.5.0
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sorter_list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'herdingspikes'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'ironclust'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'kilosort2'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;  &lt;span class="s1"&gt;'kilosort'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                &lt;span class="s1"&gt;'mountainsort4'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'spykingcircus'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'tridesclous'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="c1"&gt;# &lt;/span&gt;
+               &lt;span class="s1"&gt;'mountainsort4'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'spykingcircus'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'tridesclous'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; 
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -3212,14 +3309,13 @@ tridesclous: 1.5.0
 &lt;span class="n"&gt;study&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run_sorters&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sorter_list&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sorter_params&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;sorter_params&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mode&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'keep'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;verbose&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Get-signal-to-noise-ratio-for-all-units"&gt;Get signal to noise ratio for all units&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#Get-signal-to-noise-ratio-for-all-units"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Units are the same in each recording so the snr is the same lets take from the longest one&lt;/p&gt;
 
@@ -3236,7 +3332,7 @@ tridesclous: 1.5.0
 &lt;span class="n"&gt;snr&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -3246,7 +3342,7 @@ tridesclous: 1.5.0
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt output_prompt"&gt;Out[42]:&lt;/div&gt;
+    &lt;div class="prompt output_prompt"&gt;Out[42]:&lt;/div&gt;
 
 
 
@@ -3350,7 +3446,7 @@ tridesclous: 1.5.0
 &lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'GT units SNR'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -3360,7 +3456,7 @@ tridesclous: 1.5.0
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt output_prompt"&gt;Out[43]:&lt;/div&gt;
+    &lt;div class="prompt output_prompt"&gt;Out[43]:&lt;/div&gt;
 
 
 
@@ -3373,7 +3469,7 @@ tridesclous: 1.5.0
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -3389,8 +3485,7 @@ tridesclous: 1.5.0
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Run-comparison-with-ground-truth-and-retreive-result-tables"&gt;Run comparison with ground truth and retreive result tables&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#Run-comparison-with-ground-truth-and-retreive-result-tables"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -3409,7 +3504,7 @@ tridesclous: 1.5.0
 &lt;span class="n"&gt;study&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run_comparisons&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;exhaustive_gt&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;match_score&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;overmerged_score&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -3424,14 +3519,13 @@ tridesclous: 1.5.0
 &lt;span class="n"&gt;dataframes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;study&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;aggregate_dataframes&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Run-times"&gt;Run times&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#Run-times"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -3446,7 +3540,7 @@ tridesclous: 1.5.0
 &lt;span class="n"&gt;run_times&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -3456,7 +3550,7 @@ tridesclous: 1.5.0
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt output_prompt"&gt;Out[104]:&lt;/div&gt;
+    &lt;div class="prompt output_prompt"&gt;Out[104]:&lt;/div&gt;
 
 
 
@@ -3673,7 +3767,7 @@ tridesclous: 1.5.0
 &lt;span class="n"&gt;run_times&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'duration'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;run_times&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'rec_name'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apply&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'rec'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;''&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -3686,7 +3780,7 @@ tridesclous: 1.5.0
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sns&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;catplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;run_times&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'duration'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'run_time'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;hue&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'sorter_name'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;kind&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'bar'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -3696,7 +3790,7 @@ tridesclous: 1.5.0
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -3712,8 +3806,7 @@ tridesclous: 1.5.0
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Accuracy-vs-duration"&gt;Accuracy vs duration&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#Accuracy-vs-duration"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -3728,7 +3821,7 @@ tridesclous: 1.5.0
 &lt;span class="n"&gt;perf&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -3738,7 +3831,7 @@ tridesclous: 1.5.0
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt output_prompt"&gt;Out[107]:&lt;/div&gt;
+    &lt;div class="prompt output_prompt"&gt;Out[107]:&lt;/div&gt;
 
 
 
@@ -3914,7 +4007,7 @@ tridesclous: 1.5.0
 &lt;span class="n"&gt;perf&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'duration'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;perf&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'rec_name'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apply&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'rec'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;''&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -3927,7 +4020,7 @@ tridesclous: 1.5.0
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sns&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;catplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;perf&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'duration'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'accuracy'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;hue&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'sorter_name'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;kind&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'bar'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -3937,7 +4030,7 @@ tridesclous: 1.5.0
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -3953,8 +4046,7 @@ tridesclous: 1.5.0
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Count-good,-bad,-false-positive-units-vs-duration"&gt;Count good, bad, false positive units vs duration&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#Count-good,-bad,-false-positive-units-vs-duration"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -3969,7 +4061,7 @@ tridesclous: 1.5.0
 &lt;span class="n"&gt;count_units&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -3979,7 +4071,7 @@ tridesclous: 1.5.0
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt output_prompt"&gt;Out[110]:&lt;/div&gt;
+    &lt;div class="prompt output_prompt"&gt;Out[110]:&lt;/div&gt;
 
 
 
@@ -4370,14 +4462,13 @@ tridesclous: 1.5.0
 &lt;span class="n"&gt;count_units&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'duration'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;count_units&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'rec_name'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apply&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'rec'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;''&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h4 id="num_well_detected-vs-duration"&gt;num_well_detected vs duration&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#num_well_detected-vs-duration"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;the more the better&lt;/p&gt;
 
@@ -4392,7 +4483,7 @@ tridesclous: 1.5.0
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sns&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;catplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;count_units&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'duration'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'num_well_detected'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;hue&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'sorter_name'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;kind&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'bar'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -4402,7 +4493,7 @@ tridesclous: 1.5.0
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -4418,8 +4509,7 @@ tridesclous: 1.5.0
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h4 id="num_false_positive-vs-duration"&gt;num_false_positive vs duration&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#num_false_positive-vs-duration"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;the less the better&lt;/p&gt;
 
@@ -4434,7 +4524,7 @@ tridesclous: 1.5.0
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sns&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;catplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;count_units&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'duration'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'num_false_positive'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;hue&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'sorter_name'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;kind&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'bar'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -4444,7 +4534,7 @@ tridesclous: 1.5.0
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -4469,7 +4559,7 @@ tridesclous: 1.5.0
 &lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ylim&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -4479,7 +4569,7 @@ tridesclous: 1.5.0
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt output_prompt"&gt;Out[114]:&lt;/div&gt;
+    &lt;div class="prompt output_prompt"&gt;Out[114]:&lt;/div&gt;
 
 
 
@@ -4492,7 +4582,7 @@ tridesclous: 1.5.0
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -4508,8 +4598,7 @@ tridesclous: 1.5.0
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h4 id="num_redundant-vs-duration"&gt;num_redundant vs duration&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#num_redundant-vs-duration"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;the less the better&lt;/p&gt;
 
@@ -4524,7 +4613,7 @@ tridesclous: 1.5.0
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sns&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;catplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;count_units&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'duration'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'num_redundant'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;hue&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'sorter_name'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;kind&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'bar'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -4534,7 +4623,7 @@ tridesclous: 1.5.0
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -4550,26 +4639,24 @@ tridesclous: 1.5.0
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Conlusion"&gt;Conlusion&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#Conlusion"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;For this simple dataset:&lt;/p&gt;
+&lt;h3 id="Conlusion"&gt;Conlusion&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#Conlusion"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;For this simple simulated dataset we have observed that:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Looking only at the average accuray, all sorters have similar performences for long or short recordings.
-Except kilsort : it have a clear drop in performences for the shortest duration (60s).&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Focusing on the average accuracy, all sorters have similar performance for long or short recordings.
+The only exception is Kilosort: it has a clear drop in performence for the shortest duration (60s).&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Very surprinsingly, some sorters  (tridesclous, ironclust)have better performences at 60s than 300s but
-this must a special case of this dataset and have to be instigate more.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Very surprinsingly, some sorters (e.g. tridesclous, ironclust) have better performence at 60s than 300s. This  could be specific to this dataset and have to be instigate more.&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Looking at the number of "num_false_positive" and "num_well_detected" the situation is really strange.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Looking at the number of "num_false_positive" and "num_well_detected" the situation is the following:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;kilosort : not affected by the duration&lt;/li&gt;
-&lt;li&gt;herdingspikes (one of the more affected): the longer the duration, the more "num_false_positive"&lt;/li&gt;
-&lt;li&gt;ironclust seams to have a bit "num_false_positive" for longer duration&lt;/li&gt;
-&lt;li&gt;kilsort2 have random "num_false_positive" across durations&lt;/li&gt;
-&lt;li&gt;tridesclous have a few bit more "num_false_positive" for long duration&lt;/li&gt;
-&lt;li&gt;moutainsort is totaly affected by the duration.&lt;/li&gt;
-&lt;li&gt;spykingcircus :affected by long duration more "num_false_positive" units.&lt;/li&gt;
+&lt;li&gt;kilosort is not affected by the duration&lt;/li&gt;
+&lt;li&gt;herdingspikes (one of the most affected): the longer the duration, the more "num_false_positive"&lt;/li&gt;
+&lt;li&gt;ironclust seems to have a slight increase in "num_false_positive" for longer duration&lt;/li&gt;
+&lt;li&gt;kilosort2 has random oscillations of "num_false_positive" across durations&lt;/li&gt;
+&lt;li&gt;tridesclous has a few more "num_false_positive" for long durations&lt;/li&gt;
+&lt;li&gt;moutainsort is heavily affected by the duration&lt;/li&gt;
+&lt;li&gt;spykingcircus is affected by long durations as more "num_false_positive" units are found&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -4579,16 +4666,15 @@ this must a special case of this dataset and have to be instigate more.&lt;/p&gt
 &lt;/div&gt;&lt;/div&gt;</description><guid>https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/</guid><pubDate>Mon, 02 Mar 2020 10:25:28 GMT</pubDate></item><item><title>Spampinato mice retina mea252ch pair recording - part2</title><link>https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part2/</link><dc:creator>spikeinterface team</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Sorter-comparison-with-ground-truth-recordings"&gt;Sorter comparison with ground truth recordings&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part2/#Sorter-comparison-with-ground-truth-recordings"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;@author : Samuel Garcia&lt;/p&gt;
-&lt;p&gt;Giulia  Spampinato from Institut de la Vision, Paris, have publish data from mice retina recorded invitro with from dense array.
-The data contain one ground truth to benchmark spike sorting tools. The ground truth is recorded with juxta celullar pipet.&lt;/p&gt;
-&lt;p&gt;Here the official publication of this open dataset:
+&lt;h2 id="Spampinato-mice-retina-mea252ch-pair-recording---2"&gt;Spampinato mice retina mea252ch pair recording - 2&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part2/#Spampinato-mice-retina-mea252ch-pair-recording---2"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;h3 id="Part-2)-Ground-truth-comparison"&gt;Part 2) Ground-truth comparison&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part2/#Part-2)-Ground-truth-comparison"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;This set of notebooks the dataset is from paired juxtacellular/extracellular recordings from mice retina &lt;em&gt;in vitro&lt;/em&gt;.
+The MEA has 252 channels.&lt;/p&gt;
+&lt;p&gt;The official publication of this open dataset can be found at the following address:
 &lt;a href="https://zenodo.org/record/1205233#.W9mq1HWLTIF"&gt;https://zenodo.org/record/1205233#.W9mq1HWLTIF&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;This datasets was used by Pierre Yger publish spyking circus:
+&lt;p&gt;These datasets were used by Pierre Yger et al in the following "spyking circus" paper:
 &lt;a href="https://elifesciences.org/articles/34518"&gt;https://elifesciences.org/articles/34518&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;In the original dataset, 19 files are provided.
-here we volontary keep only 9 files.
-See carrefully the notebook : &lt;strong&gt;spampinato-mice-retina-mea252ch-pair-recording-part1&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;After inspecting the juxta-cellular data, we found that some recordings don't have a good enough quality to be considered as "ground truth". To be "ground truth", a unit is required to be stable in the detection, peak signal-to-noise ratio (SNR) and amplitude.&lt;/p&gt;
+&lt;p&gt;At the end of our quality assessment (&lt;a href="https://spikeinterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/"&gt;&lt;strong&gt;"spampinato-mice-retina-mea252ch-pair-recording-part1"&lt;/strong&gt;&lt;/a&gt;), some files are removed for this main study.&lt;/p&gt;
+&lt;p&gt;Author: &lt;a href="https://github.com/samuelgarcia"&gt;Samuel Garcia&lt;/a&gt;, CRNL, Lyon&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -4596,10 +4682,27 @@ See carrefully the notebook : &lt;strong&gt;spampinato-mice-retina-mea252ch-pair
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="How-to-reproduce-this-notebook"&gt;How to reproduce this notebook&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part2/#How-to-reproduce-this-notebook"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;to create a folder &lt;strong&gt;basedir&lt;/strong&gt; somwhere.&lt;/li&gt;
-&lt;li&gt;download all files in zenodo link&lt;/li&gt;
-&lt;li&gt;put them all in a subfolder &lt;strong&gt;basedir/original_files&lt;/strong&gt; (20160415_patch2.tar.gz, ...)&lt;/li&gt;
+&lt;h4 id="Requirements"&gt;Requirements&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part2/#Requirements"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;For this need you will need the following Python packages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;numpy&lt;/li&gt;
+&lt;li&gt;pandas&lt;/li&gt;
+&lt;li&gt;matplotlib&lt;/li&gt;
+&lt;li&gt;seaborn&lt;/li&gt;
+&lt;li&gt;spikeinterface&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To run the MATLAB-based sorters, you would also need a MATLAB license.
+For other sorters, please refer to the documentation on &lt;a href="https://spikeinterface.readthedocs.io/en/latest/sortersinfo.html"&gt;how to install sorters&lt;/a&gt;.&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h4 id="Installation-and-imports"&gt;Installation and imports&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part2/#Installation-and-imports"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;to create a folder &lt;strong&gt;basedir&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;download all files from the zenodo link&lt;/li&gt;
+&lt;li&gt;move them in a subfolder &lt;strong&gt;basedir/original_files&lt;/strong&gt; (20160415_patch2.tar.gz, ...)&lt;/li&gt;
 &lt;li&gt;and then execute cells by cell this notebook&lt;/li&gt;
 &lt;/ol&gt;
 
@@ -4613,16 +4716,6 @@ See carrefully the notebook : &lt;strong&gt;spampinato-mice-retina-mea252ch-pair
     &lt;div class="input_area"&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# import everything&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nn"&gt;getpass&lt;/span&gt;
-
-&lt;span class="n"&gt;kilosort2_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'/home/samuel/Documents/Spikeinterface/Kilosort2'&lt;/span&gt;
-&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;environ&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"KILOSORT2_PATH"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;kilosort2_path&lt;/span&gt;
-
-&lt;span class="n"&gt;kilosort_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'/home/samuel/Documents/Spikeinterface/KiloSort/'&lt;/span&gt;
-&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;environ&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"KILOSORT_PATH"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;kilosort_path&lt;/span&gt;
-
-&lt;span class="n"&gt;ironclust_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'/home/samuel/Documents/Spikeinterface/ironclust'&lt;/span&gt;
-&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;environ&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"IRONCLUST_PATH"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ironclust_path&lt;/span&gt;
-
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;re&lt;/span&gt;
 
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
@@ -4638,6 +4731,34 @@ See carrefully the notebook : &lt;strong&gt;spampinato-mice-retina-mea252ch-pair
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;spikeinterface.widgets&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;sw&lt;/span&gt;
 
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;spikeinterface.comparison&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;GroundTruthStudy&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# clone and install MATLAB sorters&lt;/span&gt;
+
+&lt;span class="c1"&gt;# kilosort2&lt;/span&gt;
+&lt;span class="o"&gt;!&lt;/span&gt;git clone https://github.com/MouseLand/Kilosort2.git
+&lt;span class="n"&gt;kilosort2_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'./Kilosort2'&lt;/span&gt;
+&lt;span class="n"&gt;ss&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Kilosort2Sorter&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_kilosort2_path&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;kilosort2_path&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# kilosort&lt;/span&gt;
+&lt;span class="o"&gt;!&lt;/span&gt;git clone https://github.com/cortex-lab/KiloSort.git
+&lt;span class="n"&gt;kilosort_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'./KiloSort'&lt;/span&gt;
+&lt;span class="n"&gt;ss&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;KilosortSorter&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_kilosort_path&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;kilosort_path&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# ironclust&lt;/span&gt;
+&lt;span class="o"&gt;!&lt;/span&gt;git clone https://github.com/flatironinstitute/ironclust.git
+&lt;span class="n"&gt;ironclust_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'./ironclust'&lt;/span&gt;
+&lt;span class="n"&gt;ss&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;IronclustSorter&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ironclust_path&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ironclust_path&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
     &lt;/div&gt;
@@ -4760,22 +4881,9 @@ tridesclous: 1.6.1.dev
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id=" Step-1-:-clean-original-dataset"&gt; Step 1 : clean original dataset&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part2/#%C2%A0Step-1-:-clean-original-dataset"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=" Step-1-:-Clean-original-dataset"&gt; Step 1 : Clean original dataset&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part2/#%C2%A0Step-1-:-Clean-original-dataset"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
-&lt;/pre&gt;&lt;/div&gt;
-
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
@@ -4785,13 +4893,13 @@ tridesclous: 1.6.1.dev
 &lt;li&gt;we create a dict of (recordings+sorting)&lt;/li&gt;
 &lt;li&gt;and call the function &lt;code&gt;setup_comparison_study(study_folder, gt_dict)&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Internanly spiketoolkit copy all recordings and ground truth sorting into a n organised folder.&lt;/p&gt;
-&lt;p&gt;Important note :&lt;/p&gt;
+&lt;p&gt;Internally, spikeinterface copies all recordings and ground-truth sorting into an organised folder.&lt;/p&gt;
+&lt;p&gt;Important note:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;the file have 256 channels but only 252 are usefull.
-The PRB file contain all channels needed so we need to explicit &lt;strong&gt;grouping_property='group'&lt;/strong&gt;
-to be sure to only take in account the channel in the unique group.&lt;/li&gt;
-&lt;li&gt;This step have to run only once and take some times because of copy.&lt;/li&gt;
+&lt;li&gt;the file have 256 channels but only 252 are useful.
+The PRB file contains all channels needed so we need to explicitly use &lt;strong&gt;grouping_property='group'&lt;/strong&gt;
+to be sure to only take in account the channels in the unique group.&lt;/li&gt;
+&lt;li&gt;This step has to run only once and takes some times because of copy.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;/div&gt;
@@ -5011,7 +5119,7 @@ to be sure to only take in account the channel in the unique group.&lt;/li&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sorter_list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'herdingspikes'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'ironclust'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'kilosort2'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;  
-                &lt;span class="s1"&gt;'spykingcircus'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'tridesclous'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+               &lt;span class="s1"&gt;'spykingcircus'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'tridesclous'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
     &lt;/div&gt;
@@ -6079,69 +6187,54 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
-&lt;/pre&gt;&lt;/div&gt;
-
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
 &lt;/div&gt;&lt;/div&gt;</description><guid>https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part2/</guid><pubDate>Thu, 30 Jan 2020 13:58:43 GMT</pubDate></item><item><title>Spampinato mice retina mea252ch pair recording - part1</title><link>https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/</link><dc:creator>spikeinterface team</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Spampinato-mice-retina-mea252ch-pari-recording---part-1-clean-ground-truth"&gt;Spampinato mice retina mea252ch pari recording - part 1 clean ground truth&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Spampinato-mice-retina-mea252ch-pari-recording---part-1-clean-ground-truth"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Giulia  Spampinato from Institut de la Vision, Paris, has published data from mice retina recorded &lt;em&gt;in vitro&lt;/em&gt; with dense arrays.
-The data contain one ground truth to benchmark spike sorting tools. The ground truth is recorded with a juxta-celullar pipette.&lt;/p&gt;
+&lt;h2 id="Spampinato-mice-retina-mea252ch-pair-recording---1"&gt;Spampinato mice retina mea252ch pair recording - 1&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Spampinato-mice-retina-mea252ch-pair-recording---1"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;h3 id="Part-1)-Cleaning-the-ground-truth-data"&gt;Part 1) Cleaning the ground-truth data&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Part-1)-Cleaning-the-ground-truth-data"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;This set of notebooks the dataset is from paired juxtacellular/extracellular recordings from mice retina &lt;em&gt;in vitro&lt;/em&gt;.
+The MEA has 252 channels.&lt;/p&gt;
 &lt;p&gt;The official publication of this open dataset can be found at the following address:
 &lt;a href="https://zenodo.org/record/1205233#.W9mq1HWLTIF"&gt;https://zenodo.org/record/1205233#.W9mq1HWLTIF&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;These datasets were used by Pierre Yger et al in the following "spyking circus" paper:
 &lt;a href="https://elifesciences.org/articles/34518"&gt;https://elifesciences.org/articles/34518&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;After inspecting the juxta-cellular data, we found that some recordings don't have a good enough quality to be considered as "ground truth". To be "ground truth" a recording must indeed required stable detection the threshold, peak snr as well as a constnat amplitude.&lt;/p&gt;
-&lt;p&gt;At the end of our quality assesment, some files got removed for the main study detailed in &lt;strong&gt;"spampinato-mice-retina-mea252ch-pair-recording-part2"&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;Some detail about our "quality assesment" follow.&lt;/p&gt;
-&lt;p&gt;First, we have to run the script "detect_ground_truth_spike_on_juxta.py".&lt;/p&gt;
+&lt;p&gt;After inspecting the juxta-cellular data, we found that some recordings don't have a good enough quality to be considered as "ground truth". To be "ground truth", a unit is required to be stable in the detection, peak signal-to-noise ratio (SNR) and amplitude.&lt;/p&gt;
+&lt;p&gt;At the end of our quality assessment, some files are removed for the main study shown in &lt;a href="https://spikeinterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part2/"&gt;&lt;strong&gt;"spampinato-mice-retina-mea252ch-pair-recording-part2"&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id="Quality-assessment-details"&gt;Quality assessment details&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Quality-assessment-details"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;First, we have to run the script &lt;code&gt;detect_ground_truth_spike_on_juxta.py&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;This script:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;unzip everything&lt;/li&gt;
-&lt;li&gt;run a juxta cellular detection&lt;/li&gt;
-&lt;li&gt;generate figure to check manual juxta cellular quality&lt;/li&gt;
-&lt;li&gt;compute the peak snr on the max channelin the mea.&lt;/li&gt;
+&lt;li&gt;unzips the downloaded data&lt;/li&gt;
+&lt;li&gt;runs a juxta cellular detection&lt;/li&gt;
+&lt;li&gt;generates figure to manually check juxtacellular quality&lt;/li&gt;
+&lt;li&gt;computes the peak SNR on the max channel of the MEA.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Before we need:&lt;/p&gt;
+&lt;p&gt;Before running the script, we need:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;to create a folder &lt;strong&gt;basedir&lt;/strong&gt; somwhere.&lt;/li&gt;
-&lt;li&gt;a subfolder &lt;strong&gt;basedir/original_files&lt;/strong&gt; that contain all zip downloded (20160415_patch2.tar.gz, ...)&lt;/li&gt;
+&lt;li&gt;to create a folder &lt;strong&gt;basedir&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;to create a subfolder &lt;strong&gt;basedir/original_files&lt;/strong&gt; that contain all zip downloded (20160415_patch2.tar.gz, ...)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Then we run the script detect_ground_truth_spike_on_juxta.py&lt;/p&gt;
+&lt;p&gt;Then we can run the script &lt;code&gt;detect_ground_truth_spike_on_juxta.py&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;After we can:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;inscpect in each folder some figures.&lt;/li&gt;
+&lt;li&gt;inscpect in each folder explanatory figures.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;Author: &lt;a href="https://github.com/samuelgarcia"&gt;Samuel Garcia&lt;/a&gt;, CRNL, Lyon&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Cretirium-to-keep-or-remove-a-file"&gt;Cretirium to keep or remove a file&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Cretirium-to-keep-or-remove-a-file"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Having a very reliable ground truth is crucial because all the following sorter metrics are designed on the hypothesis the gound truth is &lt;strong&gt;indeed ground truth&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;In the following script we choose a hight threshold value for peak detection: &lt;strong&gt;thresh = med + 8*mad&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id="Criterium-to-keep-or-remove-a-file"&gt;Criterium to keep or remove a file&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Criterium-to-keep-or-remove-a-file"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Having a very reliable ground truth is crucial, as all the following spike sorting performance metrics are designed on the hypothesis the ground truth is &lt;strong&gt;indeed ground truth&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;In the following script we choose a high threshold value for peak detection: &lt;strong&gt;thresh = med + 8*mad&lt;/strong&gt;, where:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;med&lt;/strong&gt; been the median of the signal (the baseline),&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;mad&lt;/strong&gt; been the median absolut deviation (a robust std estimation),&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;med&lt;/strong&gt; is the median of the signal (the baseline),&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;mad&lt;/strong&gt; is the median absolut deviation (a robust std estimation),&lt;/li&gt;
 &lt;li&gt;8 is a quite high relative threshold that ensures the absence of false positive.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Two main criteria were used to keep a recording:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;the distribution of the peak value of the juxta celullar must look like a Gaussian. Because:&lt;ul&gt;
-&lt;li&gt;a troncated Gaussian suggests that false negative (misses) corrupt the "ground truth",&lt;/li&gt;
+&lt;li&gt;the distribution of the peak values of the juxtacelullar action potentials must have a Gaussian distribution:&lt;ul&gt;
+&lt;li&gt;a truncated Gaussian suggests that false negative (misses) corrupt the "ground truth",&lt;/li&gt;
 &lt;li&gt;a multi-modal distribution suggests either that an amplitude drift occured or that two (or more) cells were present.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -6151,10 +6244,9 @@ The data contain one ground truth to benchmark spike sorting tools. The ground t
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="List-of-kept-recording-(8)"&gt;List of kept recording (8)&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#List-of-kept-recording-(8)"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="s1"&gt;'20160415_patch2'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;h2 id="List-of-accepted-recording-(8)"&gt;List of accepted recording (8)&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#List-of-accepted-recording-(8)"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="s1"&gt;'20160415_patch2'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
 &lt;span class="s1"&gt;'20170803_patch1'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
 &lt;span class="s1"&gt;'20160426_patch3'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; 
 &lt;span class="s1"&gt;'20170725_patch1'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
@@ -6168,10 +6260,9 @@ The data contain one ground truth to benchmark spike sorting tools. The ground t
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="List-of-non-kept-recording-(11)"&gt;List of non kept recording (11)&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#List-of-non-kept-recording-(11)"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="s1"&gt;'20170706_patch2'&lt;/span&gt;
+&lt;h2 id="List-of-rejected-recording-(11)"&gt;List of rejected recording (11)&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#List-of-rejected-recording-(11)"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="s1"&gt;'20170706_patch2'&lt;/span&gt;
 &lt;span class="s1"&gt;'20170629_patch2'&lt;/span&gt;
 &lt;span class="s1"&gt;'20170622_patch2'&lt;/span&gt;
 &lt;span class="s1"&gt;'20170726_patch1'&lt;/span&gt;
@@ -6183,8 +6274,8 @@ The data contain one ground truth to benchmark spike sorting tools. The ground t
 &lt;span class="s1"&gt;'20170623_patch1'&lt;/span&gt;
 &lt;span class="s1"&gt;'20170622_patch1'&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Some reader could think that we are too strict, but we prefer safe final results.
-Feel free to modify this list as you want you your own criteria.&lt;/p&gt;
+&lt;p&gt;(Some reader may think that we are too strict, but we prefer to be strict to ensure safe final results.
+Feel free to modify this list as you prefer using your own criteria.)&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -6213,16 +6304,15 @@ Feel free to modify this list as you want you your own criteria.&lt;/p&gt;
 &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="k"&gt;matplotlib&lt;/span&gt; notebook
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id=" Step-1-:-redetect-properly-juxta-cellular-peaks"&gt; Step 1 : redetect properly juxta cellular peaks&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#%C2%A0Step-1-:-redetect-properly-juxta-cellular-peaks"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=" Step-1-:-Re-detect-properly-juxtacellular-peaks"&gt; Step 1 : Re-detect properly juxtacellular peaks&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#%C2%A0Step-1-:-Re-detect-properly-juxtacellular-peaks"&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -6232,12 +6322,12 @@ Feel free to modify this list as you want you your own criteria.&lt;/p&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# this tridesclous utils are imported only for juxta detection to keep this script simple&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;tridesclous.peakdetector&lt;/span&gt; &lt;span class="k"&gt;import&lt;/span&gt;  &lt;span class="n"&gt;detect_peaks_in_chunk&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;tridesclous.tools&lt;/span&gt; &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="n"&gt;median_mad&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;tridesclous.waveformtools&lt;/span&gt; &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="n"&gt;extract_chunks&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;tridesclous.peakdetector&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt;  &lt;span class="n"&gt;detect_peaks_in_chunk&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;tridesclous.tools&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;median_mad&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;tridesclous.waveformtools&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;extract_chunks&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -6253,14 +6343,13 @@ Feel free to modify this list as you want you your own criteria.&lt;/p&gt;
              &lt;span class="s1"&gt;'20170713_patch1'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'20160415_patch2'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'20170706_patch2'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'20170803_patch1'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Unzip-all"&gt;Unzip all&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Unzip-all"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -6282,16 +6371,15 @@ Feel free to modify this list as you want you your own criteria.&lt;/p&gt;
     &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;extractall&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;recording_folder&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;rec_name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id=" -detect-ground-truth-spikes-on-juxta"&gt;  detect ground truth spikes on juxta&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#%C2%A0-detect-ground-truth-spikes-on-juxta"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=" Detect-ground-truth-spikes-on-juxta"&gt; Detect ground-truth spikes on juxta&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#%C2%A0Detect-ground-truth-spikes-on-juxta"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -6399,16 +6487,15 @@ Feel free to modify this list as you want you your own criteria.&lt;/p&gt;
 &lt;span class="n"&gt;gt_info&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_excel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ground_truth_folder&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s1"&gt;'gt_info.xlsx'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id=" Step2-:-check-juxta-cellular-quality"&gt; Step2 : check juxta cellular quality&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#%C2%A0Step2-:-check-juxta-cellular-quality"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=" Step2-:-Check-juxtacellular-quality"&gt; Step2 : Check juxtacellular quality&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#%C2%A0Step2-:-Check-juxtacellular-quality"&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -6460,19 +6547,18 @@ Feel free to modify this list as you want you your own criteria.&lt;/p&gt;
     
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Why-some-recording-are-are-not-kept"&gt;Why some recording are are not kept&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Why-some-recording-are-are-not-kept"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In following figures:&lt;/p&gt;
+&lt;h2 id="Why-some-recordings-are-are-not-kept?"&gt;Why some recordings are are not kept?&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Why-some-recordings-are-are-not-kept?"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In the following figures:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;the black vertical line is the baseline (median) of juxta-cellular trace, &lt;/li&gt;
-&lt;li&gt;the grey area represents 1, 2, 3, 4, 5 MAD (robust STD), &lt;/li&gt;
+&lt;li&gt;the grey areas represent 1, 2, 3, 4, 5 MAD (robust STD), &lt;/li&gt;
 &lt;li&gt;the red line is the detection threshold.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -6480,10 +6566,9 @@ Feel free to modify this list as you want you your own criteria.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Figure-for-20170706_patch2"&gt;Figure for 20170706_patch2&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Figure-for-20170706_patch2"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Here too few events are detected.&lt;/p&gt;
+&lt;h3 id="Figure-for-20170706_patch2"&gt;Figure for 20170706_patch2&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Figure-for-20170706_patch2"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;For this cell too few events are detected.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -6496,7 +6581,7 @@ Feel free to modify this list as you want you your own criteria.&lt;/p&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;plot_juxta_amplitude&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'20170706_patch2'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -6506,7 +6591,7 @@ Feel free to modify this list as you want you your own criteria.&lt;/p&gt;
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -6522,8 +6607,7 @@ Feel free to modify this list as you want you your own criteria.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Figure-for-20170629_patch2"&gt;Figure for 20170629_patch2&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Figure-for-20170629_patch2"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Here the peak amplitude distribution crosses the detection threhold.
 Missed events are obvious in the middle part of recording.&lt;/p&gt;
@@ -6539,7 +6623,7 @@ Missed events are obvious in the middle part of recording.&lt;/p&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;plot_juxta_amplitude&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'20170629_patch2'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -6549,7 +6633,7 @@ Missed events are obvious in the middle part of recording.&lt;/p&gt;
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -6565,8 +6649,7 @@ Missed events are obvious in the middle part of recording.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Figure-for-20170622_patch2"&gt;Figure for 20170622_patch2&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Figure-for-20170622_patch2"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Here the peak amplitude distribution crosses the detection threhold and too few events got detected.&lt;/p&gt;
 
@@ -6581,7 +6664,7 @@ Missed events are obvious in the middle part of recording.&lt;/p&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;plot_juxta_amplitude&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'20170622_patch2'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -6591,7 +6674,7 @@ Missed events are obvious in the middle part of recording.&lt;/p&gt;
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -6607,8 +6690,7 @@ Missed events are obvious in the middle part of recording.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Figure-for-20170726_patch1"&gt;Figure for 20170726_patch1&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Figure-for-20170726_patch1"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Here again the peak amplitude distribution crosses the detection threhold.
 Some spikes are clearly missed at the begnning.&lt;/p&gt;
@@ -6624,7 +6706,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;plot_juxta_amplitude&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'20170726_patch1'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -6634,7 +6716,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -6650,10 +6732,9 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Figure-for-20170706_patch1"&gt;Figure for 20170706_patch1&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Figure-for-20170706_patch1"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Obvisous missing spikes.&lt;/p&gt;
+&lt;h3 id="Figure-for-20170706_patch1"&gt;Figure for 20170706_patch1&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Figure-for-20170706_patch1"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Obvious missing spikes.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -6666,7 +6747,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;plot_juxta_amplitude&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'20170706_patch1'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -6676,7 +6757,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -6692,10 +6773,9 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Figure-for-20170706_patch3"&gt;Figure for 20170706_patch3&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Figure-for-20170706_patch3"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Obvisous missing spikes.&lt;/p&gt;
+&lt;h3 id="Figure-for-20170706_patch3"&gt;Figure for 20170706_patch3&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Figure-for-20170706_patch3"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Obvious missing spikes.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -6708,7 +6788,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;plot_juxta_amplitude&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'20170706_patch3'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -6718,7 +6798,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -6734,10 +6814,9 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Figure-for-20170627_patch1"&gt;Figure for 20170627_patch1&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Figure-for-20170627_patch1"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Obvisous missing spikes&lt;/p&gt;
+&lt;h3 id="Figure-for-20170627_patch1"&gt;Figure for 20170627_patch1&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Figure-for-20170627_patch1"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Obvious missing spikes&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -6750,7 +6829,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;plot_juxta_amplitude&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'20170627_patch1'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -6760,7 +6839,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -6776,8 +6855,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Figure-for-20170630_patch1"&gt;Figure for 20170630_patch1&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Figure-for-20170630_patch1"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Suspicion of missing spikes at the beggining and at the end of recording.&lt;/p&gt;
 
@@ -6792,7 +6870,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;plot_juxta_amplitude&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'20170630_patch1'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -6802,7 +6880,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -6818,10 +6896,9 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Figure-for-20170629_patch3"&gt;Figure for 20170629_patch3&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Figure-for-20170629_patch3"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Obvisous missing spikes.&lt;/p&gt;
+&lt;h3 id="Figure-for-20170629_patch3"&gt;Figure for 20170629_patch3&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Figure-for-20170629_patch3"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Obvious missing spikes.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -6834,7 +6911,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;plot_juxta_amplitude&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'20170629_patch3'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -6844,7 +6921,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -6860,10 +6937,9 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Figure-for-20170623_patch1-:-NO"&gt;Figure for 20170623_patch1 : NO&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Figure-for-20170623_patch1-:-NO"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Here the amplitude distribution right tail is too close to the detection threhold and there is a supspicion of missed spikes.&lt;/p&gt;
+&lt;h3 id="Figure-for-20170623_patch1-:-NO"&gt;Figure for 20170623_patch1 : NO&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Figure-for-20170623_patch1-:-NO"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Here the amplitude distribution right tail is too close to the detection threhold and there is a suspicion of missed spikes.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -6876,7 +6952,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;plot_juxta_amplitude&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'20170623_patch1'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -6886,7 +6962,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -6902,18 +6978,16 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="List-of-clean-ground-truth"&gt;List of clean ground truth&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#List-of-clean-ground-truth"&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Figure-for-20170713_patch1-:-OK-but-boudary"&gt;Figure for 20170713_patch1 : OK but boudary&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Figure-for-20170713_patch1-:-OK-but-boudary"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;We see here two clear peaks in the distribution suggesting that 2 neurons were present, but that could also result from an electrode mouvement.&lt;/p&gt;
+&lt;h3 id="Figure-for-20170713_patch1-:-OK,-but-boundary"&gt;Figure for 20170713_patch1 : OK, but boundary&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Figure-for-20170713_patch1-:-OK,-but-boundary"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;We see here two clear peaks in the distribution suggesting that there could be an electrode movement.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -6926,7 +7000,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;plot_juxta_amplitude&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'20170713_patch1'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -6936,7 +7010,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -6952,10 +7026,9 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Figure-for-20160415_patch2-:-OK"&gt;Figure for 20160415_patch2 : OK&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Figure-for-20160415_patch2-:-OK"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;A ground truth we can trust!!&lt;/p&gt;
+&lt;h3 id="Figure-for-20160415_patch2-:-OK"&gt;Figure for 20160415_patch2 : OK&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Figure-for-20160415_patch2-:-OK"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;A ground truth unit we can trust!!&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -6968,7 +7041,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;plot_juxta_amplitude&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'20160415_patch2'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -6978,7 +7051,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -6994,8 +7067,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Figure-for-20170803_patch1-:-OK"&gt;Figure for 20170803_patch1 : OK&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Figure-for-20170803_patch1-:-OK"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -7009,7 +7081,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;plot_juxta_amplitude&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'20170803_patch1'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -7019,7 +7091,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -7035,8 +7107,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Figure-for-20160426_patch3-:-OK"&gt;Figure for 20160426_patch3 : OK&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Figure-for-20160426_patch3-:-OK"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;A ground truth we can trust!!&lt;/p&gt;
 
@@ -7051,7 +7122,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;plot_juxta_amplitude&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'20160426_patch3'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -7061,7 +7132,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -7077,8 +7148,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Figure-for-20170725_patch1-:-OK-but-bundary"&gt;Figure for 20170725_patch1 : OK but bundary&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Figure-for-20170725_patch1-:-OK-but-bundary"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;A ground truth we can trust, but there is a suspicious change in amplitude in the middle of recording.&lt;/p&gt;
 
@@ -7093,7 +7163,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;plot_juxta_amplitude&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'20170725_patch1'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -7103,7 +7173,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -7119,8 +7189,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Figure-for-20170621_patch1-:-OK"&gt;Figure for 20170621_patch1 : OK&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Figure-for-20170621_patch1-:-OK"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -7134,7 +7203,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;plot_juxta_amplitude&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'20170621_patch1'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -7144,7 +7213,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -7160,8 +7229,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Figure-for-20160426_patch2-:-OK"&gt;Figure for 20160426_patch2 : OK&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Figure-for-20160426_patch2-:-OK"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -7175,7 +7243,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;plot_juxta_amplitude&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'20160426_patch2'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -7185,7 +7253,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -7201,10 +7269,9 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Figure-for-20170728_patch2-:-OK"&gt;Figure for 20170728_patch2 : OK&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Figure-for-20170728_patch2-:-OK"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Ok but some mouvement at the end.&lt;/p&gt;
+&lt;h3 id="Figure-for-20170728_patch2-:-OK"&gt;Figure for 20170728_patch2 : OK&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Figure-for-20170728_patch2-:-OK"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Ok but some movement at the end...&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -7217,7 +7284,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;plot_juxta_amplitude&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'20170728_patch2'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -7227,7 +7294,7 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -7243,33 +7310,57 @@ Some spikes are clearly missed at the begnning.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Conclusion"&gt;Conclusion&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/#Conclusion"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;11 out of 19 files have been removed for further ground truth analysis.&lt;/li&gt;
-&lt;li&gt;8 out of 19 files are kept for ground truth analysis.&lt;/li&gt;
+&lt;li&gt;11 out of 19 files have been removed for further ground-truth analysis.&lt;/li&gt;
+&lt;li&gt;8 out of 19 files are kept for ground-truth analysis.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;For paired recording ground truth, the ground truth itself have to be carrefully veryfied.&lt;/p&gt;
-&lt;p&gt;The original ground spike index provide on 19 files by the authors are not trustable for a fair spike sorting comparison.&lt;/p&gt;
+&lt;p&gt;For paired recording ground truth, the ground truth itself has to be carefully verified.&lt;/p&gt;
+&lt;p&gt;The original ground spike index provided on 19 files by the authors are not trustable for a fair spike sorting comparison.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;/div&gt;</description><guid>https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/</guid><pubDate>Thu, 30 Jan 2020 13:58:30 GMT</pubDate></item><item><title>Example of parameters optimization</title><link>https://SpikeInterface.github.io/blog/example-of-parameters-optimization/</link><dc:creator>spikeinterface team</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Example-of-parameters-optimization-with-spiekinterface"&gt;Example of parameters optimization with spiekinterface&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/example-of-parameters-optimization/#Example-of-parameters-optimization-with-spiekinterface"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This notebook is an example of parameters optimization with spikeinterface.
-See also this &lt;a href="https://spikeinterface.github.io/blog/example-of-ground-truth-comparison-study"&gt;notebook on ground truth comparison&lt;/a&gt; that play with the same dataset.&lt;/p&gt;
-&lt;p&gt;The dataset is a 10x10 channels square and very dense.&lt;/p&gt;
+&lt;h2 id="Example-of-parameters-optimization-with-SpikeInterface"&gt;Example of parameters optimization with SpikeInterface&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/example-of-parameters-optimization/#Example-of-parameters-optimization-with-SpikeInterface"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This notebook is an example of parameters optimization with SpikeInterface.
+See also this &lt;a href="https://spikeinterface.github.io/blog/example-of-ground-truth-comparison-study"&gt;notebook on ground-truth comparison&lt;/a&gt; that analyzes the same dataset.&lt;/p&gt;
+&lt;p&gt;The dataset is simulated using &lt;a href="https://github.com/alejoe91/MEArec"&gt;MEArec&lt;/a&gt; and it can be downloaded from Zenodo: &lt;a href="https://doi.org/10.5281/zenodo.4058272"&gt;https://doi.org/10.5281/zenodo.4058272&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The dataset name is: &lt;strong&gt;recordings_50cells_SqMEA-10-15_600.0_10.0uV_21-01-2020_18-12.h5&lt;/strong&gt;. It contains 50 neurons recorded on a 10x10 MEA with 15um pitch. The duration is 600s and the noise level is 10uV.&lt;/p&gt;
 &lt;p&gt;Many sorters a parameters of &lt;strong&gt;adjacency radius&lt;/strong&gt; that help the sorter to group spike that have a peak on several channel.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;ironlcust have &lt;strong&gt;adjacency_radius=50&lt;/strong&gt; by default&lt;/li&gt;
-&lt;li&gt;spykingcircus have &lt;strong&gt;adjacency_radius=200&lt;/strong&gt; by default&lt;/li&gt;
-&lt;li&gt;herdingspikes have &lt;strong&gt;probe_neighbor_radius=90&lt;/strong&gt; by default&lt;/li&gt;
+&lt;li&gt;ironlcust uses &lt;strong&gt;adjacency_radius=50&lt;/strong&gt; by default&lt;/li&gt;
+&lt;li&gt;spykingcircus uses &lt;strong&gt;adjacency_radius=200&lt;/strong&gt; by default&lt;/li&gt;
+&lt;li&gt;herdingspikes uses &lt;strong&gt;probe_neighbor_radius=90&lt;/strong&gt; by default&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Since each channel is spaced by 15um in this dataset, the radius parameters can affect the way each sorters detect and sort spikes that fire on several channels.&lt;/p&gt;
+&lt;p&gt;Since each channel is spaced by 15um in this dataset, the radius parameters can affect the way each sorter detects and sorts spikes that are recorded on several channels.&lt;/p&gt;
+&lt;p&gt;Author: &lt;a href="https://github.com/samuelgarcia"&gt;Samuel Garcia&lt;/a&gt;, CRNL, Lyon&lt;/p&gt;
 
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h4 id="Requirements"&gt;Requirements&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/example-of-parameters-optimization/#Requirements"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;For this need you will need the following Python packages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;numpy&lt;/li&gt;
+&lt;li&gt;pandas&lt;/li&gt;
+&lt;li&gt;matplotlib&lt;/li&gt;
+&lt;li&gt;seaborn&lt;/li&gt;
+&lt;li&gt;spikeinterface&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To run the MATLAB-based sorters, you would also need a MATLAB license.
+For other sorters, please refer to the documentation on &lt;a href="https://spikeinterface.readthedocs.io/en/latest/sortersinfo.html"&gt;how to install sorters&lt;/a&gt;.&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h4 id="Installation-and-imports"&gt;Installation and imports&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/example-of-parameters-optimization/#Installation-and-imports"&gt;¶&lt;/a&gt;&lt;/h4&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -7282,8 +7373,7 @@ See also this &lt;a href="https://spikeinterface.github.io/blog/example-of-groun
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;seaborn&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;sns&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pathlib&lt;/span&gt; &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Path&lt;/span&gt;
-
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pathlib&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Path&lt;/span&gt;
 
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;spikeinterface&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;si&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;spikeinterface.extractors&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;se&lt;/span&gt;
@@ -7292,14 +7382,31 @@ See also this &lt;a href="https://spikeinterface.github.io/blog/example-of-groun
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;spikeinterface.comparison&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;sc&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
+    &lt;/div&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# clone and install MATLAB sorters&lt;/span&gt;
+
+&lt;span class="c1"&gt;# ironclust&lt;/span&gt;
+&lt;span class="o"&gt;!&lt;/span&gt;git clone https://github.com/flatironinstitute/ironclust.git
+&lt;span class="n"&gt;ironclust_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'./ironclust'&lt;/span&gt;
+&lt;span class="n"&gt;ss&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;IronclustSorter&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ironclust_path&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ironclust_path&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Check-spikeinterface-version-and-sorter-version"&gt;Check spikeinterface version and sorter version&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/example-of-parameters-optimization/#Check-spikeinterface-version-and-sorter-version"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;In order to be a bit reproducible lets checks for versions of each sorter and spikeinterface subpackage.&lt;/p&gt;
 
@@ -7315,7 +7422,7 @@ See also this &lt;a href="https://spikeinterface.github.io/blog/example-of-groun
 &lt;span class="n"&gt;ss&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;print_sorter_version&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -7325,7 +7432,7 @@ See also this &lt;a href="https://spikeinterface.github.io/blog/example-of-groun
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
@@ -7350,8 +7457,7 @@ tridesclous: 1.4.2
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Setup-global-path"&gt;Setup global path&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/example-of-parameters-optimization/#Setup-global-path"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -7362,21 +7468,21 @@ tridesclous: 1.4.2
 &lt;div class="prompt input_prompt"&gt;In [12]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Path&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'/home/samuel/Documents/DataSpikeSorting/mearec/'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Change this path to point to where you downloaded the dataset&lt;/span&gt;
+&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Path&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'/home/samuel/Documents/DataSpikeSorting/mearec/'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;study_folder&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="s1"&gt;'study_mearec_SqMEA1015um/'&lt;/span&gt;
 &lt;span class="n"&gt;param_folder&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="s1"&gt;'param_search'&lt;/span&gt;
 
 &lt;span class="n"&gt;mearec_filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="s1"&gt;'recordings_50cells_SqMEA-10-15_600.0_10.0uV_21-01-2020_18-12.h5'&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Run-sorters-with-differents-parameters"&gt;Run sorters with differents parameters&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/example-of-parameters-optimization/#Run-sorters-with-differents-parameters"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Lets try several radius : 20, 50, 100, 150, 200&lt;/p&gt;
 &lt;p&gt;results are saved to files&lt;/p&gt;
@@ -7393,7 +7499,7 @@ tridesclous: 1.4.2
 &lt;span class="n"&gt;radius_list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;150&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -7415,20 +7521,19 @@ tridesclous: 1.4.2
     &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;radius&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;radius_list&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
         &lt;span class="n"&gt;params&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;param_names&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;sorter_name&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;radius&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
         &lt;span class="n"&gt;sorting&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ss&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run_sorter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sorter_name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rec&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;output_folder&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;param_folder&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="s1"&gt;'&lt;/span&gt;&lt;span class="si"&gt;{sorter_name}&lt;/span&gt;&lt;span class="s1"&gt;_&lt;/span&gt;&lt;span class="si"&gt;{radius}&lt;/span&gt;&lt;span class="s1"&gt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                                    &lt;span class="n"&gt;output_folder&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;param_folder&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s1"&gt;'&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;sorter_name&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s1"&gt;_&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;radius&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s1"&gt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
                                     &lt;span class="n"&gt;delete_output_folder&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
                                     &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;params&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="n"&gt;se&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;NpzSortingExtractor&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write_sorting&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sorting&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;param_folder&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="s1"&gt;'&lt;/span&gt;&lt;span class="si"&gt;{sorter_name}&lt;/span&gt;&lt;span class="s1"&gt;_&lt;/span&gt;&lt;span class="si"&gt;{radius}&lt;/span&gt;&lt;span class="s1"&gt;.npz'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;se&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;NpzSortingExtractor&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write_sorting&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sorting&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;param_folder&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s1"&gt;'&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;sorter_name&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s1"&gt;_&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;radius&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s1"&gt;.npz'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Retrieve-results-and-compare-to-ground-truth"&gt;Retrieve results and compare to ground truth&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/example-of-parameters-optimization/#Retrieve-results-and-compare-to-ground-truth"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -7443,7 +7548,7 @@ tridesclous: 1.4.2
 &lt;span class="n"&gt;snr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;study&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_units_snr&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -7458,18 +7563,18 @@ tridesclous: 1.4.2
 &lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;axs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subplots&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;nrows&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sorter_names&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;ncols&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;radius_list&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sorter_name&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;enumerate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sorter_names&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;radius&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;enumerate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;radius_list&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-        &lt;span class="n"&gt;sorting&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;se&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;NpzSortingExtractor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;param_folder&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="s1"&gt;'&lt;/span&gt;&lt;span class="si"&gt;{sorter_name}&lt;/span&gt;&lt;span class="s1"&gt;_&lt;/span&gt;&lt;span class="si"&gt;{radius}&lt;/span&gt;&lt;span class="s1"&gt;.npz'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;sorting&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;se&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;NpzSortingExtractor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;param_folder&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s1"&gt;'&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;sorter_name&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s1"&gt;_&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;radius&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s1"&gt;.npz'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
         &lt;span class="n"&gt;comp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compare_sorter_to_ground_truth&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gt_sorting&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sorting&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
         &lt;span class="n"&gt;perfs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;comp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_performance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;method&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'by_unit'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
         &lt;span class="n"&gt;axs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scatter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;snr&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'snr'&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;perfs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'accuracy'&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
 
-        &lt;span class="n"&gt;axs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="s1"&gt;'radius &lt;/span&gt;&lt;span class="si"&gt;{radius}&lt;/span&gt;&lt;span class="s1"&gt;'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;axs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s1"&gt;'radius &lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;radius&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s1"&gt;'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
     &lt;span class="n"&gt;axs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sorter_name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -7479,7 +7584,7 @@ tridesclous: 1.4.2
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -7495,22 +7600,41 @@ tridesclous: 1.4.2
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Short-conclusion"&gt;Short conclusion&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/example-of-parameters-optimization/#Short-conclusion"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;This radius parameter appear to not affect so much the results of spykingcircus.
-Identically, unless for very small radius (20um) herdingpsike seems not be to affect by this parameters.
-Ini contrast, iconclusttends to prefer high radius (150 or 200) to enhance the accuracy.&lt;/p&gt;
+&lt;h3 id="Conclusion"&gt;Conclusion&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/example-of-parameters-optimization/#Conclusion"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;In this preliminary example, we found that:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;spykingcircus is hardly affected by the adjacency radius parameter&lt;/li&gt;
+&lt;li&gt;herdingspikes is only affected (worsened results) for very small radius (20um)&lt;/li&gt;
+&lt;li&gt;ironclust tends to prefer higher radiuses as the best performance is achieved with 150-200um&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;/div&gt;</description><guid>https://SpikeInterface.github.io/blog/example-of-parameters-optimization/</guid><pubDate>Thu, 30 Jan 2020 11:44:10 GMT</pubDate></item><item><title>Example of ground truth comparison study</title><link>https://SpikeInterface.github.io/blog/example-of-ground-truth-comparison-study/</link><dc:creator>spikeinterface team</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Example-of-ground-truth-comparison-with-spikeinterface"&gt;Example of ground truth comparison with spikeinterface&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/example-of-ground-truth-comparison-study/#Example-of-ground-truth-comparison-with-spikeinterface"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This notebook shows how &lt;a href="https://github.com/SpikeInterface"&gt;SpikeInterface&lt;/a&gt; is used to perform a ground truth comparisong for multiple spike sorters.&lt;/p&gt;
-&lt;p&gt;Note the notebook assumes the recording is alreay sorted, the neccessary data can be downloaded here:&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;TODO: pute the new url&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id="Example-of-ground-truth-comparison-with-SpikeInterface"&gt;Example of ground-truth comparison with SpikeInterface&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/example-of-ground-truth-comparison-study/#Example-of-ground-truth-comparison-with-SpikeInterface"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This notebook shows how &lt;a href="https://github.com/SpikeInterface"&gt;SpikeInterface&lt;/a&gt; is used to perform a ground truth comparisong for multiple spike sorters.&lt;/p&gt;
+&lt;p&gt;The dataset is simulated using &lt;a href="https://github.com/alejoe91/MEArec"&gt;MEArec&lt;/a&gt; and it can be downloaded from Zenodo: &lt;a href="https://doi.org/10.5281/zenodo.4058272"&gt;https://doi.org/10.5281/zenodo.4058272&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The dataset name is: &lt;strong&gt;recordings_50cells_SqMEA-10-15_600.0_10.0uV_21-01-2020_18-12.h5&lt;/strong&gt;. It contains 50 neurons recorded on a 10x10 MEA with 15um pitch. The duration is 600s and the noise level is 10uV.&lt;/p&gt;
+&lt;p&gt;Author: &lt;a href="https://github.com/samuelgarcia"&gt;Samuel Garcia&lt;/a&gt;, CRNL, Lyon&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h4 id="Requirements"&gt;Requirements&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/example-of-ground-truth-comparison-study/#Requirements"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;For this need you will need the following Python packages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;numpy&lt;/li&gt;
+&lt;li&gt;pandas&lt;/li&gt;
+&lt;li&gt;matplotlib&lt;/li&gt;
+&lt;li&gt;seaborn&lt;/li&gt;
+&lt;li&gt;spikeinterface&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To run the MATLAB-based sorters, you would also need a MATLAB license.
+For other sorters, please refer to the documentation on &lt;a href="https://spikeinterface.readthedocs.io/en/latest/sortersinfo.html"&gt;how to install sorters&lt;/a&gt;.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -7520,23 +7644,12 @@ Ini contrast, iconclusttends to prefer high radius (150 or 200) to enhance the a
 &lt;div class="prompt input_prompt"&gt;In [1]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# import everything&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nn"&gt;getpass&lt;/span&gt;
-
-&lt;span class="n"&gt;kilosort2_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'/home/samuel/Documents/Spikeinterface/Kilosort2'&lt;/span&gt;
-&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;environ&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"KILOSORT2_PATH"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;kilosort2_path&lt;/span&gt;
-
-&lt;span class="n"&gt;kilosort_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'/home/samuel/Documents/Spikeinterface/KiloSort/'&lt;/span&gt;
-&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;environ&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"KILOSORT_PATH"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;kilosort_path&lt;/span&gt;
-
-&lt;span class="n"&gt;ironclust_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'/home/samuel/Documents/Spikeinterface/ironclust'&lt;/span&gt;
-&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;environ&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"IRONCLUST_PATH"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ironclust_path&lt;/span&gt;
-
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;seaborn&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;sns&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pathlib&lt;/span&gt; &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Path&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pathlib&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Path&lt;/span&gt;
 
 
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;spikeinterface&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;si&lt;/span&gt;
@@ -7544,10 +7657,10 @@ Ini contrast, iconclusttends to prefer high radius (150 or 200) to enhance the a
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;spikeinterface.sorters&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;ss&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;spikeinterface.widgets&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;sw&lt;/span&gt;
 
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;spikeinterface.comparison&lt;/span&gt; &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="n"&gt;GroundTruthStudy&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;spikeinterface.comparison&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;GroundTruthStudy&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -7557,7 +7670,7 @@ Ini contrast, iconclusttends to prefer high radius (150 or 200) to enhance the a
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 &lt;div class="output_subarea output_stream output_stderr output_text"&gt;
@@ -7567,6 +7680,34 @@ Ini contrast, iconclusttends to prefer high radius (150 or 200) to enhance the a
 &lt;/div&gt;
 &lt;/div&gt;
 
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# clone and install MATLAB sorters&lt;/span&gt;
+
+&lt;span class="c1"&gt;# kilosort2&lt;/span&gt;
+&lt;span class="o"&gt;!&lt;/span&gt;git clone https://github.com/MouseLand/Kilosort2.git
+&lt;span class="n"&gt;kilosort2_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'./Kilosort2'&lt;/span&gt;
+&lt;span class="n"&gt;ss&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Kilosort2Sorter&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_kilosort2_path&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;kilosort2_path&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# kilosort&lt;/span&gt;
+&lt;span class="o"&gt;!&lt;/span&gt;git clone https://github.com/cortex-lab/KiloSort.git
+&lt;span class="n"&gt;kilosort_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'./KiloSort'&lt;/span&gt;
+&lt;span class="n"&gt;ss&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;KilosortSorter&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_kilosort_path&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;kilosort_path&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# ironclust&lt;/span&gt;
+&lt;span class="o"&gt;!&lt;/span&gt;git clone https://github.com/flatironinstitute/ironclust.git
+&lt;span class="n"&gt;ironclust_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'./ironclust'&lt;/span&gt;
+&lt;span class="n"&gt;ss&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;IronclustSorter&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ironclust_path&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ironclust_path&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -7597,14 +7738,13 @@ Ini contrast, iconclusttends to prefer high radius (150 or 200) to enhance the a
     &lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;spines&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'right'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_visible&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;    
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Check-spikeinterface-version-and-sorter-version"&gt;Check spikeinterface version and sorter version&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/example-of-ground-truth-comparison-study/#Check-spikeinterface-version-and-sorter-version"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;In order to be a bit reproducible lets checks for versions of each sorter and spikeinterface subpackage.&lt;/p&gt;
 
@@ -7620,7 +7760,7 @@ Ini contrast, iconclusttends to prefer high radius (150 or 200) to enhance the a
 &lt;span class="n"&gt;ss&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;print_sorter_versions&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -7630,7 +7770,7 @@ Ini contrast, iconclusttends to prefer high radius (150 or 200) to enhance the a
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
@@ -7658,8 +7798,7 @@ tridesclous: 1.5.0
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Setup-global-path"&gt;Setup global path&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/example-of-ground-truth-comparison-study/#Setup-global-path"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -7670,18 +7809,18 @@ tridesclous: 1.5.0
 &lt;div class="prompt input_prompt"&gt;In [6]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Path&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'/home/samuel/Documents/DataSpikeSorting/mearec/'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Change this path to point to where you downloaded the dataset&lt;/span&gt;
+&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Path&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'/home/samuel/Documents/DataSpikeSorting/mearec/'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;study_folder&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="s1"&gt;'study_mearec_SqMEA1015um/'&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Setup-ground-truth-study"&gt;Setup ground truth study&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/example-of-ground-truth-comparison-study/#Setup-ground-truth-study"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -7704,14 +7843,13 @@ tridesclous: 1.5.0
 &lt;span class="n"&gt;study&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;GroundTruthStudy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;create&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;study_folder&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;gt_dict&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Run-all-sorters"&gt;Run all sorters&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/example-of-ground-truth-comparison-study/#Run-all-sorters"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -7726,7 +7864,7 @@ tridesclous: 1.5.0
                 &lt;span class="s1"&gt;'spykingcircus'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'tridesclous'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="c1"&gt;# &lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -7745,14 +7883,13 @@ tridesclous: 1.5.0
 &lt;span class="n"&gt;study&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run_sorters&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sorter_list&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sorter_params&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;sorter_params&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mode&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'keep'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;verbose&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Get-signal-to-noise-ratio-for-all-units"&gt;Get signal to noise ratio for all units&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/example-of-ground-truth-comparison-study/#Get-signal-to-noise-ratio-for-all-units"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -7768,7 +7905,7 @@ tridesclous: 1.5.0
 &lt;span class="n"&gt;snr&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;head&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -7778,7 +7915,7 @@ tridesclous: 1.5.0
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt output_prompt"&gt;Out[7]:&lt;/div&gt;
+    &lt;div class="prompt output_prompt"&gt;Out[7]:&lt;/div&gt;
 
 
 
@@ -7882,7 +8019,7 @@ tridesclous: 1.5.0
 &lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'GT units SNR'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -7892,7 +8029,7 @@ tridesclous: 1.5.0
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt output_prompt"&gt;Out[36]:&lt;/div&gt;
+    &lt;div class="prompt output_prompt"&gt;Out[36]:&lt;/div&gt;
 
 
 
@@ -7905,7 +8042,7 @@ tridesclous: 1.5.0
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -7921,8 +8058,7 @@ tridesclous: 1.5.0
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Run-comparison-with-ground-truth-and-retreive-result-tables"&gt;Run comparison with ground truth and retreive result tables&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/example-of-ground-truth-comparison-study/#Run-comparison-with-ground-truth-and-retreive-result-tables"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -7941,7 +8077,7 @@ tridesclous: 1.5.0
 &lt;span class="n"&gt;study&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run_comparisons&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;exhaustive_gt&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;match_score&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;overmerged_score&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -7956,14 +8092,13 @@ tridesclous: 1.5.0
 &lt;span class="n"&gt;dataframes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;study&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;aggregate_dataframes&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Run-times"&gt;Run times&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/example-of-ground-truth-comparison-study/#Run-times"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -7977,7 +8112,7 @@ tridesclous: 1.5.0
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;dataframes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'run_times'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -7987,7 +8122,7 @@ tridesclous: 1.5.0
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt output_prompt"&gt;Out[11]:&lt;/div&gt;
+    &lt;div class="prompt output_prompt"&gt;Out[11]:&lt;/div&gt;
 
 
 
@@ -8077,7 +8212,7 @@ tridesclous: 1.5.0
 &lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_xticklabels&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sorter_list&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rotation&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;40&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ha&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'right'&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -8087,7 +8222,7 @@ tridesclous: 1.5.0
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -8103,8 +8238,7 @@ tridesclous: 1.5.0
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="confusion-matrix"&gt;confusion matrix&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/example-of-ground-truth-comparison-study/#confusion-matrix"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -8121,7 +8255,7 @@ tridesclous: 1.5.0
     &lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;suptitle&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rec_name&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s1"&gt;'   '&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;sorter_name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -8131,7 +8265,7 @@ tridesclous: 1.5.0
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -8144,7 +8278,7 @@ tridesclous: 1.5.0
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -8157,7 +8291,7 @@ tridesclous: 1.5.0
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -8170,7 +8304,7 @@ tridesclous: 1.5.0
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -8183,7 +8317,7 @@ tridesclous: 1.5.0
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -8196,7 +8330,7 @@ tridesclous: 1.5.0
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -8212,8 +8346,7 @@ tridesclous: 1.5.0
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id=" accuracy/precision/recall-scores-per-sorters"&gt; accuracy/precision/recall scores per sorters&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/example-of-ground-truth-comparison-study/#%C2%A0accuracy/precision/recall-scores-per-sorters"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -8241,7 +8374,7 @@ tridesclous: 1.5.0
 &lt;span class="n"&gt;clear_axes&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -8251,7 +8384,7 @@ tridesclous: 1.5.0
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -8267,8 +8400,7 @@ tridesclous: 1.5.0
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;A wise man (a reviewer of our paper to be honest) suggest us that the swarnplot is not so infortative to benchmark sorters.
 This is totally true, we can check check the balance between false postive spikes and and false negative spikes (precission vs recall).
@@ -8287,7 +8419,7 @@ Here this is another possible way to present the results.&lt;/p&gt;
                 &lt;span class="n"&gt;col_wrap&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;col_order&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;sorter_list&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -8297,7 +8429,7 @@ Here this is another possible way to present the results.&lt;/p&gt;
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -8313,8 +8445,7 @@ Here this is another possible way to present the results.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="count-units"&gt;count units&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/example-of-ground-truth-comparison-study/#count-units"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;well detected&lt;/li&gt;
@@ -8352,7 +8483,7 @@ Here this is another possible way to present the results.&lt;/p&gt;
 &lt;span class="n"&gt;clear_axes&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -8362,7 +8493,7 @@ Here this is another possible way to present the results.&lt;/p&gt;
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 
@@ -8378,8 +8509,7 @@ Here this is another possible way to present the results.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id=" Accuracy-vns-SNR"&gt; Accuracy vns SNR&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/example-of-ground-truth-comparison-study/#%C2%A0Accuracy-vns-SNR"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -8413,7 +8543,7 @@ Here this is another possible way to present the results.&lt;/p&gt;
 &lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Accuracy'&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -8423,7 +8553,7 @@ Here this is another possible way to present the results.&lt;/p&gt;
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 &lt;div class="output_subarea output_stream output_stderr output_text"&gt;
@@ -8438,7 +8568,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt"&gt;&lt;/div&gt;
+    &lt;div class="prompt"&gt;&lt;/div&gt;
 
 
 

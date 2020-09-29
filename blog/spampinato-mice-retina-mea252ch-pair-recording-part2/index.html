@@ -10,7 +10,7 @@
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
 <meta name="theme-color" content="#5670d4">
 <meta name="generator" content="Nikola (getnikola.com)">
-<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../rss.xml">
 <link rel="canonical" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part2/">
 <!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="spikeinterface team">
 <link rel="prev" href="../spampinato-mice-retina-mea252ch-pair-recording-part1/" title="Spampinato mice retina mea252ch pair recording - part1" type="text/html">
@@ -18,9 +18,8 @@
 <meta property="og:site_name" content="spikeinterface report">
 <meta property="og:title" content="Spampinato mice retina mea252ch pair recording - part2">
 <meta property="og:url" content="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part2/">
-<meta property="og:description" content="Sorter comparison with ground truth recordings¶@author : Samuel Garcia
-Giulia  Spampinato from Institut de la Vision, Paris, have publish data from mice retina recorded invitro with from dense array.
-">
+<meta property="og:description" content="Spampinato mice retina mea252ch pair recording - 2¶Part 2) Ground-truth comparison¶This set of notebooks the dataset is from paired juxtacellular/extracellular recordings from mice retina in vitro.
+Th">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2020-01-30T14:58:43+01:00">
 </head>
@@ -33,7 +32,7 @@ Giulia  Spampinato from Institut de la Vision, Paris, have publish data from mic
 navbar-dark bg-dark
 "><div class="container">
 <!-- This keeps the margins nice -->
-        <a class="navbar-brand" href="https://SpikeInterface.github.io/">
+        <a class="navbar-brand" href="../../">
 
             <span id="blog-title">spikeinterface report</span>
         </a>
@@ -93,18 +92,19 @@ navbar-dark bg-dark
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Sorter-comparison-with-ground-truth-recordings">Sorter comparison with ground truth recordings<a class="anchor-link" href="#Sorter-comparison-with-ground-truth-recordings">¶</a>
+<h2 id="Spampinato-mice-retina-mea252ch-pair-recording---2">Spampinato mice retina mea252ch pair recording - 2<a class="anchor-link" href="#Spampinato-mice-retina-mea252ch-pair-recording---2">¶</a>
 </h2>
-<p>@author : Samuel Garcia</p>
-<p>Giulia  Spampinato from Institut de la Vision, Paris, have publish data from mice retina recorded invitro with from dense array.
-The data contain one ground truth to benchmark spike sorting tools. The ground truth is recorded with juxta celullar pipet.</p>
-<p>Here the official publication of this open dataset:
+<h3 id="Part-2)-Ground-truth-comparison">Part 2) Ground-truth comparison<a class="anchor-link" href="#Part-2)-Ground-truth-comparison">¶</a>
+</h3>
+<p>This set of notebooks the dataset is from paired juxtacellular/extracellular recordings from mice retina <em>in vitro</em>.
+The MEA has 252 channels.</p>
+<p>The official publication of this open dataset can be found at the following address:
 <a href="https://zenodo.org/record/1205233#.W9mq1HWLTIF">https://zenodo.org/record/1205233#.W9mq1HWLTIF</a></p>
-<p>This datasets was used by Pierre Yger publish spyking circus:
+<p>These datasets were used by Pierre Yger et al in the following "spyking circus" paper:
 <a href="https://elifesciences.org/articles/34518">https://elifesciences.org/articles/34518</a></p>
-<p>In the original dataset, 19 files are provided.
-here we volontary keep only 9 files.
-See carrefully the notebook : <strong>spampinato-mice-retina-mea252ch-pair-recording-part1</strong></p>
+<p>After inspecting the juxta-cellular data, we found that some recordings don't have a good enough quality to be considered as "ground truth". To be "ground truth", a unit is required to be stable in the detection, peak signal-to-noise ratio (SNR) and amplitude.</p>
+<p>At the end of our quality assessment (<a href="https://spikeinterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/"><strong>"spampinato-mice-retina-mea252ch-pair-recording-part1"</strong></a>), some files are removed for this main study.</p>
+<p>Author: <a href="https://github.com/samuelgarcia">Samuel Garcia</a>, CRNL, Lyon</p>
 
 </div>
 </div>
@@ -114,12 +114,33 @@ See carrefully the notebook : <strong>spampinato-mice-retina-mea252ch-pair-recor
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="How-to-reproduce-this-notebook">How to reproduce this notebook<a class="anchor-link" href="#How-to-reproduce-this-notebook">¶</a>
-</h3>
+<h4 id="Requirements">Requirements<a class="anchor-link" href="#Requirements">¶</a>
+</h4>
+<p>For this need you will need the following Python packages:</p>
+<ul>
+<li>numpy</li>
+<li>pandas</li>
+<li>matplotlib</li>
+<li>seaborn</li>
+<li>spikeinterface</li>
+</ul>
+<p>To run the MATLAB-based sorters, you would also need a MATLAB license.
+For other sorters, please refer to the documentation on <a href="https://spikeinterface.readthedocs.io/en/latest/sortersinfo.html">how to install sorters</a>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Installation-and-imports">Installation and imports<a class="anchor-link" href="#Installation-and-imports">¶</a>
+</h4>
 <ol>
-<li>to create a folder <strong>basedir</strong> somwhere.</li>
-<li>download all files in zenodo link</li>
-<li>put them all in a subfolder <strong>basedir/original_files</strong> (20160415_patch2.tar.gz, ...)</li>
+<li>to create a folder <strong>basedir</strong>.</li>
+<li>download all files from the zenodo link</li>
+<li>move them in a subfolder <strong>basedir/original_files</strong> (20160415_patch2.tar.gz, ...)</li>
 <li>and then execute cells by cell this notebook</li>
 </ol>
 </div>
@@ -132,16 +153,6 @@ See carrefully the notebook : <strong>spampinato-mice-retina-mea252ch-pair-recor
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import everything</span>
 <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">getpass</span>
-
-<span class="n">kilosort2_path</span> <span class="o">=</span> <span class="s1">'/home/samuel/Documents/Spikeinterface/Kilosort2'</span>
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"KILOSORT2_PATH"</span><span class="p">]</span> <span class="o">=</span> <span class="n">kilosort2_path</span>
-
-<span class="n">kilosort_path</span> <span class="o">=</span> <span class="s1">'/home/samuel/Documents/Spikeinterface/KiloSort/'</span>
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"KILOSORT_PATH"</span><span class="p">]</span> <span class="o">=</span> <span class="n">kilosort_path</span>
-
-<span class="n">ironclust_path</span> <span class="o">=</span> <span class="s1">'/home/samuel/Documents/Spikeinterface/ironclust'</span>
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"IRONCLUST_PATH"</span><span class="p">]</span> <span class="o">=</span> <span class="n">ironclust_path</span>
-
 <span class="kn">import</span> <span class="nn">re</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -157,6 +168,34 @@ See carrefully the notebook : <strong>spampinato-mice-retina-mea252ch-pair-recor
 <span class="kn">import</span> <span class="nn">spikeinterface.widgets</span> <span class="k">as</span> <span class="nn">sw</span>
 
 <span class="kn">from</span> <span class="nn">spikeinterface.comparison</span> <span class="kn">import</span> <span class="n">GroundTruthStudy</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># clone and install MATLAB sorters</span>
+
+<span class="c1"># kilosort2</span>
+<span class="o">!</span>git clone https://github.com/MouseLand/Kilosort2.git
+<span class="n">kilosort2_path</span> <span class="o">=</span> <span class="s1">'./Kilosort2'</span>
+<span class="n">ss</span><span class="o">.</span><span class="n">Kilosort2Sorter</span><span class="o">.</span><span class="n">set_kilosort2_path</span><span class="p">(</span><span class="n">kilosort2_path</span><span class="p">)</span>
+
+<span class="c1"># kilosort</span>
+<span class="o">!</span>git clone https://github.com/cortex-lab/KiloSort.git
+<span class="n">kilosort_path</span> <span class="o">=</span> <span class="s1">'./KiloSort'</span>
+<span class="n">ss</span><span class="o">.</span><span class="n">KilosortSorter</span><span class="o">.</span><span class="n">set_kilosort_path</span><span class="p">(</span><span class="n">kilosort_path</span><span class="p">)</span>
+
+<span class="c1"># ironclust</span>
+<span class="o">!</span>git clone https://github.com/flatironinstitute/ironclust.git
+<span class="n">ironclust_path</span> <span class="o">=</span> <span class="s1">'./ironclust'</span>
+<span class="n">ss</span><span class="o">.</span><span class="n">IronclustSorter</span><span class="o">.</span><span class="n">set_ironclust_path</span><span class="p">(</span><span class="n">ironclust_path</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -281,23 +320,10 @@ tridesclous: 1.6.1.dev
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id=" Step-1-:-clean-original-dataset"> Step 1 : clean original dataset<a class="anchor-link" href="#%C2%A0Step-1-:-clean-original-dataset">¶</a>
+<h3 id=" Step-1-:-Clean-original-dataset"> Step 1 : Clean original dataset<a class="anchor-link" href="#%C2%A0Step-1-:-Clean-original-dataset">¶</a>
 </h3>
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -312,13 +338,13 @@ tridesclous: 1.6.1.dev
 <li>and call the function <code>setup_comparison_study(study_folder, gt_dict)</code>
 </li>
 </ul>
-<p>Internanly spiketoolkit copy all recordings and ground truth sorting into a n organised folder.</p>
-<p>Important note :</p>
+<p>Internally, spikeinterface copies all recordings and ground-truth sorting into an organised folder.</p>
+<p>Important note:</p>
 <ul>
-<li>the file have 256 channels but only 252 are usefull.
-The PRB file contain all channels needed so we need to explicit <strong>grouping_property='group'</strong>
-to be sure to only take in account the channel in the unique group.</li>
-<li>This step have to run only once and take some times because of copy.</li>
+<li>the file have 256 channels but only 252 are useful.
+The PRB file contains all channels needed so we need to explicitly use <strong>grouping_property='group'</strong>
+to be sure to only take in account the channels in the unique group.</li>
+<li>This step has to run only once and takes some times because of copy.</li>
 </ul>
 </div>
 </div>
@@ -543,7 +569,7 @@ to be sure to only take in account the channel in the unique group.</li>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sorter_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'herdingspikes'</span><span class="p">,</span> <span class="s1">'ironclust'</span><span class="p">,</span> <span class="s1">'kilosort2'</span><span class="p">,</span>  
-                <span class="s1">'spykingcircus'</span><span class="p">,</span> <span class="s1">'tridesclous'</span><span class="p">]</span>
+               <span class="s1">'spykingcircus'</span><span class="p">,</span> <span class="s1">'tridesclous'</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -1613,19 +1639,6 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 
 </div>
 
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
 </div>
 </div>
 

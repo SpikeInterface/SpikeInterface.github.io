@@ -10,7 +10,7 @@
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
 <meta name="theme-color" content="#5670d4">
 <meta name="generator" content="Nikola (getnikola.com)">
-<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../rss.xml">
 <link rel="canonical" href="https://SpikeInterface.github.io/blog/example-of-parameters-optimization/">
 <!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="spikeinterface team">
 <link rel="prev" href="../example-of-ground-truth-comparison-study/" title="Example of ground truth comparison study" type="text/html">
@@ -18,8 +18,8 @@
 <meta property="og:site_name" content="spikeinterface report">
 <meta property="og:title" content="Example of parameters optimization">
 <meta property="og:url" content="https://SpikeInterface.github.io/blog/example-of-parameters-optimization/">
-<meta property="og:description" content="Example of parameters optimization with spiekinterface¶This notebook is an example of parameters optimization with spikeinterface.
-See also this notebook on ground truth comparison that play with the ">
+<meta property="og:description" content="Example of parameters optimization with SpikeInterface¶This notebook is an example of parameters optimization with SpikeInterface.
+See also this notebook on ground-truth comparison that analyzes the s">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2020-01-30T12:44:10+01:00">
 </head>
@@ -32,7 +32,7 @@ See also this notebook on ground truth comparison that play with the ">
 navbar-dark bg-dark
 "><div class="container">
 <!-- This keeps the margins nice -->
-        <a class="navbar-brand" href="https://SpikeInterface.github.io/">
+        <a class="navbar-brand" href="../../">
 
             <span id="blog-title">spikeinterface report</span>
         </a>
@@ -92,19 +92,52 @@ navbar-dark bg-dark
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Example-of-parameters-optimization-with-spiekinterface">Example of parameters optimization with spiekinterface<a class="anchor-link" href="#Example-of-parameters-optimization-with-spiekinterface">¶</a>
+<h2 id="Example-of-parameters-optimization-with-SpikeInterface">Example of parameters optimization with SpikeInterface<a class="anchor-link" href="#Example-of-parameters-optimization-with-SpikeInterface">¶</a>
 </h2>
-<p>This notebook is an example of parameters optimization with spikeinterface.
-See also this <a href="https://spikeinterface.github.io/blog/example-of-ground-truth-comparison-study">notebook on ground truth comparison</a> that play with the same dataset.</p>
-<p>The dataset is a 10x10 channels square and very dense.</p>
+<p>This notebook is an example of parameters optimization with SpikeInterface.
+See also this <a href="https://spikeinterface.github.io/blog/example-of-ground-truth-comparison-study">notebook on ground-truth comparison</a> that analyzes the same dataset.</p>
+<p>The dataset is simulated using <a href="https://github.com/alejoe91/MEArec">MEArec</a> and it can be downloaded from Zenodo: <a href="https://doi.org/10.5281/zenodo.4058272">https://doi.org/10.5281/zenodo.4058272</a></p>
+<p>The dataset name is: <strong>recordings_50cells_SqMEA-10-15_600.0_10.0uV_21-01-2020_18-12.h5</strong>. It contains 50 neurons recorded on a 10x10 MEA with 15um pitch. The duration is 600s and the noise level is 10uV.</p>
 <p>Many sorters a parameters of <strong>adjacency radius</strong> that help the sorter to group spike that have a peak on several channel.</p>
 <ul>
-<li>ironlcust have <strong>adjacency_radius=50</strong> by default</li>
-<li>spykingcircus have <strong>adjacency_radius=200</strong> by default</li>
-<li>herdingspikes have <strong>probe_neighbor_radius=90</strong> by default</li>
+<li>ironlcust uses <strong>adjacency_radius=50</strong> by default</li>
+<li>spykingcircus uses <strong>adjacency_radius=200</strong> by default</li>
+<li>herdingspikes uses <strong>probe_neighbor_radius=90</strong> by default</li>
 </ul>
-<p>Since each channel is spaced by 15um in this dataset, the radius parameters can affect the way each sorters detect and sort spikes that fire on several channels.</p>
+<p>Since each channel is spaced by 15um in this dataset, the radius parameters can affect the way each sorter detects and sorts spikes that are recorded on several channels.</p>
+<p>Author: <a href="https://github.com/samuelgarcia">Samuel Garcia</a>, CRNL, Lyon</p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Requirements">Requirements<a class="anchor-link" href="#Requirements">¶</a>
+</h4>
+<p>For this need you will need the following Python packages:</p>
+<ul>
+<li>numpy</li>
+<li>pandas</li>
+<li>matplotlib</li>
+<li>seaborn</li>
+<li>spikeinterface</li>
+</ul>
+<p>To run the MATLAB-based sorters, you would also need a MATLAB license.
+For other sorters, please refer to the documentation on <a href="https://spikeinterface.readthedocs.io/en/latest/sortersinfo.html">how to install sorters</a>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Installation-and-imports">Installation and imports<a class="anchor-link" href="#Installation-and-imports">¶</a>
+</h4>
 </div>
 </div>
 </div>
@@ -117,8 +150,7 @@ See also this <a href="https://spikeinterface.github.io/blog/example-of-ground-t
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="k">import</span> <span class="n">Path</span>
-
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
 <span class="kn">import</span> <span class="nn">spikeinterface</span> <span class="k">as</span> <span class="nn">si</span>
 <span class="kn">import</span> <span class="nn">spikeinterface.extractors</span> <span class="k">as</span> <span class="nn">se</span>
@@ -127,7 +159,25 @@ See also this <a href="https://spikeinterface.github.io/blog/example-of-ground-t
 <span class="kn">import</span> <span class="nn">spikeinterface.comparison</span> <span class="k">as</span> <span class="nn">sc</span>
 </pre></div>
 
+    </div>
 </div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># clone and install MATLAB sorters</span>
+
+<span class="c1"># ironclust</span>
+<span class="o">!</span>git clone https://github.com/flatironinstitute/ironclust.git
+<span class="n">ironclust_path</span> <span class="o">=</span> <span class="s1">'./ironclust'</span>
+<span class="n">ss</span><span class="o">.</span><span class="n">IronclustSorter</span><span class="o">.</span><span class="n">set_ironclust_path</span><span class="p">(</span><span class="n">ironclust_path</span><span class="p">)</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
 
@@ -153,7 +203,7 @@ See also this <a href="https://spikeinterface.github.io/blog/example-of-ground-t
 <span class="n">ss</span><span class="o">.</span><span class="n">print_sorter_version</span><span class="p">()</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -163,7 +213,7 @@ See also this <a href="https://spikeinterface.github.io/blog/example-of-ground-t
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -202,14 +252,15 @@ tridesclous: 1.4.2
 <div class="prompt input_prompt">In [12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">'/home/samuel/Documents/DataSpikeSorting/mearec/'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Change this path to point to where you downloaded the dataset</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">'/home/samuel/Documents/DataSpikeSorting/mearec/'</span><span class="p">)</span>
 <span class="n">study_folder</span> <span class="o">=</span> <span class="n">p</span> <span class="o">/</span> <span class="s1">'study_mearec_SqMEA1015um/'</span>
 <span class="n">param_folder</span> <span class="o">=</span> <span class="n">p</span> <span class="o">/</span> <span class="s1">'param_search'</span>
 
 <span class="n">mearec_filename</span> <span class="o">=</span> <span class="n">p</span> <span class="o">/</span> <span class="s1">'recordings_50cells_SqMEA-10-15_600.0_10.0uV_21-01-2020_18-12.h5'</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -236,7 +287,7 @@ tridesclous: 1.4.2
 <span class="n">radius_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">200</span><span class="p">]</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -258,13 +309,13 @@ tridesclous: 1.4.2
     <span class="k">for</span> <span class="n">radius</span> <span class="ow">in</span> <span class="n">radius_list</span><span class="p">:</span>
         <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="n">param_names</span><span class="p">[</span><span class="n">sorter_name</span><span class="p">]</span> <span class="p">:</span> <span class="n">radius</span><span class="p">}</span>
         <span class="n">sorting</span> <span class="o">=</span> <span class="n">ss</span><span class="o">.</span><span class="n">run_sorter</span><span class="p">(</span><span class="n">sorter_name</span><span class="p">,</span> <span class="n">rec</span><span class="p">,</span>
-                                    <span class="n">output_folder</span><span class="o">=</span><span class="n">param_folder</span> <span class="o">/</span> <span class="n">f</span><span class="s1">'</span><span class="si">{sorter_name}</span><span class="s1">_</span><span class="si">{radius}</span><span class="s1">'</span><span class="p">,</span>
+                                    <span class="n">output_folder</span><span class="o">=</span><span class="n">param_folder</span> <span class="o">/</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">sorter_name</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">radius</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span>
                                     <span class="n">delete_output_folder</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                                     <span class="o">**</span><span class="n">params</span><span class="p">)</span>
-        <span class="n">se</span><span class="o">.</span><span class="n">NpzSortingExtractor</span><span class="o">.</span><span class="n">write_sorting</span><span class="p">(</span><span class="n">sorting</span><span class="p">,</span> <span class="n">param_folder</span> <span class="o">/</span> <span class="n">f</span><span class="s1">'</span><span class="si">{sorter_name}</span><span class="s1">_</span><span class="si">{radius}</span><span class="s1">.npz'</span><span class="p">)</span>
+        <span class="n">se</span><span class="o">.</span><span class="n">NpzSortingExtractor</span><span class="o">.</span><span class="n">write_sorting</span><span class="p">(</span><span class="n">sorting</span><span class="p">,</span> <span class="n">param_folder</span> <span class="o">/</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">sorter_name</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">radius</span><span class="si">}</span><span class="s1">.npz'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -288,7 +339,7 @@ tridesclous: 1.4.2
 <span class="n">snr</span> <span class="o">=</span> <span class="n">study</span><span class="o">.</span><span class="n">get_units_snr</span><span class="p">()</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -303,18 +354,18 @@ tridesclous: 1.4.2
 <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">sorter_names</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">radius_list</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">r</span><span class="p">,</span> <span class="n">sorter_name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sorter_names</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">radius</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">radius_list</span><span class="p">):</span>
-        <span class="n">sorting</span> <span class="o">=</span> <span class="n">se</span><span class="o">.</span><span class="n">NpzSortingExtractor</span><span class="p">(</span><span class="n">param_folder</span> <span class="o">/</span> <span class="n">f</span><span class="s1">'</span><span class="si">{sorter_name}</span><span class="s1">_</span><span class="si">{radius}</span><span class="s1">.npz'</span><span class="p">)</span>
+        <span class="n">sorting</span> <span class="o">=</span> <span class="n">se</span><span class="o">.</span><span class="n">NpzSortingExtractor</span><span class="p">(</span><span class="n">param_folder</span> <span class="o">/</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">sorter_name</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">radius</span><span class="si">}</span><span class="s1">.npz'</span><span class="p">)</span>
         <span class="n">comp</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">compare_sorter_to_ground_truth</span><span class="p">(</span><span class="n">gt_sorting</span><span class="p">,</span> <span class="n">sorting</span><span class="p">)</span>
         <span class="n">perfs</span> <span class="o">=</span> <span class="n">comp</span><span class="o">.</span><span class="n">get_performance</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">'by_unit'</span><span class="p">)</span>
         <span class="n">axs</span><span class="p">[</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">snr</span><span class="p">[</span><span class="s1">'snr'</span><span class="p">],</span> <span class="n">perfs</span><span class="p">[</span><span class="s1">'accuracy'</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 
 
-        <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">f</span><span class="s1">'radius </span><span class="si">{radius}</span><span class="s1">'</span><span class="p">)</span>
+        <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">'radius </span><span class="si">{</span><span class="n">radius</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
     <span class="n">axs</span><span class="p">[</span><span class="n">r</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">sorter_name</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -324,7 +375,7 @@ tridesclous: 1.4.2
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -344,12 +395,14 @@ tridesclous: 1.4.2
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Short-conclusion">Short conclusion<a class="anchor-link" href="#Short-conclusion">¶</a>
+<h3 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">¶</a>
 </h3>
-<p>This radius parameter appear to not affect so much the results of spykingcircus.
-Identically, unless for very small radius (20um) herdingpsike seems not be to affect by this parameters.
-Ini contrast, iconclusttends to prefer high radius (150 or 200) to enhance the accuracy.</p>
-
+<p>In this preliminary example, we found that:</p>
+<ul>
+<li>spykingcircus is hardly affected by the adjacency radius parameter</li>
+<li>herdingspikes is only affected (worsened results) for very small radius (20um)</li>
+<li>ironclust tends to prefer higher radiuses as the best performance is achieved with 150-200um</li>
+</ul>
 </div>
 </div>
 </div>

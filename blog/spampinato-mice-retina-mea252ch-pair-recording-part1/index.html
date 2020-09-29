@@ -10,7 +10,7 @@
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
 <meta name="theme-color" content="#5670d4">
 <meta name="generator" content="Nikola (getnikola.com)">
-<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../rss.xml">
 <link rel="canonical" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/">
 <!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="spikeinterface team">
 <link rel="prev" href="../example-of-parameters-optimization/" title="Example of parameters optimization" type="text/html">
@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="spikeinterface report">
 <meta property="og:title" content="Spampinato mice retina mea252ch pair recording - part1">
 <meta property="og:url" content="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/">
-<meta property="og:description" content="Spampinato mice retina mea252ch pari recording - part 1 clean ground truth¶Giulia  Spampinato from Institut de la Vision, Paris, has published data from mice retina recorded in vitro with dense arrays">
+<meta property="og:description" content="Spampinato mice retina mea252ch pair recording - 1¶Part 1) Cleaning the ground-truth data¶This set of notebooks the dataset is from paired juxtacellular/extracellular recordings from mice retina in vi">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2020-01-30T14:58:30+01:00">
 </head>
@@ -31,7 +31,7 @@
 navbar-dark bg-dark
 "><div class="container">
 <!-- This keeps the margins nice -->
-        <a class="navbar-brand" href="https://SpikeInterface.github.io/">
+        <a class="navbar-brand" href="../../">
 
             <span id="blog-title">spikeinterface report</span>
         </a>
@@ -91,35 +91,41 @@ navbar-dark bg-dark
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Spampinato-mice-retina-mea252ch-pari-recording---part-1-clean-ground-truth">Spampinato mice retina mea252ch pari recording - part 1 clean ground truth<a class="anchor-link" href="#Spampinato-mice-retina-mea252ch-pari-recording---part-1-clean-ground-truth">¶</a>
+<h2 id="Spampinato-mice-retina-mea252ch-pair-recording---1">Spampinato mice retina mea252ch pair recording - 1<a class="anchor-link" href="#Spampinato-mice-retina-mea252ch-pair-recording---1">¶</a>
 </h2>
-<p>Giulia  Spampinato from Institut de la Vision, Paris, has published data from mice retina recorded <em>in vitro</em> with dense arrays.
-The data contain one ground truth to benchmark spike sorting tools. The ground truth is recorded with a juxta-celullar pipette.</p>
+<h3 id="Part-1)-Cleaning-the-ground-truth-data">Part 1) Cleaning the ground-truth data<a class="anchor-link" href="#Part-1)-Cleaning-the-ground-truth-data">¶</a>
+</h3>
+<p>This set of notebooks the dataset is from paired juxtacellular/extracellular recordings from mice retina <em>in vitro</em>.
+The MEA has 252 channels.</p>
 <p>The official publication of this open dataset can be found at the following address:
 <a href="https://zenodo.org/record/1205233#.W9mq1HWLTIF">https://zenodo.org/record/1205233#.W9mq1HWLTIF</a></p>
 <p>These datasets were used by Pierre Yger et al in the following "spyking circus" paper:
 <a href="https://elifesciences.org/articles/34518">https://elifesciences.org/articles/34518</a></p>
-<p>After inspecting the juxta-cellular data, we found that some recordings don't have a good enough quality to be considered as "ground truth". To be "ground truth" a recording must indeed required stable detection the threshold, peak snr as well as a constnat amplitude.</p>
-<p>At the end of our quality assesment, some files got removed for the main study detailed in <strong>"spampinato-mice-retina-mea252ch-pair-recording-part2"</strong>.</p>
-<p>Some detail about our "quality assesment" follow.</p>
-<p>First, we have to run the script "detect_ground_truth_spike_on_juxta.py".</p>
+<p>After inspecting the juxta-cellular data, we found that some recordings don't have a good enough quality to be considered as "ground truth". To be "ground truth", a unit is required to be stable in the detection, peak signal-to-noise ratio (SNR) and amplitude.</p>
+<p>At the end of our quality assessment, some files are removed for the main study shown in <a href="https://spikeinterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part2/"><strong>"spampinato-mice-retina-mea252ch-pair-recording-part2"</strong></a>.</p>
+<h4 id="Quality-assessment-details">Quality assessment details<a class="anchor-link" href="#Quality-assessment-details">¶</a>
+</h4>
+<p>First, we have to run the script <code>detect_ground_truth_spike_on_juxta.py</code>.</p>
 <p>This script:</p>
 <ul>
-<li>unzip everything</li>
-<li>run a juxta cellular detection</li>
-<li>generate figure to check manual juxta cellular quality</li>
-<li>compute the peak snr on the max channelin the mea.</li>
+<li>unzips the downloaded data</li>
+<li>runs a juxta cellular detection</li>
+<li>generates figure to manually check juxtacellular quality</li>
+<li>computes the peak SNR on the max channel of the MEA.</li>
 </ul>
-<p>Before we need:</p>
+<p>Before running the script, we need:</p>
 <ul>
-<li>to create a folder <strong>basedir</strong> somwhere.</li>
-<li>a subfolder <strong>basedir/original_files</strong> that contain all zip downloded (20160415_patch2.tar.gz, ...)</li>
+<li>to create a folder <strong>basedir</strong>
+</li>
+<li>to create a subfolder <strong>basedir/original_files</strong> that contain all zip downloded (20160415_patch2.tar.gz, ...)</li>
 </ul>
-<p>Then we run the script detect_ground_truth_spike_on_juxta.py</p>
+<p>Then we can run the script <code>detect_ground_truth_spike_on_juxta.py</code></p>
 <p>After we can:</p>
 <ul>
-<li>inscpect in each folder some figures.</li>
+<li>inscpect in each folder explanatory figures.</li>
 </ul>
+<p>Author: <a href="https://github.com/samuelgarcia">Samuel Garcia</a>, CRNL, Lyon</p>
+
 </div>
 </div>
 </div>
@@ -128,21 +134,21 @@ The data contain one ground truth to benchmark spike sorting tools. The ground t
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Cretirium-to-keep-or-remove-a-file">Cretirium to keep or remove a file<a class="anchor-link" href="#Cretirium-to-keep-or-remove-a-file">¶</a>
+<h2 id="Criterium-to-keep-or-remove-a-file">Criterium to keep or remove a file<a class="anchor-link" href="#Criterium-to-keep-or-remove-a-file">¶</a>
 </h2>
-<p>Having a very reliable ground truth is crucial because all the following sorter metrics are designed on the hypothesis the gound truth is <strong>indeed ground truth</strong>.</p>
-<p>In the following script we choose a hight threshold value for peak detection: <strong>thresh = med + 8*mad</strong></p>
+<p>Having a very reliable ground truth is crucial, as all the following spike sorting performance metrics are designed on the hypothesis the ground truth is <strong>indeed ground truth</strong>.</p>
+<p>In the following script we choose a high threshold value for peak detection: <strong>thresh = med + 8*mad</strong>, where:</p>
 <ul>
 <li>
-<strong>med</strong> been the median of the signal (the baseline),</li>
+<strong>med</strong> is the median of the signal (the baseline),</li>
 <li>
-<strong>mad</strong> been the median absolut deviation (a robust std estimation),</li>
+<strong>mad</strong> is the median absolut deviation (a robust std estimation),</li>
 <li>8 is a quite high relative threshold that ensures the absence of false positive.</li>
 </ul>
 <p>Two main criteria were used to keep a recording:</p>
 <ul>
-<li>the distribution of the peak value of the juxta celullar must look like a Gaussian. Because:<ul>
-<li>a troncated Gaussian suggests that false negative (misses) corrupt the "ground truth",</li>
+<li>the distribution of the peak values of the juxtacelullar action potentials must have a Gaussian distribution:<ul>
+<li>a truncated Gaussian suggests that false negative (misses) corrupt the "ground truth",</li>
 <li>a multi-modal distribution suggests either that an amplitude drift occured or that two (or more) cells were present.</li>
 </ul>
 </li>
@@ -155,7 +161,7 @@ The data contain one ground truth to benchmark spike sorting tools. The ground t
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="List-of-kept-recording-(8)">List of kept recording (8)<a class="anchor-link" href="#List-of-kept-recording-(8)">¶</a>
+<h2 id="List-of-accepted-recording-(8)">List of accepted recording (8)<a class="anchor-link" href="#List-of-accepted-recording-(8)">¶</a>
 </h2>
 <div class="highlight"><pre><span></span><span class="s1">'20160415_patch2'</span><span class="p">,</span>
 <span class="s1">'20170803_patch1'</span><span class="p">,</span>
@@ -175,7 +181,7 @@ The data contain one ground truth to benchmark spike sorting tools. The ground t
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="List-of-non-kept-recording-(11)">List of non kept recording (11)<a class="anchor-link" href="#List-of-non-kept-recording-(11)">¶</a>
+<h2 id="List-of-rejected-recording-(11)">List of rejected recording (11)<a class="anchor-link" href="#List-of-rejected-recording-(11)">¶</a>
 </h2>
 <div class="highlight"><pre><span></span><span class="s1">'20170706_patch2'</span>
 <span class="s1">'20170629_patch2'</span>
@@ -189,8 +195,8 @@ The data contain one ground truth to benchmark spike sorting tools. The ground t
 <span class="s1">'20170623_patch1'</span>
 <span class="s1">'20170622_patch1'</span>
 </pre></div>
-<p>Some reader could think that we are too strict, but we prefer safe final results.
-Feel free to modify this list as you want you your own criteria.</p>
+<p>(Some reader may think that we are too strict, but we prefer to be strict to ensure safe final results.
+Feel free to modify this list as you prefer using your own criteria.)</p>
 
 </div>
 </div>
@@ -219,7 +225,7 @@ Feel free to modify this list as you want you your own criteria.</p>
 <span class="o">%</span><span class="k">matplotlib</span> notebook
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -229,7 +235,7 @@ Feel free to modify this list as you want you your own criteria.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id=" Step-1-:-redetect-properly-juxta-cellular-peaks"> Step 1 : redetect properly juxta cellular peaks<a class="anchor-link" href="#%C2%A0Step-1-:-redetect-properly-juxta-cellular-peaks">¶</a>
+<h2 id=" Step-1-:-Re-detect-properly-juxtacellular-peaks"> Step 1 : Re-detect properly juxtacellular peaks<a class="anchor-link" href="#%C2%A0Step-1-:-Re-detect-properly-juxtacellular-peaks">¶</a>
 </h2>
 </div>
 </div>
@@ -240,12 +246,12 @@ Feel free to modify this list as you want you your own criteria.</p>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># this tridesclous utils are imported only for juxta detection to keep this script simple</span>
-<span class="kn">from</span> <span class="nn">tridesclous.peakdetector</span> <span class="k">import</span>  <span class="n">detect_peaks_in_chunk</span>
-<span class="kn">from</span> <span class="nn">tridesclous.tools</span> <span class="k">import</span> <span class="n">median_mad</span>
-<span class="kn">from</span> <span class="nn">tridesclous.waveformtools</span> <span class="k">import</span> <span class="n">extract_chunks</span>
+<span class="kn">from</span> <span class="nn">tridesclous.peakdetector</span> <span class="kn">import</span>  <span class="n">detect_peaks_in_chunk</span>
+<span class="kn">from</span> <span class="nn">tridesclous.tools</span> <span class="kn">import</span> <span class="n">median_mad</span>
+<span class="kn">from</span> <span class="nn">tridesclous.waveformtools</span> <span class="kn">import</span> <span class="n">extract_chunks</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -261,7 +267,7 @@ Feel free to modify this list as you want you your own criteria.</p>
              <span class="s1">'20170713_patch1'</span><span class="p">,</span> <span class="s1">'20160415_patch2'</span><span class="p">,</span> <span class="s1">'20170706_patch2'</span><span class="p">,</span> <span class="s1">'20170803_patch1'</span><span class="p">]</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -292,7 +298,7 @@ Feel free to modify this list as you want you your own criteria.</p>
     <span class="n">t</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">recording_folder</span><span class="o">+</span><span class="n">rec_name</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -302,7 +308,7 @@ Feel free to modify this list as you want you your own criteria.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id=" -detect-ground-truth-spikes-on-juxta">  detect ground truth spikes on juxta<a class="anchor-link" href="#%C2%A0-detect-ground-truth-spikes-on-juxta">¶</a>
+<h3 id=" Detect-ground-truth-spikes-on-juxta"> Detect ground-truth spikes on juxta<a class="anchor-link" href="#%C2%A0Detect-ground-truth-spikes-on-juxta">¶</a>
 </h3>
 </div>
 </div>
@@ -411,7 +417,7 @@ Feel free to modify this list as you want you your own criteria.</p>
 <span class="n">gt_info</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">ground_truth_folder</span><span class="o">+</span><span class="s1">'gt_info.xlsx'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -421,7 +427,7 @@ Feel free to modify this list as you want you your own criteria.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id=" Step2-:-check-juxta-cellular-quality"> Step2 : check juxta cellular quality<a class="anchor-link" href="#%C2%A0Step2-:-check-juxta-cellular-quality">¶</a>
+<h2 id=" Step2-:-Check-juxtacellular-quality"> Step2 : Check juxtacellular quality<a class="anchor-link" href="#%C2%A0Step2-:-Check-juxtacellular-quality">¶</a>
 </h2>
 </div>
 </div>
@@ -474,7 +480,7 @@ Feel free to modify this list as you want you your own criteria.</p>
     
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -484,12 +490,12 @@ Feel free to modify this list as you want you your own criteria.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Why-some-recording-are-are-not-kept">Why some recording are are not kept<a class="anchor-link" href="#Why-some-recording-are-are-not-kept">¶</a>
+<h2 id="Why-some-recordings-are-are-not-kept?">Why some recordings are are not kept?<a class="anchor-link" href="#Why-some-recordings-are-are-not-kept?">¶</a>
 </h2>
-<p>In following figures:</p>
+<p>In the following figures:</p>
 <ul>
 <li>the black vertical line is the baseline (median) of juxta-cellular trace, </li>
-<li>the grey area represents 1, 2, 3, 4, 5 MAD (robust STD), </li>
+<li>the grey areas represent 1, 2, 3, 4, 5 MAD (robust STD), </li>
 <li>the red line is the detection threshold.</li>
 </ul>
 </div>
@@ -502,7 +508,7 @@ Feel free to modify this list as you want you your own criteria.</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Figure-for-20170706_patch2">Figure for 20170706_patch2<a class="anchor-link" href="#Figure-for-20170706_patch2">¶</a>
 </h3>
-<p>Here too few events are detected.</p>
+<p>For this cell too few events are detected.</p>
 
 </div>
 </div>
@@ -515,7 +521,7 @@ Feel free to modify this list as you want you your own criteria.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20170706_patch2'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -525,7 +531,7 @@ Feel free to modify this list as you want you your own criteria.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -561,7 +567,7 @@ Missed events are obvious in the middle part of recording.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20170629_patch2'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -571,7 +577,7 @@ Missed events are obvious in the middle part of recording.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -606,7 +612,7 @@ Missed events are obvious in the middle part of recording.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20170622_patch2'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -616,7 +622,7 @@ Missed events are obvious in the middle part of recording.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -652,7 +658,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20170726_patch1'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -662,7 +668,7 @@ Some spikes are clearly missed at the begnning.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -684,7 +690,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Figure-for-20170706_patch1">Figure for 20170706_patch1<a class="anchor-link" href="#Figure-for-20170706_patch1">¶</a>
 </h3>
-<p>Obvisous missing spikes.</p>
+<p>Obvious missing spikes.</p>
 
 </div>
 </div>
@@ -697,7 +703,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20170706_patch1'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -707,7 +713,7 @@ Some spikes are clearly missed at the begnning.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -729,7 +735,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Figure-for-20170706_patch3">Figure for 20170706_patch3<a class="anchor-link" href="#Figure-for-20170706_patch3">¶</a>
 </h3>
-<p>Obvisous missing spikes.</p>
+<p>Obvious missing spikes.</p>
 
 </div>
 </div>
@@ -742,7 +748,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20170706_patch3'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -752,7 +758,7 @@ Some spikes are clearly missed at the begnning.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -774,7 +780,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Figure-for-20170627_patch1">Figure for 20170627_patch1<a class="anchor-link" href="#Figure-for-20170627_patch1">¶</a>
 </h3>
-<p>Obvisous missing spikes</p>
+<p>Obvious missing spikes</p>
 
 </div>
 </div>
@@ -787,7 +793,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20170627_patch1'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -797,7 +803,7 @@ Some spikes are clearly missed at the begnning.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -832,7 +838,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20170630_patch1'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -842,7 +848,7 @@ Some spikes are clearly missed at the begnning.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -864,7 +870,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Figure-for-20170629_patch3">Figure for 20170629_patch3<a class="anchor-link" href="#Figure-for-20170629_patch3">¶</a>
 </h3>
-<p>Obvisous missing spikes.</p>
+<p>Obvious missing spikes.</p>
 
 </div>
 </div>
@@ -877,7 +883,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20170629_patch3'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -887,7 +893,7 @@ Some spikes are clearly missed at the begnning.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -909,7 +915,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Figure-for-20170623_patch1-:-NO">Figure for 20170623_patch1 : NO<a class="anchor-link" href="#Figure-for-20170623_patch1-:-NO">¶</a>
 </h3>
-<p>Here the amplitude distribution right tail is too close to the detection threhold and there is a supspicion of missed spikes.</p>
+<p>Here the amplitude distribution right tail is too close to the detection threhold and there is a suspicion of missed spikes.</p>
 
 </div>
 </div>
@@ -922,7 +928,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20170623_patch1'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -932,7 +938,7 @@ Some spikes are clearly missed at the begnning.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -962,9 +968,9 @@ Some spikes are clearly missed at the begnning.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Figure-for-20170713_patch1-:-OK-but-boudary">Figure for 20170713_patch1 : OK but boudary<a class="anchor-link" href="#Figure-for-20170713_patch1-:-OK-but-boudary">¶</a>
+<h3 id="Figure-for-20170713_patch1-:-OK,-but-boundary">Figure for 20170713_patch1 : OK, but boundary<a class="anchor-link" href="#Figure-for-20170713_patch1-:-OK,-but-boundary">¶</a>
 </h3>
-<p>We see here two clear peaks in the distribution suggesting that 2 neurons were present, but that could also result from an electrode mouvement.</p>
+<p>We see here two clear peaks in the distribution suggesting that there could be an electrode movement.</p>
 
 </div>
 </div>
@@ -977,7 +983,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20170713_patch1'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -987,7 +993,7 @@ Some spikes are clearly missed at the begnning.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -1009,7 +1015,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Figure-for-20160415_patch2-:-OK">Figure for 20160415_patch2 : OK<a class="anchor-link" href="#Figure-for-20160415_patch2-:-OK">¶</a>
 </h3>
-<p>A ground truth we can trust!!</p>
+<p>A ground truth unit we can trust!!</p>
 
 </div>
 </div>
@@ -1022,7 +1028,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20160415_patch2'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -1032,7 +1038,7 @@ Some spikes are clearly missed at the begnning.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -1065,7 +1071,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20170803_patch1'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -1075,7 +1081,7 @@ Some spikes are clearly missed at the begnning.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -1110,7 +1116,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20160426_patch3'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -1120,7 +1126,7 @@ Some spikes are clearly missed at the begnning.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -1155,7 +1161,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20170725_patch1'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -1165,7 +1171,7 @@ Some spikes are clearly missed at the begnning.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -1198,7 +1204,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20170621_patch1'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -1208,7 +1214,7 @@ Some spikes are clearly missed at the begnning.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -1241,7 +1247,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20160426_patch2'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -1251,7 +1257,7 @@ Some spikes are clearly missed at the begnning.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -1273,7 +1279,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Figure-for-20170728_patch2-:-OK">Figure for 20170728_patch2 : OK<a class="anchor-link" href="#Figure-for-20170728_patch2-:-OK">¶</a>
 </h3>
-<p>Ok but some mouvement at the end.</p>
+<p>Ok but some movement at the end...</p>
 
 </div>
 </div>
@@ -1286,7 +1292,7 @@ Some spikes are clearly missed at the begnning.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_juxta_amplitude</span><span class="p">(</span><span class="s1">'20170728_patch2'</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -1296,7 +1302,7 @@ Some spikes are clearly missed at the begnning.</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -1319,11 +1325,11 @@ Some spikes are clearly missed at the begnning.</p>
 <h2 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">¶</a>
 </h2>
 <ul>
-<li>11 out of 19 files have been removed for further ground truth analysis.</li>
-<li>8 out of 19 files are kept for ground truth analysis.</li>
+<li>11 out of 19 files have been removed for further ground-truth analysis.</li>
+<li>8 out of 19 files are kept for ground-truth analysis.</li>
 </ul>
-<p>For paired recording ground truth, the ground truth itself have to be carrefully veryfied.</p>
-<p>The original ground spike index provide on 19 files by the authors are not trustable for a fair spike sorting comparison.</p>
+<p>For paired recording ground truth, the ground truth itself has to be carefully verified.</p>
+<p>The original ground spike index provided on 19 files by the authors are not trustable for a fair spike sorting comparison.</p>
 
 </div>
 </div>
