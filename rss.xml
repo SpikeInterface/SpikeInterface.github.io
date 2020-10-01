@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>spikeinterface report</title><link>https://SpikeInterface.github.io/</link><description>spikeinterface report</description><atom:link href="https://SpikeInterface.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:sam.garcia.die@gmail.com"&gt;spikeinterface team&lt;/a&gt; </copyright><lastBuildDate>Tue, 29 Sep 2020 17:00:10 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Ensemble sorting of a 3Brain Biocam recording from a retina</title><link>https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-3brain-biocam-recording-from-a-retina/</link><dc:creator>spikeinterface team</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>spikeinterface report</title><link>https://SpikeInterface.github.io/</link><description>spikeinterface report</description><atom:link href="https://SpikeInterface.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:sam.garcia.die@gmail.com"&gt;spikeinterface team&lt;/a&gt; </copyright><lastBuildDate>Thu, 01 Oct 2020 12:20:55 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Ensemble sorting of a 3Brain Biocam recording from a retina</title><link>https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-3brain-biocam-recording-from-a-retina/</link><dc:creator>spikeinterface team</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Ensemble-sorting-of-a-3Brain-Biocam-recording-from-a-mouse-retina"&gt;Ensemble sorting of a 3Brain Biocam recording from a mouse retina&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-3brain-biocam-recording-from-a-retina/#Ensemble-sorting-of-a-3Brain-Biocam-recording-from-a-mouse-retina"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This notebook reproduces supplemental figure S3 from the paper &lt;a href="https://www.biorxiv.org/content/10.1101/796599v2"&gt;&lt;strong&gt;SpikeInterface, a unified framework for spike sorting&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
@@ -3010,10 +3010,10 @@ HDS   1.630435   1.086957   3.0   2.0
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;/div&gt;&lt;/div&gt;</description><category>paper</category><guid>https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-neuropixels-recording/</guid><pubDate>Sun, 23 Aug 2020 15:29:46 GMT</pubDate></item><item><title>Check if duration change the quality for spike sorting</title><link>https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/</link><dc:creator>spikeinterface team</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>paper</category><guid>https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-neuropixels-recording/</guid><pubDate>Sun, 23 Aug 2020 15:29:46 GMT</pubDate></item><item><title>Does the recording's duration affect the quality of spike sorting?</title><link>https://SpikeInterface.github.io/blog/check-if-duration-affects-spike-sorting/</link><dc:creator>spikeinterface team</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Does-the-recording's-duration-affect-the-quality-of-spike-sorting?"&gt;Does the recording's duration affect the quality of spike sorting?&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#Does-the-recording's-duration-affect-the-quality-of-spike-sorting?"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This notebook investigates if and how the duration of the recording affects spike sorting.&lt;/p&gt;
+&lt;h2 id="Does-the-recording's-duration-affect-the-quality-of-spike-sorting?"&gt;Does the recording's duration affect the quality of spike sorting?&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-if-duration-affects-spike-sorting/#Does-the-recording's-duration-affect-the-quality-of-spike-sorting?"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This notebook investigates if and how the duration of the recording affects spike sorting.&lt;/p&gt;
 &lt;p&gt;Obviously, each sorter engine needs a minimum number of events to detect a "cluster", and therefore a unit.
 If a neuron doesn't fire enough during a recording it won't be detected.
 The number of event per units depends on the recording duration and the each individual firing rates.&lt;/p&gt;
@@ -3021,10 +3021,12 @@ The number of event per units depends on the recording duration and the each ind
 duration of the recording.&lt;/p&gt;
 &lt;p&gt;The simulated recording is generated with &lt;a href="https://github.com/alejoe91/MEArec"&gt;MEArec&lt;/a&gt; using a Neuronexus-32 probe. 
 This specific dataset seems  &lt;em&gt;relatively&lt;/em&gt; easy to sort. The "SYNTH_MEAREC_NEURONEXUS" dataset in 
-&lt;a href="https://spikeforest.flatironinstitute.org/"&gt;SpikeForest&lt;/a&gt;&lt;br&gt;
-(which uses the same probe),  in fact, shows quite good results for all sorters. The original duration is 600s (10 min).&lt;/p&gt;
+&lt;a href="https://spikeforest.flatironinstitute.org/"&gt;SpikeForest&lt;/a&gt; (which uses the same probe),  in fact, shows quite good 
+results for all sorters. The original duration is 600s (10 min).&lt;/p&gt;
 &lt;p&gt;Here we have generated a new but similar recording with a duration of 1800s. Then we have shortened it to 60s, 300s, 
 600s and 1800s (original). The recording can be downloaded from Zenodo: &lt;a href="https://doi.org/10.5281/zenodo.4058272"&gt;https://doi.org/10.5281/zenodo.4058272&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The dataset name is: &lt;strong&gt;recordings_10cells_Neuronexus-32_1800.0_10.0uV_2020-02-28.h5&lt;/strong&gt;. It contains 10 neurons recorded on a Neuronexus-32 probe. 
+The duration is 1800s and the noise level is 10uV.&lt;/p&gt;
 &lt;p&gt;Let's see if spike sorters are robust to fewer events and if are able to deal with long durations or they end up 
 finding too many events.&lt;/p&gt;
 &lt;p&gt;Author: &lt;a href="https://github.com/samuelgarcia"&gt;Samuel Garcia&lt;/a&gt;, CRNL, Lyon&lt;/p&gt;
@@ -3035,7 +3037,7 @@ finding too many events.&lt;/p&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h4 id="Requirements"&gt;Requirements&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#Requirements"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;For this need you will need the following Python packages:&lt;/p&gt;
+&lt;h4 id="Requirements"&gt;Requirements&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-if-duration-affects-spike-sorting/#Requirements"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;For this need you will need the following Python packages:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;numpy&lt;/li&gt;
 &lt;li&gt;pandas&lt;/li&gt;
@@ -3052,7 +3054,7 @@ For other sorters, please refer to the documentation on &lt;a href="https://spik
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h4 id="Installation-and-imports"&gt;Installation and imports&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#Installation-and-imports"&gt;¶&lt;/a&gt;&lt;/h4&gt;
+&lt;h4 id="Installation-and-imports"&gt;Installation and imports&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-if-duration-affects-spike-sorting/#Installation-and-imports"&gt;¶&lt;/a&gt;&lt;/h4&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3162,7 +3164,7 @@ For other sorters, please refer to the documentation on &lt;a href="https://spik
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Check-spikeinterface-version-and-sorter-version"&gt;Check spikeinterface version and sorter version&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#Check-spikeinterface-version-and-sorter-version"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="Check-spikeinterface-version-and-sorter-version"&gt;Check spikeinterface version and sorter version&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-if-duration-affects-spike-sorting/#Check-spikeinterface-version-and-sorter-version"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3215,7 +3217,7 @@ tridesclous: 1.5.0
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Setup-global-path"&gt;Setup global path&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#Setup-global-path"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="Setup-global-path"&gt;Setup global path&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-if-duration-affects-spike-sorting/#Setup-global-path"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3237,7 +3239,7 @@ tridesclous: 1.5.0
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Setup-ground-truth-study"&gt;Setup ground truth study&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#Setup-ground-truth-study"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="Setup-ground-truth-study"&gt;Setup ground truth study&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-if-duration-affects-spike-sorting/#Setup-ground-truth-study"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3246,7 +3248,7 @@ tridesclous: 1.5.0
 &lt;div class="prompt input_prompt"&gt;In [5]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;mearec_filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="s1"&gt;'recordings_250cells_Neuronexus-32chans_duration1800s_noise10.0uV_2020-02-28.h5'&lt;/span&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;mearec_filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="s1"&gt;'recordings_10cells_Neuronexus-32_1800.0_10.0uV_2020-02-28.h5'&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
     &lt;/div&gt;
@@ -3281,7 +3283,7 @@ tridesclous: 1.5.0
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Run-all-sorters"&gt;Run all sorters&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#Run-all-sorters"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="Run-all-sorters"&gt;Run all sorters&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-if-duration-affects-spike-sorting/#Run-all-sorters"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3317,7 +3319,7 @@ tridesclous: 1.5.0
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Get-signal-to-noise-ratio-for-all-units"&gt;Get signal to noise ratio for all units&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#Get-signal-to-noise-ratio-for-all-units"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Units are the same in each recording so the snr is the same lets take from the longest one&lt;/p&gt;
+&lt;h3 id="Get-signal-to-noise-ratio-for-all-units"&gt;Get signal to noise ratio for all units&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-if-duration-affects-spike-sorting/#Get-signal-to-noise-ratio-for-all-units"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Units are the same in each recording so the snr is the same lets take from the longest one&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3487,7 +3489,7 @@ tridesclous: 1.5.0
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Run-comparison-with-ground-truth-and-retreive-result-tables"&gt;Run comparison with ground truth and retreive result tables&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#Run-comparison-with-ground-truth-and-retreive-result-tables"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="Run-comparison-with-ground-truth-and-retreive-result-tables"&gt;Run comparison with ground truth and retreive result tables&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-if-duration-affects-spike-sorting/#Run-comparison-with-ground-truth-and-retreive-result-tables"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3527,7 +3529,7 @@ tridesclous: 1.5.0
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Run-times"&gt;Run times&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#Run-times"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="Run-times"&gt;Run times&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-if-duration-affects-spike-sorting/#Run-times"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3808,7 +3810,7 @@ tridesclous: 1.5.0
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Accuracy-vs-duration"&gt;Accuracy vs duration&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#Accuracy-vs-duration"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="Accuracy-vs-duration"&gt;Accuracy vs duration&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-if-duration-affects-spike-sorting/#Accuracy-vs-duration"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -4048,7 +4050,7 @@ tridesclous: 1.5.0
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Count-good,-bad,-false-positive-units-vs-duration"&gt;Count good, bad, false positive units vs duration&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#Count-good,-bad,-false-positive-units-vs-duration"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="Count-good,-bad,-false-positive-units-vs-duration"&gt;Count good, bad, false positive units vs duration&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-if-duration-affects-spike-sorting/#Count-good,-bad,-false-positive-units-vs-duration"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -4470,7 +4472,7 @@ tridesclous: 1.5.0
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h4 id="num_well_detected-vs-duration"&gt;num_well_detected vs duration&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#num_well_detected-vs-duration"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;the more the better&lt;/p&gt;
+&lt;h4 id="num_well_detected-vs-duration"&gt;num_well_detected vs duration&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-if-duration-affects-spike-sorting/#num_well_detected-vs-duration"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;the more the better&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -4511,7 +4513,7 @@ tridesclous: 1.5.0
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h4 id="num_false_positive-vs-duration"&gt;num_false_positive vs duration&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#num_false_positive-vs-duration"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;the less the better&lt;/p&gt;
+&lt;h4 id="num_false_positive-vs-duration"&gt;num_false_positive vs duration&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-if-duration-affects-spike-sorting/#num_false_positive-vs-duration"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;the less the better&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -4600,7 +4602,7 @@ tridesclous: 1.5.0
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h4 id="num_redundant-vs-duration"&gt;num_redundant vs duration&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#num_redundant-vs-duration"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;the less the better&lt;/p&gt;
+&lt;h4 id="num_redundant-vs-duration"&gt;num_redundant vs duration&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-if-duration-affects-spike-sorting/#num_redundant-vs-duration"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;the less the better&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -4641,7 +4643,7 @@ tridesclous: 1.5.0
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Conlusion"&gt;Conlusion&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/#Conlusion"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;For this simple simulated dataset we have observed that:&lt;/p&gt;
+&lt;h3 id="Conlusion"&gt;Conlusion&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/check-if-duration-affects-spike-sorting/#Conlusion"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;For this simple simulated dataset we have observed that:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Focusing on the average accuracy, all sorters have similar performance for long or short recordings.
 The only exception is Kilosort: it has a clear drop in performence for the shortest duration (60s).&lt;/p&gt;
@@ -4663,7 +4665,7 @@ The only exception is Kilosort: it has a clear drop in performence for the short
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;/div&gt;</description><guid>https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/</guid><pubDate>Mon, 02 Mar 2020 10:25:28 GMT</pubDate></item><item><title>Spampinato mice retina mea252ch pair recording - part2</title><link>https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part2/</link><dc:creator>spikeinterface team</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;/div&gt;</description><guid>https://SpikeInterface.github.io/blog/check-if-duration-affects-spike-sorting/</guid><pubDate>Mon, 02 Mar 2020 10:25:28 GMT</pubDate></item><item><title>Spampinato mice retina mea252ch pair recording - part2</title><link>https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part2/</link><dc:creator>spikeinterface team</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Spampinato-mice-retina-mea252ch-pair-recording---2"&gt;Spampinato mice retina mea252ch pair recording - 2&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part2/#Spampinato-mice-retina-mea252ch-pair-recording---2"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;h3 id="Part-2)-Ground-truth-comparison"&gt;Part 2) Ground-truth comparison&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part2/#Part-2)-Ground-truth-comparison"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;This set of notebooks the dataset is from paired juxtacellular/extracellular recordings from mice retina &lt;em&gt;in vitro&lt;/em&gt;.

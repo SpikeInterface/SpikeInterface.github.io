@@ -4,20 +4,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Check if duration change the quality for spike sorting | spikeinterface report</title>
+<title>Does the recording's duration affect the quality of spike sorting? | spikeinterface report</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
 <meta name="theme-color" content="#5670d4">
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../rss.xml">
-<link rel="canonical" href="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/">
+<link rel="canonical" href="https://SpikeInterface.github.io/blog/check-if-duration-affects-spike-sorting/">
 <!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="spikeinterface team">
 <link rel="prev" href="../spampinato-mice-retina-mea252ch-pair-recording-part2/" title="Spampinato mice retina mea252ch pair recording - part2" type="text/html">
 <link rel="next" href="../ensemble-sorting-of-a-neuropixels-recording/" title="Ensemble sorting of a Neuropixels recording" type="text/html">
 <meta property="og:site_name" content="spikeinterface report">
-<meta property="og:title" content="Check if duration change the quality for spike sorting">
-<meta property="og:url" content="https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/">
+<meta property="og:title" content="Does the recording's duration affect the quality of spike sorting?">
+<meta property="og:url" content="https://SpikeInterface.github.io/blog/check-if-duration-affects-spike-sorting/">
 <meta property="og:description" content="Does the recording's duration affect the quality of spike sorting?¶This notebook investigates if and how the duration of the recording affects spike sorting.
 Obviously, each sorter engine needs a mini">
 <meta property="og:type" content="article">
@@ -69,7 +69,7 @@ navbar-dark bg-dark
         
         
         
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Check if duration change the quality for spike sorting</a></h1>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Does the recording's duration affect the quality of spike sorting?</a></h1>
 
         <div class="metadata">
             <p class="byline author vcard p-author h-card"><span class="byline-name fn p-name" itemprop="author">
@@ -102,10 +102,12 @@ The number of event per units depends on the recording duration and the each ind
 duration of the recording.</p>
 <p>The simulated recording is generated with <a href="https://github.com/alejoe91/MEArec">MEArec</a> using a Neuronexus-32 probe. 
 This specific dataset seems  <em>relatively</em> easy to sort. The "SYNTH_MEAREC_NEURONEXUS" dataset in 
-<a href="https://spikeforest.flatironinstitute.org/">SpikeForest</a><br>
-(which uses the same probe),  in fact, shows quite good results for all sorters. The original duration is 600s (10 min).</p>
+<a href="https://spikeforest.flatironinstitute.org/">SpikeForest</a> (which uses the same probe),  in fact, shows quite good 
+results for all sorters. The original duration is 600s (10 min).</p>
 <p>Here we have generated a new but similar recording with a duration of 1800s. Then we have shortened it to 60s, 300s, 
 600s and 1800s (original). The recording can be downloaded from Zenodo: <a href="https://doi.org/10.5281/zenodo.4058272">https://doi.org/10.5281/zenodo.4058272</a></p>
+<p>The dataset name is: <strong>recordings_10cells_Neuronexus-32_1800.0_10.0uV_2020-02-28.h5</strong>. It contains 10 neurons recorded on a Neuronexus-32 probe. 
+The duration is 1800s and the noise level is 10uV.</p>
 <p>Let's see if spike sorters are robust to fewer events and if are able to deal with long durations or they end up 
 finding too many events.</p>
 <p>Author: <a href="https://github.com/samuelgarcia">Samuel Garcia</a>, CRNL, Lyon</p>
@@ -343,7 +345,7 @@ tridesclous: 1.5.0
 <div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mearec_filename</span> <span class="o">=</span> <span class="n">p</span> <span class="o">/</span> <span class="s1">'recordings_250cells_Neuronexus-32chans_duration1800s_noise10.0uV_2020-02-28.h5'</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mearec_filename</span> <span class="o">=</span> <span class="n">p</span> <span class="o">/</span> <span class="s1">'recordings_10cells_Neuronexus-32_1800.0_10.0uV_2020-02-28.h5'</span>
 </pre></div>
 
     </div>
