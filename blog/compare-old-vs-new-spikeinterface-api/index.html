@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compare old vs new spikeinterface API | spikeinterface report</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../rss.xml">
+<link rel="canonical" href="https://SpikeInterface.github.io/blog/compare-old-vs-new-spikeinterface-api/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="spikeinterface team">
+<link rel="prev" href="../ensemble-sorting-of-a-3brain-biocam-recording-from-a-retina/" title="Ensemble sorting of a 3Brain Biocam recording from a retina" type="text/html">
+<meta property="og:site_name" content="spikeinterface report">
+<meta property="og:title" content="Compare old vs new spikeinterface API">
+<meta property="og:url" content="https://SpikeInterface.github.io/blog/compare-old-vs-new-spikeinterface-api/">
+<meta property="og:description" content='Compare "old" vs "new " spikeinterface API¶Author : Samuel Garcia
+29 March 2021
+In spring 2021, the spikeinterface team plan a "big refactoring" of the spikeinterface tool suite.
+Main changes are:
+
+us'>
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2021-03-29T15:22:08+02:00">
+<meta property="article:tag" content="new_api">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark
+bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="../../">
+
+            <span id="blog-title">spikeinterface report</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../../index.html" class="nav-link">Home</a>
+                </li>
+<li class="nav-item">
+<a href="../../archive.html" class="nav-link">Notebook archives</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right">
+<li class="nav-item">
+    <a href="index.ipynb" id="sourcelink" class="nav-link">Source</a>
+    </li>
+
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+        
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Compare old vs new spikeinterface API</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard p-author h-card"><span class="byline-name fn p-name" itemprop="author">
+                    spikeinterface team
+            </span></p>
+            <p class="dateline">
+            <a href="." rel="bookmark">
+            <time class="published dt-published" datetime="2021-03-29T15:22:08+02:00" itemprop="datePublished" title="2021-03-29 15:22">2021-03-29 15:22</time></a>
+            </p>
+            
+        <p class="sourceline"><a href="index.ipynb" class="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id='Compare-"old"-vs-"new-"-spikeinterface-API'>Compare "old" vs "new " spikeinterface API<a class="anchor-link" href="#Compare-%22old%22-vs-%22new-%22-spikeinterface-API">¶</a>
+</h2>
+<p>Author : Samuel Garcia
+29 March 2021</p>
+<p>In spring 2021, the spikeinterface team plan a "big refactoring" of the spikeinterface tool suite.</p>
+<p>Main changes are:</p>
+<ul>
+<li>use neo as much as possible for extractors</li>
+<li>handle multi segment</li>
+<li>improve performance (pre and post processing)</li>
+<li>add A WaveformExtractor class</li>
+</ul>
+<p>Here I will benchmark 2 aspects of the "new API":</p>
+<ul>
+<li>filter with 10 workers on a multi core machine</li>
+<li>extractor waveform 1 worker vs 10 workers</li>
+</ul>
+<p>The becnhmark is done a 10 min spikeglx file with 384 channels.</p>
+<p>The sorting is done with kilosort3.</p>
+<p>My machine is Intel(R) Xeon(R) Silver 4210 CPU @ 2.20GHz
+2 CPU with 20 core each.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">base_folder</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">'/mnt/data/sam/DataSpikeSorting/eduarda_arthur'</span><span class="p">)</span> 
+<span class="n">data_folder</span> <span class="o">=</span> <span class="n">base_folder</span> <span class="o">/</span> <span class="s1">'raw_awake'</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Filter-with-OLD-API">Filter with OLD API<a class="anchor-link" href="#Filter-with-OLD-API">¶</a>
+</h3>
+<p>Here we :</p>
+<ol>
+<li>open the file</li>
+<li>lazy filter</li>
+<li>cache it</li>
+<li>dump to json</li>
+</ol>
+<p>The "cache" step is in fact the "compute and save" step.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">spikeextractors</span> <span class="k">as</span> <span class="nn">se</span>
+<span class="kn">import</span> <span class="nn">spiketoolkit</span> <span class="k">as</span> <span class="nn">st</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'spikeextractors version'</span><span class="p">,</span> <span class="n">se</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'spiketoolkit version'</span><span class="p">,</span> <span class="n">st</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+
+<span class="c1"># step 1: open</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="n">data_folder</span> <span class="o">/</span> <span class="s1">'raw_awake_01_g0_t0.imec0.ap.bin'</span>
+<span class="n">recording</span> <span class="o">=</span> <span class="n">se</span><span class="o">.</span><span class="n">SpikeGLXRecordingExtractor</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+<span class="c1"># step 2: lazy filter</span>
+<span class="n">rec_filtered</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">bandpass_filter</span><span class="p">(</span><span class="n">recording</span><span class="p">,</span>  <span class="n">freq_min</span><span class="o">=</span><span class="mf">300.</span> <span class="n">freq_max</span><span class="o">=</span><span class="mf">6000.</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rec_filtered</span><span class="p">)</span>
+
+<span class="n">save_folder</span> <span class="o">=</span> <span class="n">base_folder</span> <span class="o">/</span> <span class="s1">'raw_awake_filtered_old'</span>
+<span class="k">if</span> <span class="n">save_folder</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">save_folder</span><span class="p">)</span>
+<span class="n">save_folder</span><span class="o">.</span><span class="n">mkdir</span><span class="p">()</span>
+
+<span class="n">save_file</span> <span class="o">=</span> <span class="n">save_folder</span> <span class="o">/</span> <span class="s1">'filetred_recording.dat'</span>
+<span class="n">dump_file</span> <span class="o">=</span> <span class="n">save_folder</span> <span class="o">/</span> <span class="s1">'filetred_recording.json'</span>
+
+<span class="c1"># step 3: cache</span>
+<span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">cached</span> <span class="o">=</span> <span class="n">se</span><span class="o">.</span><span class="n">CacheRecordingExtractor</span><span class="p">(</span><span class="n">rec_filtered</span><span class="p">,</span> <span class="n">chunk_mb</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> 
+    <span class="n">save_path</span><span class="o">=</span><span class="n">save_file</span><span class="p">)</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">run_time_filter_old</span> <span class="o">=</span> <span class="n">t1</span><span class="o">-</span><span class="n">t0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Old spikeextractors cache'</span><span class="p">,</span> <span class="n">run_time_filter_old</span><span class="p">)</span>
+
+<span class="c1"># step : dump</span>
+<span class="n">cached</span><span class="o">.</span><span class="n">dump_to_json</span><span class="p">(</span><span class="n">dump_file</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>spikeextractors version 0.9.5
+spiketoolkit version 0.7.4
+&lt;spiketoolkit.preprocessing.bandpass_filter.BandpassFilterRecording object at 0x7f648d3ee130&gt;
+Old spikeextractors cache 801.9439885600004
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Filter-with-NEW-API">Filter with NEW API<a class="anchor-link" href="#Filter-with-NEW-API">¶</a>
+</h3>
+<p>Here we :</p>
+<ol>
+<li>open the file</li>
+<li>lazy filter</li>
+<li>save it</li>
+</ol>
+<p>The "save" step is in fact the "compute and save" step.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+<span class="kn">import</span> <span class="nn">spikeinterface</span> <span class="k">as</span> <span class="nn">si</span>
+
+<span class="kn">import</span> <span class="nn">spikeinterface.extractors</span> <span class="k">as</span> <span class="nn">se</span>
+<span class="kn">import</span> <span class="nn">spikeinterface.toolkit</span> <span class="k">as</span> <span class="nn">st</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'spikeinterface version'</span><span class="p">,</span> <span class="n">si</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+
+<span class="c1"># step 1: open</span>
+<span class="n">recording</span> <span class="o">=</span> <span class="n">se</span><span class="o">.</span><span class="n">SpikeGLXRecordingExtractor</span><span class="p">(</span><span class="n">data_folder</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">recording</span><span class="p">)</span>
+
+<span class="c1"># step 2: lazy filter</span>
+<span class="n">rec_filtered</span> <span class="o">=</span><span class="n">st</span><span class="o">.</span><span class="n">bandpass_filter</span><span class="p">(</span><span class="n">recording</span><span class="p">,</span>  <span class="n">freq_min</span><span class="o">=</span><span class="mf">300.</span><span class="p">,</span> <span class="n">freq_max</span><span class="o">=</span><span class="mf">6000.</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rec_filtered</span><span class="p">)</span>
+
+
+<span class="n">filter_path</span> <span class="o">=</span> <span class="n">base_folder</span> <span class="o">/</span> <span class="s1">'raw_awake_filtered'</span>
+<span class="k">if</span> <span class="n">filter_path</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">filter_path</span><span class="p">)</span>
+
+<span class="c1"># step 3 : compute and save with 10 workers</span>
+<span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">cached</span> <span class="o">=</span> <span class="n">rec_filtered</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">folder</span><span class="o">=</span><span class="n">filter_path</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s1">'binary'</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">'int16'</span><span class="p">,</span>
+    <span class="n">n_jobs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>  <span class="n">total_memory</span><span class="o">=</span><span class="s2">"50M"</span><span class="p">,</span> <span class="n">progress_bar</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">run_time_filter_new</span> <span class="o">=</span> <span class="n">t1</span> <span class="o">-</span><span class="n">t0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'New spikeinterface filter + save binary'</span><span class="p">,</span> <span class="n">run_time_filter_new</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>spikeinterface version 0.90.0
+SpikeGLXRecordingExtractor: 385 channels - 1 segments - 30.0kHz
+BandpassFilterRecording: 385 channels - 1 segments - 30.0kHz
+write_binary_recording with n_jobs 10  chunk_size 3246
+write_binary_recording: 100%|██████████| 5546/5546 [00:51&lt;00:00, 108.39it/s]
+New spikeinterface filter + save binary 54.79437772196252
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Extract-waveform-with-OLD-API">Extract waveform with OLD API<a class="anchor-link" href="#Extract-waveform-with-OLD-API">¶</a>
+</h3>
+<p>Here we use get_unit_waveforms from toolkit.</p>
+<p>We do the computation with 1 and then 10 jobs.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">spikeextractors.baseextractor</span> <span class="kn">import</span> <span class="n">BaseExtractor</span>
+<span class="kn">import</span> <span class="nn">spikeextractors</span> <span class="k">as</span> <span class="nn">se</span>
+<span class="kn">import</span> <span class="nn">spiketoolkit</span> <span class="k">as</span> <span class="nn">st</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'spikeextractors version'</span><span class="p">,</span> <span class="n">se</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'spiketoolkit version'</span><span class="p">,</span> <span class="n">st</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>spikeextractors version 0.9.5
+spiketoolkit version 0.7.4
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">save_folder</span> <span class="o">=</span> <span class="n">base_folder</span> <span class="o">/</span> <span class="s1">'raw_awake_filtered_old'</span>
+<span class="n">dump_file</span> <span class="o">=</span> <span class="n">save_folder</span> <span class="o">/</span> <span class="s1">'filetred_recording.json'</span>
+<span class="n">recording</span> <span class="o">=</span> <span class="n">BaseExtractor</span><span class="o">.</span><span class="n">load_extractor_from_json</span><span class="p">(</span><span class="n">dump_file</span><span class="p">)</span>
+
+<span class="n">sorting_KS3</span> <span class="o">=</span> <span class="n">se</span><span class="o">.</span><span class="n">KiloSortSortingExtractor</span><span class="p">(</span><span class="n">base_folder</span> <span class="o">/</span> <span class="s1">'output_kilosort3'</span><span class="p">)</span>
+<span class="n">waveform_folder</span> <span class="o">=</span> <span class="n">base_folder</span> <span class="o">/</span> <span class="s1">'waveforms_extractor_old_1_job'</span>
+<span class="k">if</span> <span class="n">waveform_folder</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">waveform_folder</span><span class="p">)</span>
+<span class="n">waveform_folder</span><span class="o">.</span><span class="n">mkdir</span><span class="p">()</span>
+<span class="n">sorting_KS3</span><span class="o">.</span><span class="n">set_tmp_folder</span><span class="p">(</span><span class="n">waveform_folder</span><span class="p">)</span>
+
+<span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">wf</span><span class="p">,</span> <span class="n">indexes</span><span class="p">,</span> <span class="n">channels</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">postprocessing</span><span class="o">.</span><span class="n">get_unit_waveforms</span><span class="p">(</span><span class="n">recording</span><span class="p">,</span> <span class="n">sorting_KS3</span><span class="p">,</span>
+            <span class="n">max_spikes_per_unit</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">return_idxs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">chunk_mb</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">memmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">run_time_waveform_old_1jobs</span> <span class="o">=</span> <span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'OLD API get_unit_waveforms 1 jobs'</span><span class="p">,</span> <span class="n">run_time_waveform_old_1jobs</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>OLD API get_unit_waveforms 1 jobs 513.5964983040467
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">save_folder</span> <span class="o">=</span> <span class="n">base_folder</span> <span class="o">/</span> <span class="s1">'raw_awake_filtered_old'</span>
+<span class="n">dump_file</span> <span class="o">=</span> <span class="n">save_folder</span> <span class="o">/</span> <span class="s1">'filetred_recording.json'</span>
+<span class="n">recording</span> <span class="o">=</span> <span class="n">BaseExtractor</span><span class="o">.</span><span class="n">load_extractor_from_json</span><span class="p">(</span><span class="n">dump_file</span><span class="p">)</span>
+
+<span class="n">sorting_KS3_bis</span> <span class="o">=</span> <span class="n">se</span><span class="o">.</span><span class="n">KiloSortSortingExtractor</span><span class="p">(</span><span class="n">base_folder</span> <span class="o">/</span> <span class="s1">'output_kilosort3'</span><span class="p">)</span>
+<span class="n">waveform_folder</span> <span class="o">=</span> <span class="n">base_folder</span> <span class="o">/</span> <span class="s1">'waveforms_extractor_old_10_jobs_'</span>
+<span class="k">if</span> <span class="n">waveform_folder</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">waveform_folder</span><span class="p">)</span>
+<span class="n">waveform_folder</span><span class="o">.</span><span class="n">mkdir</span><span class="p">()</span>
+<span class="n">sorting_KS3_bis</span><span class="o">.</span><span class="n">set_tmp_folder</span><span class="p">(</span><span class="n">waveform_folder</span><span class="p">)</span>
+
+<span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">wf</span><span class="p">,</span> <span class="n">indexes</span><span class="p">,</span> <span class="n">channels</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">postprocessing</span><span class="o">.</span><span class="n">get_unit_waveforms</span><span class="p">(</span><span class="n">recording</span><span class="p">,</span> <span class="n">sorting_KS3_bis</span><span class="p">,</span>
+            <span class="n">max_spikes_per_unit</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">return_idxs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">chunk_mb</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+            <span class="n">memmap</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">run_time_waveform_old_10jobs</span> <span class="o">=</span> <span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'OLD API get_unit_waveforms 10 jobs'</span><span class="p">,</span> <span class="n">run_time_waveform_old_10jobs</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Number of chunks: 553 - Number of jobs: 10
+Impossible to delete temp file: /mnt/data/sam/DataSpikeSorting/eduarda_arthur/waveforms_extractor_old_10_jobs Error [Errno 16] Device or resource busy: '.nfs0000000004ce04d3000007b8'
+OLD API get_unit_waveforms 10 jobs 823.8002076600096
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Extract-waveform-with-NEW-API">Extract waveform with NEW API<a class="anchor-link" href="#Extract-waveform-with-NEW-API">¶</a>
+</h3>
+<p>The spikeinterface 0.9 API introduce more flexible object WaveformExtractor to do the same (extract snipet).</p>
+<p>Here some code example and benchmark speed.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">spikeinterface.extractors</span> <span class="k">as</span> <span class="nn">se</span>
+<span class="kn">from</span> <span class="nn">spikeinterface</span> <span class="kn">import</span> <span class="n">WaveformExtractor</span><span class="p">,</span> <span class="n">load_extractor</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'spikeinterface version'</span><span class="p">,</span> <span class="n">si</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+
+<span class="n">filter_path</span> <span class="o">=</span> <span class="n">base_folder</span> <span class="o">/</span> <span class="s1">'raw_awake_filtered'</span>
+<span class="n">filered_recording</span> <span class="o">=</span> <span class="n">load_extractor</span><span class="p">(</span><span class="n">filter_path</span><span class="p">)</span>
+
+<span class="n">sorting_KS3</span> <span class="o">=</span> <span class="n">se</span><span class="o">.</span><span class="n">KiloSortSortingExtractor</span><span class="p">(</span><span class="n">base_folder</span> <span class="o">/</span> <span class="s1">'output_kilosort3'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sorting_KS3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>spikeinterface version 0.90.0
+KiloSortSortingExtractor: 184 units - 1 segments - 30.0kHz
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [41]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 1 worker</span>
+<span class="n">waveform_folder</span> <span class="o">=</span> <span class="n">base_folder</span> <span class="o">/</span> <span class="s1">'waveforms_extractor_1_job_new_'</span>
+<span class="k">if</span> <span class="n">waveform_folder</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">waveform_folder</span><span class="p">)</span>
+<span class="n">we</span> <span class="o">=</span> <span class="n">WaveformExtractor</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">filered_recording</span><span class="p">,</span> <span class="n">sorting_KS3</span><span class="p">,</span> <span class="n">waveform_folder</span><span class="p">)</span>
+
+<span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">we</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="n">ms_before</span><span class="o">=</span><span class="mf">3.</span><span class="p">,</span> <span class="n">ms_after</span><span class="o">=</span><span class="mf">4.</span><span class="p">,</span> <span class="n">max_spikes_per_unit</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">we</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">total_memory</span><span class="o">=</span><span class="s2">"50M"</span><span class="p">,</span> <span class="n">progress_bar</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">run_time_waveform_new_1jobs</span> <span class="o">=</span> <span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'New WaveformExtractor 1 jobs'</span><span class="p">,</span><span class="n">run_time_waveform_new_1jobs</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|##########| 278/278 [01:42&lt;00:00,  2.72it/s]
+New WaveformExtractor 1 jobs 115.03656197001692
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [42]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 1 worker</span>
+<span class="n">waveform_folder</span> <span class="o">=</span> <span class="n">base_folder</span> <span class="o">/</span> <span class="s1">'waveforms_extractor_10_job_new_'</span>
+<span class="k">if</span> <span class="n">waveform_folder</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">waveform_folder</span><span class="p">)</span>
+<span class="n">we</span> <span class="o">=</span> <span class="n">WaveformExtractor</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">filered_recording</span><span class="p">,</span> <span class="n">sorting_KS3</span><span class="p">,</span> <span class="n">waveform_folder</span><span class="p">)</span>
+
+<span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">we</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="n">ms_before</span><span class="o">=</span><span class="mf">3.</span><span class="p">,</span> <span class="n">ms_after</span><span class="o">=</span><span class="mf">4.</span><span class="p">,</span> <span class="n">max_spikes_per_unit</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">we</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">total_memory</span><span class="o">=</span><span class="s2">"500M"</span><span class="p">,</span> <span class="n">progress_bar</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">run_time_waveform_new_10jobs</span> <span class="o">=</span> <span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'New WaveformExtractor 10 jobs'</span><span class="p">,</span> <span class="n">run_time_waveform_new_10jobs</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 278/278 [00:31&lt;00:00,  8.87it/s]
+New WaveformExtractor 10 jobs 48.819815920025576
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">¶</a>
+</h3>
+<p>For filter with 10 workers the speedup is x14.</p>
+<p>For waveform extactor with 1 workers the speedup is x4</p>
+<p>For waveform extactor with 10 workers the speedup is x16</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">speedup_filter</span> <span class="o">=</span> <span class="n">run_time_filter_old</span> <span class="o">/</span> <span class="n">run_time_filter_new</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'speedup filter'</span><span class="p">,</span> <span class="n">speedup_filter</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>speedup filter 14.635515939778026
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [43]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">speedup_waveform_1jobs</span> <span class="o">=</span> <span class="n">run_time_waveform_old_1jobs</span> <span class="o">/</span> <span class="n">run_time_waveform_new_1jobs</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'speedup waveforms 1 jobs'</span><span class="p">,</span> <span class="n">speedup_waveform_1jobs</span><span class="p">)</span>
+
+<span class="n">speedup_waveform_10jobs</span> <span class="o">=</span> <span class="n">run_time_waveform_old_10jobs</span> <span class="o">/</span> <span class="n">run_time_waveform_new_10jobs</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'speedup waveformd 10jobs'</span><span class="p">,</span> <span class="n">speedup_waveform_10jobs</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>speedup waveforms 1 jobs 4.464637064152789
+speedup waveformd 10jobs 16.874299751754943
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../categories/new_api/" rel="tag">new_api</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../ensemble-sorting-of-a-3brain-biocam-recording-from-a-retina/" rel="prev" title="Ensemble sorting of a 3Brain Biocam recording from a retina">Previous post</a>
+            </li>
+        </ul></nav></aside><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        </script></article><!--End of body content--><footer id="footer">
+            Contents © 2021         <a href="mailto:sam.garcia.die@gmail.com">spikeinterface team</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+            
+        </footer>
+</div>
+</div>
+
+
+        <script src="../../assets/js/all-nocdn.js"></script><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element){var i=element.getElementsByTagName('img')[0];return i===undefined?'':i.alt;}});
+    </script>
+</body>
+</html>

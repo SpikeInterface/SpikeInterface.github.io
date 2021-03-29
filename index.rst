@@ -29,6 +29,11 @@ Notebooks reproducing the figures in the `preprint on biorXiv <https://www.biorx
 .. post-list::
    :tags: paper
 
+Notebooks with NEW API
+=====================
+
+.. post-list::
+   :tags: new_api
 
 All notebooks
 =============

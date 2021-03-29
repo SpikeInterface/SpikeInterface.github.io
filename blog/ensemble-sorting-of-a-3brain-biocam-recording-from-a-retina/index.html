@@ -14,6 +14,7 @@
 <link rel="canonical" href="https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-3brain-biocam-recording-from-a-retina/">
 <!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="spikeinterface team">
 <link rel="prev" href="../ensemble-sorting-of-a-neuropixels-recording-2/" title="Ensemble sorting of a Neuropixels recording 2" type="text/html">
+<link rel="next" href="../compare-old-vs-new-spikeinterface-api/" title="Compare old vs new spikeinterface API" type="text/html">
 <meta property="og:site_name" content="spikeinterface report">
 <meta property="og:title" content="Ensemble sorting of a 3Brain Biocam recording from a retina">
 <meta property="og:url" content="https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-3brain-biocam-recording-from-a-retina/">
@@ -29,7 +30,8 @@ The recording wa">
 <!-- Menubar -->
 
 <nav class="navbar navbar-expand-md static-top mb-4
-navbar-dark bg-dark
+navbar-dark
+bg-dark
 "><div class="container">
 <!-- This keeps the margins nice -->
         <a class="navbar-brand" href="../../">
@@ -596,10 +598,13 @@ Multicomaprison step 4: extract agreement from graph
 <li class="previous">
                 <a href="../ensemble-sorting-of-a-neuropixels-recording-2/" rel="prev" title="Ensemble sorting of a Neuropixels recording 2">Previous post</a>
             </li>
+            <li class="next">
+                <a href="../compare-old-vs-new-spikeinterface-api/" rel="next" title="Compare old vs new spikeinterface API">Next post</a>
+            </li>
         </ul></nav></aside><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
         MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
         </script></article><!--End of body content--><footer id="footer">
-            Contents © 2020         <a href="mailto:sam.garcia.die@gmail.com">spikeinterface team</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            Contents © 2021         <a href="mailto:sam.garcia.die@gmail.com">spikeinterface team</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
             
             
         </footer>
@@ -610,9 +615,7 @@ Multicomaprison step 4: extract agreement from graph
         <script src="../../assets/js/all-nocdn.js"></script><script>
     baguetteBox.run('div#content', {
         ignoreClass: 'islink',
-        captions: function(element) {
-            return element.getElementsByTagName('img')[0].alt;
-    }});
+        captions: function(element){var i=element.getElementsByTagName('img')[0];return i===undefined?'':i.alt;}});
     </script>
 </body>
 </html>
