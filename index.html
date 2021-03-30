@@ -31,8 +31,7 @@ serve as a sandbox for future benchm">
 <!-- Menubar -->
 
 <nav class="navbar navbar-expand-md static-top mb-4
-navbar-dark
-bg-dark
+navbar-dark bg-dark
 "><div class="container">
 <!-- This keeps the margins nice -->
         <a class="navbar-brand" href=".">
@@ -92,8 +91,8 @@ bg-dark
 <h2>Notebooks reproducing the figures in the <a class="reference external" href="https://www.biorxiv.org/content/10.1101/796599v2">preprint on biorXiv</a>
 </h2>
 
-<!-- Begin post-list post_list_0a3292ab259f403b86da09679e34df5f -->
-<div id="post_list_0a3292ab259f403b86da09679e34df5f" class="post-list">
+<!-- Begin post-list post_list_04e2805c1302496b9997d853e0b6998c -->
+<div id="post_list_04e2805c1302496b9997d853e0b6998c" class="post-list">
     <ul class="post-list">
 <li class="post-list-item">
             2020-08-25 11:50
@@ -117,20 +116,14 @@ bg-dark
             </li>
     </ul>
 </div>
-<!-- End post-list post_list_0a3292ab259f403b86da09679e34df5f -->
+<!-- End post-list post_list_04e2805c1302496b9997d853e0b6998c -->
 
 </div>
 <div class="section" id="notebooks-with-new-api">
 <h2>Notebooks with NEW API</h2>
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">&lt;string&gt;</span>, line 24)</p>
-<p>Title underline too short.</p>
-<pre class="literal-block">Notebooks with NEW API
-=====================</pre>
-</div>
 
-<!-- Begin post-list post_list_05c27ea526da4d6cbb7504472ea71e97 -->
-<div id="post_list_05c27ea526da4d6cbb7504472ea71e97" class="post-list">
+<!-- Begin post-list post_list_36603b9fe31640509dc0ab37f8c71edf -->
+<div id="post_list_36603b9fe31640509dc0ab37f8c71edf" class="post-list">
     <ul class="post-list">
 <li class="post-list-item">
             2021-03-29 15:22
@@ -139,14 +132,14 @@ bg-dark
             </li>
     </ul>
 </div>
-<!-- End post-list post_list_05c27ea526da4d6cbb7504472ea71e97 -->
+<!-- End post-list post_list_36603b9fe31640509dc0ab37f8c71edf -->
 
 </div>
 <div class="section" id="all-notebooks">
 <h2>All notebooks</h2>
 
-<!-- Begin post-list post_list_8bc8d2f46bc24f1cb44573e880537313 -->
-<div id="post_list_8bc8d2f46bc24f1cb44573e880537313" class="post-list">
+<!-- Begin post-list post_list_632f63883f194bf38b04ae493089f1dc -->
+<div id="post_list_632f63883f194bf38b04ae493089f1dc" class="post-list">
     <ul class="post-list">
 <li class="post-list-item">
             2021-03-29 15:22
@@ -200,7 +193,7 @@ bg-dark
             </li>
     </ul>
 </div>
-<!-- End post-list post_list_8bc8d2f46bc24f1cb44573e880537313 -->
+<!-- End post-list post_list_632f63883f194bf38b04ae493089f1dc -->
 
 </div>
 <div class="section" id="other-ideas-we-want-to-test-here">
@@ -245,7 +238,9 @@ neurons with less precision.</p>
         <script src="assets/js/all-nocdn.js"></script><script>
     baguetteBox.run('div#content', {
         ignoreClass: 'islink',
-        captions: function(element){var i=element.getElementsByTagName('img')[0];return i===undefined?'':i.alt;}});
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
     </script>
 </body>
 </html>
