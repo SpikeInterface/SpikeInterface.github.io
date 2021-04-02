@@ -14,6 +14,7 @@
 <link rel="canonical" href="https://SpikeInterface.github.io/blog/compare-old-vs-new-spikeinterface-api/">
 <!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="spikeinterface team">
 <link rel="prev" href="../ensemble-sorting-of-a-3brain-biocam-recording-from-a-retina/" title="Ensemble sorting of a 3Brain Biocam recording from a retina" type="text/html">
+<link rel="next" href="../quick-benchmarck-with-new-api-and-new-sorters-april-2021/" title="Quick benchmarck with new API and new sorters (april 2021)" type="text/html">
 <meta property="og:site_name" content="spikeinterface report">
 <meta property="og:title" content="Compare old vs new spikeinterface API">
 <meta property="og:url" content="https://SpikeInterface.github.io/blog/compare-old-vs-new-spikeinterface-api/">
@@ -33,7 +34,8 @@ us'>
 <!-- Menubar -->
 
 <nav class="navbar navbar-expand-md static-top mb-4
-navbar-dark bg-dark
+navbar-dark
+bg-dark
 "><div class="container">
 <!-- This keeps the margins nice -->
         <a class="navbar-brand" href="../../">
@@ -704,6 +706,9 @@ speedup waveformd 10jobs 16.874299751754943
 <li class="previous">
                 <a href="../ensemble-sorting-of-a-3brain-biocam-recording-from-a-retina/" rel="prev" title="Ensemble sorting of a 3Brain Biocam recording from a retina">Previous post</a>
             </li>
+            <li class="next">
+                <a href="../quick-benchmarck-with-new-api-and-new-sorters-april-2021/" rel="next" title="Quick benchmarck with new API and new sorters (april 2021)">Next post</a>
+            </li>
         </ul></nav></aside><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
         MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
         </script></article><!--End of body content--><footer id="footer">
@@ -718,9 +723,7 @@ speedup waveformd 10jobs 16.874299751754943
         <script src="../../assets/js/all-nocdn.js"></script><script>
     baguetteBox.run('div#content', {
         ignoreClass: 'islink',
-        captions: function(element) {
-            return element.getElementsByTagName('img')[0].alt;
-    }});
+        captions: function(element){var i=element.getElementsByTagName('img')[0];return i===undefined?'':i.alt;}});
     </script>
 </body>
 </html>

@@ -31,7 +31,8 @@ serve as a sandbox for future benchm">
 <!-- Menubar -->
 
 <nav class="navbar navbar-expand-md static-top mb-4
-navbar-dark bg-dark
+navbar-dark
+bg-dark
 "><div class="container">
 <!-- This keeps the margins nice -->
         <a class="navbar-brand" href=".">
@@ -91,8 +92,8 @@ navbar-dark bg-dark
 <h2>Notebooks reproducing the figures in the <a class="reference external" href="https://www.biorxiv.org/content/10.1101/796599v2">preprint on biorXiv</a>
 </h2>
 
-<!-- Begin post-list post_list_04e2805c1302496b9997d853e0b6998c -->
-<div id="post_list_04e2805c1302496b9997d853e0b6998c" class="post-list">
+<!-- Begin post-list post_list_0b4ffa71465944bdaef20e58742a56a6 -->
+<div id="post_list_0b4ffa71465944bdaef20e58742a56a6" class="post-list">
     <ul class="post-list">
 <li class="post-list-item">
             2020-08-25 11:50
@@ -116,14 +117,14 @@ navbar-dark bg-dark
             </li>
     </ul>
 </div>
-<!-- End post-list post_list_04e2805c1302496b9997d853e0b6998c -->
+<!-- End post-list post_list_0b4ffa71465944bdaef20e58742a56a6 -->
 
 </div>
 <div class="section" id="notebooks-with-new-api">
 <h2>Notebooks with NEW API</h2>
 
-<!-- Begin post-list post_list_36603b9fe31640509dc0ab37f8c71edf -->
-<div id="post_list_36603b9fe31640509dc0ab37f8c71edf" class="post-list">
+<!-- Begin post-list post_list_d8ee9d748f1f4e968db42093d776c727 -->
+<div id="post_list_d8ee9d748f1f4e968db42093d776c727" class="post-list">
     <ul class="post-list">
 <li class="post-list-item">
             2021-03-29 15:22
@@ -132,16 +133,21 @@ navbar-dark bg-dark
             </li>
     </ul>
 </div>
-<!-- End post-list post_list_36603b9fe31640509dc0ab37f8c71edf -->
+<!-- End post-list post_list_d8ee9d748f1f4e968db42093d776c727 -->
 
 </div>
 <div class="section" id="all-notebooks">
 <h2>All notebooks</h2>
 
-<!-- Begin post-list post_list_632f63883f194bf38b04ae493089f1dc -->
-<div id="post_list_632f63883f194bf38b04ae493089f1dc" class="post-list">
+<!-- Begin post-list post_list_22759bb6d0c4476fae43e2eb94947fa5 -->
+<div id="post_list_22759bb6d0c4476fae43e2eb94947fa5" class="post-list">
     <ul class="post-list">
 <li class="post-list-item">
+            2021-04-02 17:30
+             
+            <a href="blog/quick-benchmarck-with-new-api-and-new-sorters-april-2021/">Quick benchmarck with new API and new sorters (april 2021)</a>
+            </li>
+            <li class="post-list-item">
             2021-03-29 15:22
              
             <a href="blog/compare-old-vs-new-spikeinterface-api/">Compare old vs new spikeinterface API</a>
@@ -186,14 +192,9 @@ navbar-dark bg-dark
              
             <a href="blog/example-of-parameters-optimization/">Example of parameters optimization</a>
             </li>
-            <li class="post-list-item">
-            2020-01-29 11:20
-             
-            <a href="blog/example-of-ground-truth-comparison-study/">Example of ground truth comparison study</a>
-            </li>
     </ul>
 </div>
-<!-- End post-list post_list_632f63883f194bf38b04ae493089f1dc -->
+<!-- End post-list post_list_22759bb6d0c4476fae43e2eb94947fa5 -->
 
 </div>
 <div class="section" id="other-ideas-we-want-to-test-here">
@@ -238,9 +239,7 @@ neurons with less precision.</p>
         <script src="assets/js/all-nocdn.js"></script><script>
     baguetteBox.run('div#content', {
         ignoreClass: 'islink',
-        captions: function(element) {
-            return element.getElementsByTagName('img')[0].alt;
-    }});
+        captions: function(element){var i=element.getElementsByTagName('img')[0];return i===undefined?'':i.alt;}});
     </script>
 </body>
 </html>

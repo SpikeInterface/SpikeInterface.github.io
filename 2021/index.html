@@ -21,7 +21,8 @@
 <!-- Menubar -->
 
 <nav class="navbar navbar-expand-md static-top mb-4
-navbar-dark bg-dark
+navbar-dark
+bg-dark
 "><div class="container">
 <!-- This keeps the margins nice -->
         <a class="navbar-brand" href="../">
@@ -57,6 +58,9 @@ navbar-dark bg-dark
 <article class="listpage"><header><h1>Posts for year 2021</h1>
     </header><ul class="postlist">
 <li>
+<time class="listdate" datetime="2021-04-02T17:30:18+02:00" title="2021-04-02 17:30">2021-04-02 17:30</time><a href="../blog/quick-benchmarck-with-new-api-and-new-sorters-april-2021/" class="listtitle">Quick benchmarck with new API and new sorters (april 2021)</a>
+</li>
+        <li>
 <time class="listdate" datetime="2021-03-29T15:22:08+02:00" title="2021-03-29 15:22">2021-03-29 15:22</time><a href="../blog/compare-old-vs-new-spikeinterface-api/" class="listtitle">Compare old vs new spikeinterface API</a>
 </li>
     </ul></article><!--End of body content--><footer id="footer">
@@ -71,9 +75,7 @@ navbar-dark bg-dark
         <script src="../assets/js/all-nocdn.js"></script><script>
     baguetteBox.run('div#content', {
         ignoreClass: 'islink',
-        captions: function(element) {
-            return element.getElementsByTagName('img')[0].alt;
-    }});
+        captions: function(element){var i=element.getElementsByTagName('img')[0];return i===undefined?'':i.alt;}});
     </script>
 </body>
 </html>
