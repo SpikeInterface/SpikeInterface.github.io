@@ -3,17 +3,25 @@
 " lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="description" content="spikeinterface report">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Posts for year 2021 | spikeinterface report</title>
+<title>galleries | spikeinterface report</title>
 <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
 <meta name="theme-color" content="#5670d4">
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../rss.xml">
-<link rel="canonical" href="https://SpikeInterface.github.io/2021/">
-<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+<link rel="canonical" href="https://SpikeInterface.github.io/galleries/">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+<style type="text/css">
+    #gallery_container {
+        position: relative;
+    }
+    .image-block {
+        position: absolute;
+    }
+</style>
+<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -55,18 +63,16 @@ bg-dark
         
         
         
-<article class="listpage"><header><h1>Posts for year 2021</h1>
-    </header><ul class="postlist">
-<li>
-<time class="listdate" datetime="2021-11-26T12:19:24+01:00" title="2021-11-26 12:19">2021-11-26 12:19</time><a href="../blog/probeinterface-paper-figures/" class="listtitle">probeinterface paper figures</a>
-</li>
-        <li>
-<time class="listdate" datetime="2021-04-02T17:30:18+02:00" title="2021-04-02 17:30">2021-04-02 17:30</time><a href="../blog/quick-benchmarck-with-new-api-and-new-sorters-april-2021/" class="listtitle">Quick benchmarck with new API and new sorters (april 2021)</a>
-</li>
-        <li>
-<time class="listdate" datetime="2021-03-29T15:22:08+02:00" title="2021-03-29 15:22">2021-03-29 15:22</time><a href="../blog/compare-old-vs-new-spikeinterface-api/" class="listtitle">Compare old vs new spikeinterface API</a>
-</li>
-    </ul></article><!--End of body content--><footer id="footer">
+    
+<nav class="breadcrumbs"><ul class="breadcrumb">
+<li class="breadcrumb-item active">galleries</li>
+</ul></nav><h1>galleries</h1>
+
+<div id="gallery_container"></div>
+
+        <!--End of body content-->
+
+        <footer id="footer">
             Contents © 2021         <a href="mailto:sam.garcia.die@gmail.com">spikeinterface team</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
             
             
@@ -75,7 +81,12 @@ bg-dark
 </div>
 
 
-        <script src="../assets/js/all-nocdn.js"></script><script>
+        <script src="../assets/js/all-nocdn.js"></script><script src="../assets/js/justified-layout.min.js"></script><script src="../assets/js/gallery.min.js"></script><script>
+var jsonContent = [];
+var thumbnailSize = 180;
+renderGallery(jsonContent, thumbnailSize);
+window.addEventListener('resize', function(){renderGallery(jsonContent, thumbnailSize)});
+</script><script>
     baguetteBox.run('div#content', {
         ignoreClass: 'islink',
         captions: function(element){var i=element.getElementsByTagName('img')[0];return i===undefined?'':i.alt;}});
