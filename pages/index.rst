@@ -22,9 +22,15 @@ Introduction
 * serve as a sandbox for future benchmarks that can be integrated in the `SpikeForest <https://spikeforest.flatironinstitute.org/>`_ website.
 * test out other ideas!
 
+Notebooks reproducing the figures in probeinterface paper
+=========================================================
 
-Notebooks reproducing the figures in the `preprint on biorXiv <https://www.biorxiv.org/content/10.1101/796599v2>`_
-===================================================================================================================
+.. post-list::
+   :tags: pi_paper_2021
+
+
+Notebooks reproducing the figures in the `elife paper 2020 <https://elifesciences.org/articles/61834>`_
+=======================================================================================================
 
 .. post-list::
    :tags: paper
