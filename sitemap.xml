@@ -19,31 +19,31 @@
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/archive.html</loc>
-  <lastmod>2021-11-26T11:25:00Z</lastmod>
+  <lastmod>2021-11-29T09:33:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/</loc>
-  <lastmod>2021-11-26T11:25:00Z</lastmod>
+  <lastmod>2021-11-29T09:33:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/check-if-duration-affects-spike-sorting/</loc>
   <lastmod>2021-11-26T11:25:00Z</lastmod>
  </url>
  <url>
-  <loc>https://SpikeInterface.github.io/blog/check-minimal-duration-for-spike-sorting/</loc>
-  <lastmod>2020-03-02T12:01:00Z</lastmod>
+  <loc>https://SpikeInterface.github.io/blog/collision-paper-generate-recordings/</loc>
+  <lastmod>2021-11-29T09:33:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://SpikeInterface.github.io/blog/collision-paper-simulated-recordings/</loc>
+  <lastmod>2021-11-29T09:33:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://SpikeInterface.github.io/blog/collision-paper-spike-sorting-performance/</loc>
+  <lastmod>2021-11-29T09:33:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/compare-old-vs-new-spikeinterface-api/</loc>
   <lastmod>2021-11-26T11:25:00Z</lastmod>
- </url>
- <url>
-  <loc>https://SpikeInterface.github.io/blog/consensus-method-for-a-neuropixels-recording/</loc>
-  <lastmod>2020-05-23T08:51:00Z</lastmod>
- </url>
- <url>
-  <loc>https://SpikeInterface.github.io/blog/consensus-mouse412804-probec-30min/</loc>
-  <lastmod>2020-05-23T08:51:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-3brain-biocam-recording-from-a-retina/</loc>
@@ -66,24 +66,12 @@
   <lastmod>2020-01-30T13:34:00Z</lastmod>
  </url>
  <url>
-  <loc>https://SpikeInterface.github.io/blog/ground-truth-comparison-and-consensus-method-with-mearec-generated-neuropixels-recording/</loc>
-  <lastmod>2020-05-23T08:51:00Z</lastmod>
- </url>
- <url>
   <loc>https://SpikeInterface.github.io/blog/ground-truth-comparison-and-ensemble-sorting-of-a-synthetic-neuropixels-recording/</loc>
   <lastmod>2021-11-26T11:25:00Z</lastmod>
  </url>
  <url>
-  <loc>https://SpikeInterface.github.io/blog/ground-truth-comparison-with-mearec-generated-neuropixels-recording/</loc>
-  <lastmod>2020-05-23T08:51:00Z</lastmod>
- </url>
- <url>
-  <loc>https://SpikeInterface.github.io/blog/ground-truth-comparison-with-mearec-neuropixel/</loc>
-  <lastmod>2020-02-19T13:07:00Z</lastmod>
- </url>
- <url>
   <loc>https://SpikeInterface.github.io/blog/index-1.html</loc>
-  <lastmod>2021-11-26T11:25:00Z</lastmod>
+  <lastmod>2021-11-29T09:33:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/marques-smith-neuropixel-384ch-paired-recording/</loc>
@@ -107,7 +95,11 @@
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/categories/</loc>
-  <lastmod>2021-11-26T11:29:00Z</lastmod>
+  <lastmod>2021-11-29T09:33:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://SpikeInterface.github.io/categories/collision_paper_2021/</loc>
+  <lastmod>2021-11-29T09:33:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/categories/new_api/</loc>
@@ -116,10 +108,6 @@
  <url>
   <loc>https://SpikeInterface.github.io/categories/paper/</loc>
   <lastmod>2021-11-26T11:25:00Z</lastmod>
- </url>
- <url>
-  <loc>https://SpikeInterface.github.io/categories/pi-paper-2021/</loc>
-  <lastmod>2021-11-26T11:28:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/categories/pi_paper_2021/</loc>

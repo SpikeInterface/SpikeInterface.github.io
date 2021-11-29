@@ -22,6 +22,14 @@ Introduction
 * serve as a sandbox for future benchmarks that can be integrated in the `SpikeForest <https://spikeforest.flatironinstitute.org/>`_ website.
 * test out other ideas!
 
+
+Notebooks reproducing the figures in collision paper
+====================================================
+
+.. post-list::
+   :tags: collision_paper_2021
+
+
 Notebooks reproducing the figures in probeinterface paper
 =========================================================
 

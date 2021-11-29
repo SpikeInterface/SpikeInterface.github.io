@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Collision paper generate recordings | spikeinterface report</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../rss.xml">
+<link rel="canonical" href="https://SpikeInterface.github.io/blog/collision-paper-generate-recordings/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="spikeinterface team">
+<link rel="prev" href="../probeinterface-paper-figures/" title="probeinterface paper figures" type="text/html">
+<link rel="next" href="../collision-paper-simulated-recordings/" title="Collision paper simulated recordings" type="text/html">
+<meta property="og:site_name" content="spikeinterface report">
+<meta property="og:title" content="Collision paper generate recordings">
+<meta property="og:url" content="https://SpikeInterface.github.io/blog/collision-paper-generate-recordings/">
+<meta property="og:description" content="Generation of the recordings¶
+
+
+
+
+
+
+In this notebook, we will generate all the recordings with MEArec that will be necessary to populate the study and compare the sorters. First, we need to create a f">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2021-11-29T10:28:53+01:00">
+<meta property="article:tag" content="collision_paper_2021">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark
+bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="../../">
+
+            <span id="blog-title">spikeinterface report</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../../index.html" class="nav-link">Home</a>
+                </li>
+<li class="nav-item">
+<a href="../../archive.html" class="nav-link">Notebook archives</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right">
+<li class="nav-item">
+    <a href="index.ipynb" id="sourcelink" class="nav-link">Source</a>
+    </li>
+
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+        
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Collision paper generate recordings</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard p-author h-card"><span class="byline-name fn p-name" itemprop="author">
+                    spikeinterface team
+            </span></p>
+            <p class="dateline">
+            <a href="." rel="bookmark">
+            <time class="published dt-published" datetime="2021-11-29T10:28:53+01:00" itemprop="datePublished" title="2021-11-29 10:28">2021-11-29 10:28</time></a>
+            </p>
+            
+        <p class="sourceline"><a href="index.ipynb" class="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Generation-of-the-recordings">Generation of the recordings<a class="anchor-link" href="#Generation-of-the-recordings">¶</a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In this notebook, we will generate all the recordings with MEArec that will be necessary to populate the study and compare the sorters. First, we need to create a function that will, given a dictionary of parameter, generate a single recording. The recording parameters can be defined as follows</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">MEArec</span> <span class="k">as</span> <span class="nn">mr</span>
+<span class="kn">import</span> <span class="nn">spikeinterface.full</span> <span class="k">as</span> <span class="nn">si</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'../utils/'</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">corr_spike_trains</span> <span class="kn">import</span> <span class="n">CorrelatedSpikeGenerator</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">generation_params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'probe'</span> <span class="p">:</span> <span class="s1">'Neuronexus-32'</span><span class="p">,</span> <span class="c1">#layout of the probe used</span>
+    <span class="s1">'duration'</span> <span class="p">:</span> <span class="mi">30</span><span class="o">*</span><span class="mi">60</span><span class="p">,</span> <span class="c1">#total duration of the recording</span>
+    <span class="s1">'n_cell'</span> <span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="c1"># number of cells that will be injected</span>
+    <span class="s1">'fs'</span> <span class="p">:</span> <span class="mf">30000.</span><span class="p">,</span> <span class="c1"># sampling rate</span>
+    <span class="s1">'lag_time'</span> <span class="p">:</span> <span class="mf">0.002</span><span class="p">,</span>  <span class="c1"># half refractory period in ms</span>
+    <span class="s1">'make_plots'</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s1">'generate_recording'</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s1">'noise_level'</span> <span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s1">'templates_seed'</span> <span class="p">:</span> <span class="mi">42</span><span class="p">,</span>
+    <span class="s1">'noise_seed'</span> <span class="p">:</span> <span class="mi">42</span><span class="p">,</span>
+    <span class="s1">'global_path'</span> <span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">'../'</span><span class="p">),</span>
+    <span class="s1">'study_number'</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s1">'save_plots'</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s1">'method'</span> <span class="p">:</span> <span class="s1">'brette'</span><span class="p">,</span> <span class="c1"># 'poisson' | 'brette'</span>
+    <span class="s1">'corr_level'</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s1">'rate_level'</span> <span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="c1">#Hz</span>
+    <span class="s1">'nb_recordings'</span> <span class="p">:</span> <span class="mi">5</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>With these parameters, we will create 20 neurons, and correlation levels will be generated via the mixture process of [Brette et al, 2009]. The function to generate a single recording is defined as follows. It assumes that you have, in your folder, a file named <code>../data/templates/templates_{probe}_100.h5</code> with all the pre-generated templates that will be used by MEArec</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">generate_single_recording</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="n">generation_params</span><span class="p">):</span>
+
+    <span class="n">paths</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">paths</span><span class="p">[</span><span class="s1">'basedir'</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">'global_path'</span><span class="p">]</span>
+    <span class="n">paths</span><span class="p">[</span><span class="s1">'data'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="n">paths</span><span class="p">[</span><span class="s1">'data'</span><span class="p">]</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">paths</span><span class="p">[</span><span class="s1">'data'</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="s1">'basedir'</span><span class="p">],</span> <span class="s1">'data'</span><span class="p">)</span>
+
+    <span class="n">paths</span><span class="p">[</span><span class="s1">'templates'</span><span class="p">]</span> <span class="o">=</span>  <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="s1">'data'</span><span class="p">],</span> <span class="s1">'templates'</span><span class="p">)</span>
+    <span class="n">paths</span><span class="p">[</span><span class="s1">'recordings'</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="s1">'data'</span><span class="p">],</span> <span class="s1">'recordings'</span><span class="p">)</span> 
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">paths</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+    <span class="n">probe</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">'probe'</span><span class="p">]</span>
+    <span class="n">n_cell</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">'n_cell'</span><span class="p">]</span>
+    <span class="n">noise_level</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">'noise_level'</span><span class="p">]</span>
+    <span class="n">study_number</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">'study_number'</span><span class="p">]</span>
+    <span class="n">corr_level</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">'corr_level'</span><span class="p">]</span>
+    <span class="n">rate_level</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">'rate_level'</span><span class="p">]</span>
+
+    <span class="n">template_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="s1">'templates'</span><span class="p">],</span> <span class="sa">f</span><span class="s1">'templates_</span><span class="si">{</span><span class="n">probe</span><span class="si">}</span><span class="s1">_100.h5'</span><span class="p">)</span>
+    <span class="n">recording_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="s1">'recordings'</span><span class="p">],</span> <span class="sa">f</span><span class="s1">'rec</span><span class="si">{</span><span class="n">study_number</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">n_cell</span><span class="si">}</span><span class="s1">cells_</span><span class="si">{</span><span class="n">noise_level</span><span class="si">}</span><span class="s1">noise_</span><span class="si">{</span><span class="n">corr_level</span><span class="si">}</span><span class="s1">corr_</span><span class="si">{</span><span class="n">rate_level</span><span class="si">}</span><span class="s1">rate_</span><span class="si">{</span><span class="n">probe</span><span class="si">}</span><span class="s1">.h5'</span><span class="p">)</span>
+    <span class="n">plot_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="s1">'recordings'</span><span class="p">],</span> <span class="sa">f</span><span class="s1">'rec</span><span class="si">{</span><span class="n">study_number</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">n_cell</span><span class="si">}</span><span class="s1">cells_</span><span class="si">{</span><span class="n">noise_level</span><span class="si">}</span><span class="s1">noise_</span><span class="si">{</span><span class="n">corr_level</span><span class="si">}</span><span class="s1">corr_</span><span class="si">{</span><span class="n">rate_level</span><span class="si">}</span><span class="s1">rate_</span><span class="si">{</span><span class="n">probe</span><span class="si">}</span><span class="s1">.pdf'</span><span class="p">)</span>
+
+    <span class="n">spikerate</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">'rate_level'</span><span class="p">]</span>
+    <span class="n">n_spike_alone</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">spikerate</span> <span class="o">*</span> <span class="n">params</span><span class="p">[</span><span class="s1">'duration'</span><span class="p">])</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Total target rate:'</span><span class="p">,</span> <span class="n">params</span><span class="p">[</span><span class="s1">'rate_level'</span><span class="p">],</span> <span class="s2">"Hz"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Basal rate:'</span><span class="p">,</span> <span class="n">spikerate</span><span class="p">,</span> <span class="s2">"Hz"</span><span class="p">)</span>
+
+
+    <span class="c1"># collision lag range</span>
+    <span class="n">lag_sample</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">'lag_time'</span><span class="p">]</span> <span class="o">*</span> <span class="n">params</span><span class="p">[</span><span class="s1">'fs'</span><span class="p">])</span>
+
+    <span class="n">refactory_period</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">params</span><span class="p">[</span><span class="s1">'lag_time'</span><span class="p">]</span>
+
+    <span class="n">spiketimes</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="n">params</span><span class="p">[</span><span class="s1">'method'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'poisson'</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'Spike trains generated as independent poisson sources'</span><span class="p">)</span>
+        
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">'n_cell'</span><span class="p">]):</span>
+            
+            <span class="c1">#~ n = n_spike_alone + n_collision_by_pair * (params['n_cell'] - i - 1)</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">n_spike_alone</span>
+            <span class="c1">#~ times = np.random.rand(n_spike_alone) * params['duration']</span>
+            <span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">params</span><span class="p">[</span><span class="s1">'duration'</span><span class="p">]</span>
+            
+            <span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">times</span><span class="p">)</span>
+            <span class="n">spiketimes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">times</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">params</span><span class="p">[</span><span class="s1">'method'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'brette'</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'Spike trains generated as compound mixtures'</span><span class="p">)</span>
+        <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">params</span><span class="p">[</span><span class="s1">'n_cell'</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">'n_cell'</span><span class="p">]))</span>
+        <span class="n">C</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">'corr_level'</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">C</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+        <span class="c1">#np.fill_diagonal(C, 0*np.ones(params['n_cell']))</span>
+
+        <span class="n">rates</span> <span class="o">=</span> <span class="n">rates</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">'rate_level'</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">'n_cell'</span><span class="p">])</span>
+
+        <span class="n">cor_spk</span> <span class="o">=</span> <span class="n">CorrelatedSpikeGenerator</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">rates</span><span class="p">,</span> <span class="n">params</span><span class="p">[</span><span class="s1">'n_cell'</span><span class="p">])</span>
+        <span class="n">cor_spk</span><span class="o">.</span><span class="n">find_mixture</span><span class="p">(</span><span class="nb">iter</span><span class="o">=</span><span class="mf">1e4</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">cor_spk</span><span class="o">.</span><span class="n">mixture_process</span><span class="p">(</span><span class="n">tauc</span><span class="o">=</span><span class="n">refactory_period</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s1">'duration'</span><span class="p">])</span>
+        
+        <span class="c1"># make neo spiketrains</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">'n_cell'</span><span class="p">]):</span>
+            <span class="c1">#~ print(spiketimes[i])</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="n">res</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">i</span>
+            <span class="n">times</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">times</span><span class="p">)</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">times</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">times</span> <span class="o">&lt;</span> <span class="n">params</span><span class="p">[</span><span class="s1">'duration'</span><span class="p">])</span>
+            <span class="n">times</span> <span class="o">=</span> <span class="n">times</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+            <span class="n">spiketimes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">times</span><span class="p">)</span>
+
+
+    <span class="c1"># remove refactory period</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">'n_cell'</span><span class="p">]):</span>
+        <span class="n">times</span> <span class="o">=</span> <span class="n">spiketimes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">ind</span><span class="p">,</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">times</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">refactory_period</span><span class="p">)</span>
+        <span class="n">ind</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">ind</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">times</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">refactory_period</span><span class="p">)</span> <span class="o">==</span><span class="mi">0</span>
+        <span class="n">spiketimes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">times</span>
+
+    <span class="c1"># make neo spiketrains</span>
+    <span class="n">spiketrains</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">'n_cell'</span><span class="p">]):</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">spiketimes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">spiketimes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">spiketimes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">mask</span><span class="p">]</span> 
+        <span class="n">spiketrain</span> <span class="o">=</span> <span class="n">neo</span><span class="o">.</span><span class="n">SpikeTrain</span><span class="p">(</span><span class="n">spiketimes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">units</span><span class="o">=</span><span class="s1">'s'</span><span class="p">,</span> <span class="n">t_start</span><span class="o">=</span><span class="mi">0</span><span class="o">*</span><span class="n">pq</span><span class="o">.</span><span class="n">s</span><span class="p">,</span> <span class="n">t_stop</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s1">'duration'</span><span class="p">]</span><span class="o">*</span><span class="n">pq</span><span class="o">.</span><span class="n">s</span><span class="p">)</span>
+        <span class="n">spiketrain</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">cell_type</span><span class="o">=</span><span class="s1">'E'</span><span class="p">)</span>
+        <span class="n">spiketrains</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">spiketrain</span><span class="p">)</span>
+
+    <span class="c1"># check with sanity plot here</span>
+    <span class="k">if</span> <span class="n">params</span><span class="p">[</span><span class="s1">'make_plots'</span><span class="p">]:</span>
+        
+        <span class="c1"># count number of spike per units</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="p">[</span><span class="n">st</span><span class="o">.</span><span class="n">size</span> <span class="k">for</span> <span class="n">st</span> <span class="ow">in</span> <span class="n">spiketrains</span><span class="p">]</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="n">simpleaxis</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+        <span class="n">pairs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">collision_count_by_pair</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">collision_count_by_units</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_cell</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_cell</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_cell</span><span class="p">):</span>
+                <span class="n">times1</span> <span class="o">=</span> <span class="n">spiketrains</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">rescale</span><span class="p">(</span><span class="s1">'s'</span><span class="p">)</span><span class="o">.</span><span class="n">magnitude</span>
+                <span class="n">times2</span> <span class="o">=</span> <span class="n">spiketrains</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">rescale</span><span class="p">(</span><span class="s1">'s'</span><span class="p">)</span><span class="o">.</span><span class="n">magnitude</span>
+                <span class="n">matching_event</span> <span class="o">=</span> <span class="n">make_matching_events</span><span class="p">((</span><span class="n">times1</span><span class="o">*</span><span class="n">params</span><span class="p">[</span><span class="s1">'fs'</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'int64'</span><span class="p">),</span> <span class="p">(</span><span class="n">times2</span><span class="o">*</span><span class="n">params</span><span class="p">[</span><span class="s1">'fs'</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'int64'</span><span class="p">),</span> <span class="n">lag_sample</span><span class="p">)</span>
+                <span class="n">pairs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+                <span class="n">collision_count_by_pair</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">matching_event</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+                <span class="n">collision_count_by_units</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">matching_event</span><span class="o">.</span><span class="n">size</span>
+                <span class="n">collision_count_by_units</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">matching_event</span><span class="o">.</span><span class="n">size</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">collision_count_by_pair</span><span class="p">)),</span> <span class="n">collision_count_by_pair</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">collision_count_by_pair</span><span class="p">)))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">pairs</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">collision_count_by_pair</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.1</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'# Collisions'</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Pairs'</span><span class="p">)</span>
+
+        <span class="c1"># count number of spike per units</span>
+        <span class="n">count_total</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">st</span><span class="o">.</span><span class="n">size</span> <span class="k">for</span> <span class="n">st</span> <span class="ow">in</span> <span class="n">spiketrains</span><span class="p">])</span>
+        <span class="n">count_not_collision</span> <span class="o">=</span> <span class="n">count_total</span> <span class="o">-</span> <span class="n">collision_count_by_units</span>
+
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="n">simpleaxis</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_cell</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">count_not_collision</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'g'</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_cell</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">collision_count_by_units</span><span class="p">,</span> <span class="n">bottom</span> <span class="o">=</span><span class="n">count_not_collision</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'r'</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'# spikes'</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Cell id'</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">((</span><span class="s1">'Not colliding'</span><span class="p">,</span> <span class="s1">'Colliding'</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s1">'best'</span><span class="p">)</span>
+
+        <span class="c1"># cross corrlogram</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">simpleaxis</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+        <span class="n">counts</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_cell</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_cell</span><span class="p">):</span>
+                <span class="n">times1</span> <span class="o">=</span> <span class="n">spiketrains</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">rescale</span><span class="p">(</span><span class="s1">'s'</span><span class="p">)</span><span class="o">.</span><span class="n">magnitude</span>
+                <span class="n">times2</span> <span class="o">=</span> <span class="n">spiketrains</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">rescale</span><span class="p">(</span><span class="s1">'s'</span><span class="p">)</span><span class="o">.</span><span class="n">magnitude</span>
+                <span class="n">matching_event</span> <span class="o">=</span> <span class="n">make_matching_events</span><span class="p">((</span><span class="n">times1</span><span class="o">*</span><span class="n">params</span><span class="p">[</span><span class="s1">'fs'</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'int64'</span><span class="p">),</span> <span class="p">(</span><span class="n">times2</span><span class="o">*</span><span class="n">params</span><span class="p">[</span><span class="s1">'fs'</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'int64'</span><span class="p">),</span> <span class="n">lag_sample</span><span class="p">)</span>
+                
+                <span class="c1">#~ ax = axs[i, j]</span>
+                <span class="n">all_lag</span> <span class="o">=</span> <span class="n">matching_event</span><span class="p">[</span><span class="s1">'delta_frame'</span><span class="p">]</span>  <span class="o">/</span> <span class="n">params</span><span class="p">[</span><span class="s1">'fs'</span><span class="p">]</span>
+                <span class="n">count</span><span class="p">,</span> <span class="n">bins</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">all_lag</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">params</span><span class="p">[</span><span class="s1">'lag_time'</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">'lag_time'</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">'lag_time'</span><span class="p">]</span><span class="o">/</span><span class="mi">20</span><span class="p">))</span>
+                <span class="c1">#~ ax.bar(bins[:-1], count, bins[1] - bins[0])</span>
+                <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">bins</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">count</span><span class="p">,</span> <span class="n">bins</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">'0.5'</span><span class="p">)</span>
+                <span class="n">counts</span> <span class="o">+=</span> <span class="p">[</span><span class="n">count</span><span class="p">]</span>
+        <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+        <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">bins</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">counts</span><span class="p">,</span> <span class="n">bins</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">'r'</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Lags [ms]'</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'# Collisions'</span><span class="p">)</span>
+
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">simpleaxis</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+        <span class="n">ratios</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_cell</span><span class="p">):</span>
+            <span class="n">nb_spikes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">spiketrains</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">nb_collisions</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">times1</span> <span class="o">=</span> <span class="n">spiketrains</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">rescale</span><span class="p">(</span><span class="s1">'s'</span><span class="p">)</span><span class="o">.</span><span class="n">magnitude</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_cell</span><span class="p">)):</span>
+                <span class="n">times2</span> <span class="o">=</span> <span class="n">spiketrains</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">rescale</span><span class="p">(</span><span class="s1">'s'</span><span class="p">)</span><span class="o">.</span><span class="n">magnitude</span>
+                <span class="n">matching_event</span> <span class="o">=</span> <span class="n">make_matching_events</span><span class="p">((</span><span class="n">times1</span><span class="o">*</span><span class="n">params</span><span class="p">[</span><span class="s1">'fs'</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'int64'</span><span class="p">),</span> <span class="p">(</span><span class="n">times2</span><span class="o">*</span><span class="n">params</span><span class="p">[</span><span class="s1">'fs'</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'int64'</span><span class="p">),</span> <span class="n">lag_sample</span><span class="p">)</span>
+                <span class="n">nb_collisions</span> <span class="o">+=</span> <span class="n">matching_event</span><span class="o">.</span><span class="n">size</span>
+
+            <span class="k">if</span> <span class="n">nb_collisions</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">ratios</span> <span class="o">+=</span> <span class="p">[</span><span class="n">nb_spikes</span> <span class="o">/</span> <span class="n">nb_collisions</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">ratios</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ratios</span><span class="p">)],</span> <span class="n">yerr</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ratios</span><span class="p">)])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'# spikes / # collisions'</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">params</span><span class="p">[</span><span class="s1">'save_plots'</span><span class="p">]:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">plot_filename</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">params</span><span class="p">[</span><span class="s1">'generate_recording'</span><span class="p">]:</span>
+        <span class="n">spgen</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">SpikeTrainGenerator</span><span class="p">(</span><span class="n">spiketrains</span><span class="o">=</span><span class="n">spiketrains</span><span class="p">)</span>
+        <span class="n">rec_params</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">get_default_recordings_params</span><span class="p">()</span>
+        <span class="n">rec_params</span><span class="p">[</span><span class="s1">'recordings'</span><span class="p">][</span><span class="s1">'fs'</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">'fs'</span><span class="p">]</span>
+        <span class="n">rec_params</span><span class="p">[</span><span class="s1">'recordings'</span><span class="p">][</span><span class="s1">'sync_rate'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">rec_params</span><span class="p">[</span><span class="s1">'recordings'</span><span class="p">][</span><span class="s1">'sync_jitter'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>
+        <span class="n">rec_params</span><span class="p">[</span><span class="s1">'recordings'</span><span class="p">][</span><span class="s1">'noise_level'</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">'noise_level'</span><span class="p">]</span>
+        <span class="n">rec_params</span><span class="p">[</span><span class="s1">'recordings'</span><span class="p">][</span><span class="s1">'filter'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">rec_params</span><span class="p">[</span><span class="s1">'spiketrains'</span><span class="p">][</span><span class="s1">'duration'</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">'duration'</span><span class="p">]</span>
+        <span class="n">rec_params</span><span class="p">[</span><span class="s1">'spiketrains'</span><span class="p">][</span><span class="s1">'n_exc'</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">'n_cell'</span><span class="p">]</span>
+        <span class="n">rec_params</span><span class="p">[</span><span class="s1">'spiketrains'</span><span class="p">][</span><span class="s1">'n_inh'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">rec_params</span><span class="p">[</span><span class="s1">'recordings'</span><span class="p">][</span><span class="s1">'chunk_duration'</span><span class="p">]</span> <span class="o">=</span> <span class="mf">10.</span>
+        <span class="n">rec_params</span><span class="p">[</span><span class="s1">'templates'</span><span class="p">][</span><span class="s1">'n_overlap_pairs'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">rec_params</span><span class="p">[</span><span class="s1">'templates'</span><span class="p">][</span><span class="s1">'min_dist'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">rec_params</span><span class="p">[</span><span class="s1">'seeds'</span><span class="p">][</span><span class="s1">'templates'</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">'templates_seed'</span><span class="p">]</span>
+        <span class="n">rec_params</span><span class="p">[</span><span class="s1">'seeds'</span><span class="p">][</span><span class="s1">'noise'</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">'noise_seed'</span><span class="p">]</span>
+        <span class="n">recgen</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">gen_recordings</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="n">rec_params</span><span class="p">,</span> <span class="n">spgen</span><span class="o">=</span><span class="n">spgen</span><span class="p">,</span> <span class="n">templates</span><span class="o">=</span><span class="n">template_filename</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">mr</span><span class="o">.</span><span class="n">save_recording_generator</span><span class="p">(</span><span class="n">recgen</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">recording_filename</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Once this function is created, we can create an additional function that will generate several recordings, with different suffix/seeds:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">generate_recordings</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="n">generation_params</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">'nb_recordings'</span><span class="p">]):</span>
+        <span class="n">generation_params</span><span class="p">[</span><span class="s1">'study_number'</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="n">generation_params</span><span class="p">[</span><span class="s1">'templates_seed'</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="n">generation_params</span><span class="p">[</span><span class="s1">'noise_seed'</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="n">generate_single_recording</span><span class="p">(</span><span class="n">generation_params</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And now, we have all the required tools to create our recordings. By default, they will all be saved in the folder ../recordings/</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Provide the different rate and correlations levels you want to generate</span>
+<span class="n">rate_levels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+<span class="n">corr_levels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">]</span>
+<span class="n">generation_params</span><span class="p">[</span><span class="s1">'nb_recordings'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1">#Number of recordings per conditions</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">rate_level</span> <span class="ow">in</span> <span class="n">rate_levels</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">corr_level</span> <span class="ow">in</span> <span class="n">corr_levels</span><span class="p">:</span>
+
+        <span class="n">generation_params</span><span class="p">[</span><span class="s1">'rate_level'</span><span class="p">]</span> <span class="o">=</span> <span class="n">rate_level</span>
+        <span class="n">generation_params</span><span class="p">[</span><span class="s1">'corr_level'</span><span class="p">]</span> <span class="o">=</span> <span class="n">corr_level</span>
+        <span class="n">generate_recordings</span><span class="p">(</span><span class="n">generation_params</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Generation-of-the-study-objects">Generation of the study objects<a class="anchor-link" href="#Generation-of-the-study-objects">¶</a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Since the recordings have been generated, we now need to create Study objects for spikeinterface, and run the sorters on all these recordings. Be careful that by default, this can create quite a large amount of data, if you have numerous rate/correlation levels and/or number of recordings and/or sorters. First, we need to tell spikeinterface how to find the sorters</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ironclust_path</span> <span class="o">=</span> <span class="s1">'/media/cure/Secondary/pierre/softwares/ironclust'</span>
+<span class="n">kilosort1_path</span> <span class="o">=</span> <span class="s1">'/media/cure/Secondary/pierre/softwares/Kilosort-1.0'</span>
+<span class="n">kilosort2_path</span> <span class="o">=</span> <span class="s1">'/media/cure/Secondary/pierre/softwares/Kilosort-2.0'</span>
+<span class="n">kilosort3_path</span> <span class="o">=</span> <span class="s1">'/media/cure/Secondary/pierre/softwares/Kilosort-3.0'</span>
+<span class="n">hdsort_path</span> <span class="o">=</span> <span class="s1">'/media/cure/Secondary/pierre/softwares/HDsort'</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"KILOSORT_PATH"</span><span class="p">]</span> <span class="o">=</span> <span class="n">kilosort1_path</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"KILOSORT2_PATH"</span><span class="p">]</span> <span class="o">=</span> <span class="n">kilosort2_path</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"KILOSORT3_PATH"</span><span class="p">]</span> <span class="o">=</span> <span class="n">kilosort3_path</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'IRONCLUST_PATH'</span><span class="p">]</span> <span class="o">=</span> <span class="n">ironclust_path</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'HDSORT_PATH'</span><span class="p">]</span> <span class="o">=</span> <span class="n">hdsort_path</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And then we need to create a function that will, given a list of recordings, create a study and run all the sorters</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">generate_study</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">keep_data</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">paths</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">paths</span><span class="p">[</span><span class="s1">'basedir'</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">'global_path'</span><span class="p">]</span>
+    <span class="n">paths</span><span class="p">[</span><span class="s1">'data'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="n">paths</span><span class="p">[</span><span class="s1">'data'</span><span class="p">]</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">paths</span><span class="p">[</span><span class="s1">'data'</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="s1">'basedir'</span><span class="p">],</span> <span class="s1">'data'</span><span class="p">)</span>
+
+    <span class="n">paths</span><span class="p">[</span><span class="s1">'templates'</span><span class="p">]</span> <span class="o">=</span>  <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="s1">'data'</span><span class="p">],</span> <span class="s1">'templates'</span><span class="p">)</span>
+    <span class="n">paths</span><span class="p">[</span><span class="s1">'recordings'</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="s1">'data'</span><span class="p">],</span> <span class="s1">'recordings'</span><span class="p">)</span>
+    <span class="n">paths</span><span class="p">[</span><span class="s1">'study'</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="s1">'data'</span><span class="p">],</span> <span class="s1">'study'</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">paths</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+    <span class="n">probe</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">'probe'</span><span class="p">]</span>
+    <span class="n">n_cell</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">'n_cell'</span><span class="p">]</span>
+    <span class="n">noise_level</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">'noise_level'</span><span class="p">]</span>
+    <span class="n">study_number</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">'study_number'</span><span class="p">]</span>
+    <span class="n">corr_level</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">'corr_level'</span><span class="p">]</span>
+    <span class="n">rate_level</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">'rate_level'</span><span class="p">]</span>
+
+    <span class="n">paths</span><span class="p">[</span><span class="s1">'mearec_filename'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="n">study_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="s1">'study'</span><span class="p">],</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">n_cell</span><span class="si">}</span><span class="s1">cells_</span><span class="si">{</span><span class="n">noise_level</span><span class="si">}</span><span class="s1">noise_</span><span class="si">{</span><span class="n">corr_level</span><span class="si">}</span><span class="s1">corr_</span><span class="si">{</span><span class="n">rate_level</span><span class="si">}</span><span class="s1">rate_</span><span class="si">{</span><span class="n">probe</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+    <span class="n">study_folder</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">study_folder</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">params</span><span class="p">[</span><span class="s1">'reset_study'</span><span class="p">]</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">study_folder</span><span class="p">):</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">study_folder</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Availables sorters:'</span><span class="p">)</span>
+    <span class="n">si</span><span class="o">.</span><span class="n">print_sorter_versions</span><span class="p">()</span>
+
+    <span class="n">gt_dict</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">study_folder</span><span class="p">):</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">'nb_recordings'</span><span class="p">]):</span>
+            <span class="n">paths</span><span class="p">[</span><span class="s1">'mearec_filename'</span><span class="p">]</span> <span class="o">+=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="s1">'recordings'</span><span class="p">],</span> <span class="sa">f</span><span class="s1">'rec</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">n_cell</span><span class="si">}</span><span class="s1">cells_</span><span class="si">{</span><span class="n">noise_level</span><span class="si">}</span><span class="s1">noise_</span><span class="si">{</span><span class="n">corr_level</span><span class="si">}</span><span class="s1">corr_</span><span class="si">{</span><span class="n">rate_level</span><span class="si">}</span><span class="s1">rate_</span><span class="si">{</span><span class="n">probe</span><span class="si">}</span><span class="s1">.h5'</span><span class="p">)]</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'Availables recordings:'</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="s1">'mearec_filename'</span><span class="p">])</span>
+
+        
+        <span class="k">for</span> <span class="n">count</span><span class="p">,</span> <span class="n">file</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="s1">'mearec_filename'</span><span class="p">]):</span>
+            <span class="n">rec</span>  <span class="o">=</span> <span class="n">si</span><span class="o">.</span><span class="n">MEArecRecordingExtractor</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+            <span class="n">sorting_gt</span> <span class="o">=</span> <span class="n">si</span><span class="o">.</span><span class="n">MEArecSortingExtractor</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+            <span class="n">gt_dict</span><span class="p">[</span><span class="s1">'rec</span><span class="si">%d</span><span class="s1">'</span> <span class="o">%</span><span class="k">count</span>] = (rec, sorting_gt)
+
+        <span class="n">study</span> <span class="o">=</span> <span class="n">si</span><span class="o">.</span><span class="n">GroundTruthStudy</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">study_folder</span><span class="p">,</span> <span class="n">gt_dict</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">chunk_memory</span><span class="o">=</span><span class="s1">'1G'</span><span class="p">,</span> <span class="n">progress_bar</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">study</span><span class="o">.</span><span class="n">run_sorters</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">'sorter_list'</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">docker_images</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s1">'docker_images'</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Study created!"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">study</span> <span class="o">=</span> <span class="n">si</span><span class="o">.</span><span class="n">GroundTruthStudy</span><span class="p">(</span><span class="n">study_folder</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">params</span><span class="p">[</span><span class="s1">'relaunch'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'all'</span><span class="p">:</span>
+            <span class="n">if_exist</span> <span class="o">=</span> <span class="s1">'overwrite'</span>
+        <span class="k">elif</span> <span class="n">params</span><span class="p">[</span><span class="s1">'relaunch'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'some'</span><span class="p">:</span>
+            <span class="n">if_exist</span> <span class="o">=</span> <span class="s1">'keep'</span>
+
+        <span class="k">if</span> <span class="n">params</span><span class="p">[</span><span class="s1">'relaunch'</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'all'</span><span class="p">,</span> <span class="s1">'some'</span><span class="p">]:</span>
+            <span class="n">study</span><span class="o">.</span><span class="n">run_sorters</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">'sorter_list'</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">mode_if_folder_exists</span><span class="o">=</span><span class="n">if_exist</span><span class="p">,</span> <span class="n">docker_images</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s1">'docker_images'</span><span class="p">])</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Study loaded!"</span><span class="p">)</span>
+
+    <span class="n">study</span><span class="o">.</span><span class="n">copy_sortings</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">keep_data</span><span class="p">:</span>
+
+        <span class="k">for</span> <span class="n">sorter</span> <span class="ow">in</span> <span class="n">params</span><span class="p">[</span><span class="s1">'sorter_list'</span><span class="p">]:</span>
+
+            <span class="k">for</span> <span class="n">rec</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'rec</span><span class="si">%d</span><span class="s1">'</span> <span class="o">%</span><span class="k">i</span> for i in range(params['nb_recordings'])]:
+                <span class="n">sorter_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">study_folder</span><span class="p">,</span> <span class="s1">'sorter_folders'</span><span class="p">,</span> <span class="n">rec</span><span class="p">,</span> <span class="n">sorter</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">sorter_path</span><span class="p">):</span>
+                    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">sorter_path</span><span class="p">):</span>
+                        <span class="k">if</span> <span class="n">f</span> <span class="o">!=</span> <span class="s1">'spikeinterface_log.json'</span><span class="p">:</span>
+                            <span class="n">full_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sorter_path</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+                            <span class="k">try</span><span class="p">:</span>
+                                <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">full_file</span><span class="p">):</span>
+                                    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">full_file</span><span class="p">)</span>
+                                <span class="k">else</span><span class="p">:</span>
+                                    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">full_file</span><span class="p">)</span>
+                            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                                <span class="k">pass</span>
+        <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">paths</span><span class="p">[</span><span class="s1">'mearec_filename'</span><span class="p">]:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">study</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This function will take a dictionary of inputs (the same as for generating the recordings), and looping over all the possible recordings for a given condition (probe, rate, correlation levels) it will create a study in the path ../study/, running all the sorters on the recordings. This can take a lot of time, depending on the number of recordings/sorters. Note also that by default, the original recorindgs generated by MEArec are kept, and thus duplicated in the study folder. If you want to delete the original recordings (they are not needed for further analysis) you can set keep_data=False</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">study_params</span> <span class="o">=</span> <span class="n">generation_params</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">study_params</span><span class="p">[</span><span class="s1">'sorter_list'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'yass'</span><span class="p">,</span> <span class="s1">'kilosort'</span><span class="p">,</span> <span class="s1">'kilosort2'</span><span class="p">,</span> <span class="s1">'kilosort3'</span><span class="p">,</span> <span class="s1">'spykingcircus'</span><span class="p">,</span> <span class="s1">'tridesclous'</span><span class="p">,</span> <span class="s1">'ironclust'</span><span class="p">,</span> <span class="s1">'herdingspikes'</span><span class="p">,</span> <span class="s1">'hdsort'</span><span class="p">]</span>
+<span class="n">study_params</span><span class="p">[</span><span class="s1">'docker_images'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'yass'</span> <span class="p">:</span> <span class="s1">'spikeinterface/yass-base:2.0.0'</span><span class="p">}</span> <span class="c1">#If some sorters are installed via docker</span>
+<span class="n">study_params</span><span class="p">[</span><span class="s1">'relaunch'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'all'</span> <span class="c1">#If you want to relaunch the sorters. </span>
+<span class="n">study_params</span><span class="p">[</span><span class="s1">'reset_study'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1">#If you want to reset the study (delete everything)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_studies</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">rate_level</span> <span class="ow">in</span> <span class="n">rate_levels</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">corr_level</span> <span class="ow">in</span> <span class="n">corr_levels</span><span class="p">:</span>
+
+        <span class="n">study_params</span><span class="p">[</span><span class="s1">'rate_level'</span><span class="p">]</span> <span class="o">=</span> <span class="n">rate_level</span>
+        <span class="n">study_params</span><span class="p">[</span><span class="s1">'corr_level'</span><span class="p">]</span> <span class="o">=</span> <span class="n">corr_level</span>
+        <span class="n">all_studies</span><span class="p">[</span><span class="n">corr_level</span><span class="p">,</span> <span class="n">rate_level</span><span class="p">]</span> <span class="o">=</span> <span class="n">generate_study</span><span class="p">(</span><span class="n">study_params</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And this is it! Now you should have several studies, each of them with several recordings that have be analyzed by several sorters, in a structured manner (as function of rate/correlations levels)</p>
+
+</div>
+</div>
+</div>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../categories/collision_paper_2021/" rel="tag">collision_paper_2021</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../probeinterface-paper-figures/" rel="prev" title="probeinterface paper figures">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../collision-paper-simulated-recordings/" rel="next" title="Collision paper simulated recordings">Next post</a>
+            </li>
+        </ul></nav></aside><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        </script></article><!--End of body content--><footer id="footer">
+            Contents © 2021         <a href="mailto:sam.garcia.die@gmail.com">spikeinterface team</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+            
+        </footer>
+</div>
+</div>
+
+
+        <script src="../../assets/js/all-nocdn.js"></script><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element){var i=element.getElementsByTagName('img')[0];return i===undefined?'':i.alt;}});
+    </script>
+</body>
+</html>
