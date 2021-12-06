@@ -23,15 +23,15 @@ Introduction
 * test out other ideas!
 
 
-Notebooks reproducing the figures in collision paper
-====================================================
+Notebooks reproducing the figures in `collision preprint <https://www.biorxiv.org/content/10.1101/2021.11.29.470450v1>`_
+========================================================================================================================
 
 .. post-list::
    :tags: collision_paper_2021
 
 
-Notebooks reproducing the figures in probeinterface paper
-=========================================================
+Notebooks reproducing the figures in `probeinterface preprint <https://osf.io/jr3w5/>`_
+=======================================================================================
 
 .. post-list::
    :tags: pi_paper_2021
