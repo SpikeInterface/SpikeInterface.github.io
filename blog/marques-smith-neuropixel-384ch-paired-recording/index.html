@@ -29,8 +29,7 @@ André Marques-Smith make an open dataset with simultaneous patch-clamp and neur
 <!-- Menubar -->
 
 <nav class="navbar navbar-expand-md static-top mb-4
-navbar-dark
-bg-dark
+navbar-dark bg-dark
 "><div class="container">
 <!-- This keeps the margins nice -->
         <a class="navbar-brand" href="../../">
@@ -677,7 +676,9 @@ tridesclous: 1.6.1.dev
         <script src="../../assets/js/all-nocdn.js"></script><script>
     baguetteBox.run('div#content', {
         ignoreClass: 'islink',
-        captions: function(element){var i=element.getElementsByTagName('img')[0];return i===undefined?'':i.alt;}});
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
     </script>
 </body>
 </html>

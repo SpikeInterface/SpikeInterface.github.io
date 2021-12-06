@@ -43,6 +43,14 @@ Notebooks reproducing the figures in the `elife paper 2020 <https://elifescience
 .. post-list::
    :tags: paper
 
+
+Notebooks examples for sorting components
+=========================================
+
+.. post-list::
+   :tags: sortingcomponents_examples   
+
+   
 Notebooks with NEW API
 ======================
 

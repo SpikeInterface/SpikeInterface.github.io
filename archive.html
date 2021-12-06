@@ -21,8 +21,7 @@
 <!-- Menubar -->
 
 <nav class="navbar navbar-expand-md static-top mb-4
-navbar-dark
-bg-dark
+navbar-dark bg-dark
 "><div class="container">
 <!-- This keeps the margins nice -->
         <a class="navbar-brand" href=".">
@@ -59,7 +58,7 @@ bg-dark
     </header><ul class="postlist">
 <li>
 <a href="2021/">2021</a>
-            (6)
+            (7)
         </li>
 <li>
 <a href="2020/">2020</a>
@@ -77,7 +76,9 @@ bg-dark
         <script src="assets/js/all-nocdn.js"></script><script>
     baguetteBox.run('div#content', {
         ignoreClass: 'islink',
-        captions: function(element){var i=element.getElementsByTagName('img')[0];return i===undefined?'':i.alt;}});
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
     </script>
 </body>
 </html>

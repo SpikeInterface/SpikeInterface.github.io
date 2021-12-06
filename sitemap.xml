@@ -7,118 +7,118 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://SpikeInterface.github.io/</loc>
-  <lastmod>2021-11-26T11:25:00Z</lastmod>
+  <lastmod>2021-03-29T16:00:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/2020/</loc>
-  <lastmod>2020-01-29T15:39:00Z</lastmod>
+  <lastmod>2020-08-26T07:32:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/2021/</loc>
-  <lastmod>2021-11-26T11:25:00Z</lastmod>
+  <lastmod>2021-03-29T16:00:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/archive.html</loc>
-  <lastmod>2021-11-29T09:33:00Z</lastmod>
+  <lastmod>2021-12-06T15:34:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/</loc>
-  <lastmod>2021-11-29T09:33:00Z</lastmod>
+  <lastmod>2021-12-06T15:34:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/check-if-duration-affects-spike-sorting/</loc>
-  <lastmod>2021-11-26T11:25:00Z</lastmod>
+  <lastmod>2021-03-29T16:01:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/collision-paper-generate-recordings/</loc>
-  <lastmod>2021-11-29T09:33:00Z</lastmod>
+  <lastmod>2021-12-06T15:34:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/collision-paper-simulated-recordings/</loc>
-  <lastmod>2021-11-29T09:33:00Z</lastmod>
+  <lastmod>2021-12-06T15:34:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/collision-paper-spike-sorting-performance/</loc>
-  <lastmod>2021-11-29T09:33:00Z</lastmod>
+  <lastmod>2021-12-06T15:34:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/compare-old-vs-new-spikeinterface-api/</loc>
-  <lastmod>2021-11-26T11:25:00Z</lastmod>
+  <lastmod>2021-03-29T16:01:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-3brain-biocam-recording-from-a-retina/</loc>
-  <lastmod>2021-11-26T11:25:00Z</lastmod>
+  <lastmod>2020-08-26T07:32:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-neuropixels-recording-2/</loc>
-  <lastmod>2021-11-26T11:25:00Z</lastmod>
+  <lastmod>2020-08-26T07:32:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-neuropixels-recording/</loc>
-  <lastmod>2021-11-26T11:25:00Z</lastmod>
+  <lastmod>2020-08-26T07:32:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/example-of-ground-truth-comparison-study/</loc>
-  <lastmod>2020-01-29T15:39:00Z</lastmod>
+  <lastmod>2020-08-26T07:32:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/example-of-parameters-optimization/</loc>
-  <lastmod>2020-01-30T13:34:00Z</lastmod>
+  <lastmod>2020-08-26T07:32:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/ground-truth-comparison-and-ensemble-sorting-of-a-synthetic-neuropixels-recording/</loc>
-  <lastmod>2021-11-26T11:25:00Z</lastmod>
+  <lastmod>2020-08-26T07:32:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/index-1.html</loc>
-  <lastmod>2021-11-29T09:33:00Z</lastmod>
+  <lastmod>2021-12-06T15:34:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/marques-smith-neuropixel-384ch-paired-recording/</loc>
-  <lastmod>2021-11-26T11:25:00Z</lastmod>
+  <lastmod>2021-12-06T15:34:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/probeinterface-paper-figures/</loc>
-  <lastmod>2021-11-26T11:25:00Z</lastmod>
+  <lastmod>2021-12-06T15:34:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/quick-benchmarck-with-new-api-and-new-sorters-april-2021/</loc>
-  <lastmod>2021-11-26T11:25:00Z</lastmod>
+  <lastmod>2021-12-06T15:34:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part1/</loc>
-  <lastmod>2020-01-30T13:58:00Z</lastmod>
+  <lastmod>2020-08-26T07:32:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/spampinato-mice-retina-mea252ch-pair-recording-part2/</loc>
-  <lastmod>2020-01-30T13:58:00Z</lastmod>
+  <lastmod>2020-08-26T07:32:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://SpikeInterface.github.io/blog/spikeinterface-motion-estimation/</loc>
+  <lastmod>2021-12-06T15:34:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/categories/</loc>
-  <lastmod>2021-11-29T09:33:00Z</lastmod>
+  <lastmod>2021-12-06T15:34:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/categories/collision_paper_2021/</loc>
-  <lastmod>2021-11-29T09:33:00Z</lastmod>
+  <lastmod>2021-12-06T15:34:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/categories/new_api/</loc>
-  <lastmod>2021-11-26T11:25:00Z</lastmod>
+  <lastmod>2021-03-29T16:00:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/categories/paper/</loc>
-  <lastmod>2021-11-26T11:25:00Z</lastmod>
+  <lastmod>2020-08-26T07:41:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/categories/pi_paper_2021/</loc>
-  <lastmod>2021-11-26T11:29:00Z</lastmod>
+  <lastmod>2021-12-06T15:34:00Z</lastmod>
  </url>
  <url>
-  <loc>https://SpikeInterface.github.io/galleries/</loc>
-  <lastmod>2020-01-06T10:30:00Z</lastmod>
- </url>
- <url>
-  <loc>https://SpikeInterface.github.io/listings/</loc>
-  <lastmod>2020-01-06T10:30:00Z</lastmod>
+  <loc>https://SpikeInterface.github.io/categories/sortingcomponents_examples/</loc>
+  <lastmod>2021-12-06T15:34:00Z</lastmod>
  </url>
 </urlset>
