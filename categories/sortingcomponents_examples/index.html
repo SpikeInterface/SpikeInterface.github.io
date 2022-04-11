@@ -20,7 +20,8 @@
 <!-- Menubar -->
 
 <nav class="navbar navbar-expand-md static-top mb-4
-navbar-dark bg-dark
+navbar-dark
+bg-dark
 "><div class="container">
 <!-- This keeps the margins nice -->
         <a class="navbar-brand" href="../../">
@@ -67,10 +68,13 @@ navbar-dark bg-dark
 
     </header><ul class="postlist">
 <li>
+<time class="listdate" datetime="2022-04-11T16:47:39+02:00" title="2022-04-11 16:47">2022-04-11 16:47</time><a href="../../blog/spikeinterface-destripe/" class="listtitle">spikeinterface destripe</a><a></a>
+</li>
+            <li>
 <time class="listdate" datetime="2021-12-06T16:31:20+01:00" title="2021-12-06 16:31">2021-12-06 16:31</time><a href="../../blog/spikeinterface-motion-estimation/" class="listtitle">spikeinterface motion estimation</a><a></a>
 </li>
         </ul></article><!--End of body content--><footer id="footer">
-            Contents © 2021         <a href="mailto:sam.garcia.die@gmail.com">spikeinterface team</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            Contents © 2022         <a href="mailto:sam.garcia.die@gmail.com">spikeinterface team</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
             
             
         </footer>
@@ -81,9 +85,7 @@ navbar-dark bg-dark
         <script src="../../assets/js/all-nocdn.js"></script><script>
     baguetteBox.run('div#content', {
         ignoreClass: 'islink',
-        captions: function(element) {
-            return element.getElementsByTagName('img')[0].alt;
-    }});
+        captions: function(element){var i=element.getElementsByTagName('img')[0];return i===undefined?'':i.alt;}});
     </script>
 </body>
 </html>

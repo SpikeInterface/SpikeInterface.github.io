@@ -19,7 +19,9 @@ Introduction
 
 * demonstrate what can be done with `SpikeInterface <https://github.com/SpikeInterface>`_.
 * show detailed benchmarks for spike sorters.
+* push code that generated figures on papers related to spikeinterface (spikeinterface, probeinterface, collision)
 * serve as a sandbox for future benchmarks that can be integrated in the `SpikeForest <https://spikeforest.flatironinstitute.org/>`_ website.
+* demonstrate sortingcomponents_examples
 * test out other ideas!
 
 
@@ -85,6 +87,4 @@ Furthermore, we plan to add benchmarks on specific aspects of extracellular reco
 * benchmarks investigating if high-density probes yield better results than lower-density probes
 * example for parameters optimisations
 * further testing of the "ensemble sorting" method
-
-
 

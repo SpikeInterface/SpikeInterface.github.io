@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>spikeinterface report (Posts about paper)</title><link>https://SpikeInterface.github.io/</link><description></description><atom:link href="https://SpikeInterface.github.io/categories/paper.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2021 &lt;a href="mailto:sam.garcia.die@gmail.com"&gt;spikeinterface team&lt;/a&gt; </copyright><lastBuildDate>Mon, 29 Mar 2021 16:01:00 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Ensemble sorting of a 3Brain Biocam recording from a retina</title><link>https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-3brain-biocam-recording-from-a-retina/</link><dc:creator>spikeinterface team</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>spikeinterface report (Posts about paper)</title><link>https://SpikeInterface.github.io/</link><description></description><atom:link href="https://SpikeInterface.github.io/categories/paper.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2022 &lt;a href="mailto:sam.garcia.die@gmail.com"&gt;spikeinterface team&lt;/a&gt; </copyright><lastBuildDate>Mon, 11 Apr 2022 14:54:40 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Ensemble sorting of a 3Brain Biocam recording from a retina</title><link>https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-3brain-biocam-recording-from-a-retina/</link><dc:creator>spikeinterface team</dc:creator><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Ensemble-sorting-of-a-3Brain-Biocam-recording-from-a-mouse-retina"&gt;Ensemble sorting of a 3Brain Biocam recording from a mouse retina&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-3brain-biocam-recording-from-a-retina/#Ensemble-sorting-of-a-3Brain-Biocam-recording-from-a-mouse-retina"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This notebook reproduces supplemental figure S3 from the paper &lt;a href="https://www.biorxiv.org/content/10.1101/796599v2"&gt;&lt;strong&gt;SpikeInterface, a unified framework for spike sorting&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
@@ -486,7 +486,7 @@ Multicomaprison step 4: extract agreement from graph
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;/div&gt;&lt;/div&gt;</description><category>paper</category><guid>https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-3brain-biocam-recording-from-a-retina/</guid><pubDate>Tue, 25 Aug 2020 09:50:07 GMT</pubDate></item><item><title>Ensemble sorting of a Neuropixels recording 2</title><link>https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-neuropixels-recording-2/</link><dc:creator>spikeinterface team</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;</description><category>paper</category><guid>https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-3brain-biocam-recording-from-a-retina/</guid><pubDate>Tue, 25 Aug 2020 09:50:07 GMT</pubDate></item><item><title>Ensemble sorting of a Neuropixels recording 2</title><link>https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-neuropixels-recording-2/</link><dc:creator>spikeinterface team</dc:creator><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Ensemble-sorting-of-a-Neuropixel-recording-(2)"&gt;Ensemble sorting of a Neuropixel recording (2)&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-neuropixels-recording-2/#Ensemble-sorting-of-a-Neuropixel-recording-(2)"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This notebook reproduces supplemental figure S2 from the paper &lt;a href="https://www.biorxiv.org/content/10.1101/796599v2"&gt;&lt;strong&gt;SpikeInterface, a unified framework for spike sorting&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
@@ -956,7 +956,7 @@ Multicomaprison step 4: extract agreement from graph
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;/div&gt;&lt;/div&gt;</description><category>paper</category><guid>https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-neuropixels-recording-2/</guid><pubDate>Tue, 25 Aug 2020 09:49:41 GMT</pubDate></item><item><title>Ground truth comparison and ensemble sorting of a synthetic Neuropixels recording</title><link>https://SpikeInterface.github.io/blog/ground-truth-comparison-and-ensemble-sorting-of-a-synthetic-neuropixels-recording/</link><dc:creator>spikeinterface team</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;</description><category>paper</category><guid>https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-neuropixels-recording-2/</guid><pubDate>Tue, 25 Aug 2020 09:49:41 GMT</pubDate></item><item><title>Ground truth comparison and ensemble sorting of a synthetic Neuropixels recording</title><link>https://SpikeInterface.github.io/blog/ground-truth-comparison-and-ensemble-sorting-of-a-synthetic-neuropixels-recording/</link><dc:creator>spikeinterface team</dc:creator><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Ground-truth-comparison-and-ensemble-sorting-of-a-synthetic-Neuropixels-recording"&gt;Ground-truth comparison and ensemble sorting of a synthetic Neuropixels recording&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/ground-truth-comparison-and-ensemble-sorting-of-a-synthetic-neuropixels-recording/#Ground-truth-comparison-and-ensemble-sorting-of-a-synthetic-Neuropixels-recording"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This notebook reproduces figures 2 and 3 from the paper &lt;a href="https://www.biorxiv.org/content/10.1101/796599v2"&gt;&lt;strong&gt;SpikeInterface, a unified framework for spike sorting&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
@@ -1190,8 +1190,7 @@ ResourceWarning: Enable tracemalloc to get the object allocation traceback
 
 
 
-&lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
-&lt;div&gt;
+&lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;&lt;div&gt;
 &lt;style scoped&gt;
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1295,8 +1294,7 @@ ResourceWarning: Enable tracemalloc to get the object allocation traceback
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;
 
 &lt;/div&gt;
 
@@ -1994,7 +1992,7 @@ HDS [214, 1, 0, 0, 1, 0]
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;/div&gt;&lt;/div&gt;</description><category>paper</category><guid>https://SpikeInterface.github.io/blog/ground-truth-comparison-and-ensemble-sorting-of-a-synthetic-neuropixels-recording/</guid><pubDate>Sun, 23 Aug 2020 15:30:03 GMT</pubDate></item><item><title>Ensemble sorting of a Neuropixels recording</title><link>https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-neuropixels-recording/</link><dc:creator>spikeinterface team</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;</description><category>paper</category><guid>https://SpikeInterface.github.io/blog/ground-truth-comparison-and-ensemble-sorting-of-a-synthetic-neuropixels-recording/</guid><pubDate>Sun, 23 Aug 2020 15:30:03 GMT</pubDate></item><item><title>Ensemble sorting of a Neuropixels recording</title><link>https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-neuropixels-recording/</link><dc:creator>spikeinterface team</dc:creator><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Ensemble-sorting-of-a-Neuropixels-recording"&gt;Ensemble sorting of a Neuropixels recording&lt;a class="anchor-link" href="https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-neuropixels-recording/#Ensemble-sorting-of-a-Neuropixels-recording"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This notebook reproduces figures 1 and 4 from the paper &lt;a href="https://www.biorxiv.org/content/10.1101/796599v2"&gt;&lt;strong&gt;SpikeInterface, a unified framework for spike sorting&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
@@ -3010,4 +3008,4 @@ HDS   1.630435   1.086957   3.0   2.0
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;/div&gt;&lt;/div&gt;</description><category>paper</category><guid>https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-neuropixels-recording/</guid><pubDate>Sun, 23 Aug 2020 15:29:46 GMT</pubDate></item></channel></rss>
+&lt;/div&gt;</description><category>paper</category><guid>https://SpikeInterface.github.io/blog/ensemble-sorting-of-a-neuropixels-recording/</guid><pubDate>Sun, 23 Aug 2020 15:29:46 GMT</pubDate></item></channel></rss>
