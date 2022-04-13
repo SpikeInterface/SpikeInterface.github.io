@@ -24,6 +24,12 @@ Introduction
 * demonstrate sortingcomponents_examples
 * test out other ideas!
 
+Notebooks examples for sorting components
+=========================================
+
+.. post-list::
+   :tags: sortingcomponents_examples   
+
 
 Notebooks reproducing the figures in `collision preprint <https://www.biorxiv.org/content/10.1101/2021.11.29.470450v1>`_
 ========================================================================================================================
@@ -32,8 +38,8 @@ Notebooks reproducing the figures in `collision preprint <https://www.biorxiv.or
    :tags: collision_paper_2021
 
 
-Notebooks reproducing the figures in `probeinterface preprint <https://osf.io/jr3w5/>`_
-=======================================================================================
+Notebooks reproducing the figures in `probeinterface paper 2022 <https://www.frontiersin.org/articles/10.3389/fninf.2022.823056/full>`_
+=======================================================================================================================================
 
 .. post-list::
    :tags: pi_paper_2021
@@ -46,11 +52,6 @@ Notebooks reproducing the figures in the `elife paper 2020 <https://elifescience
    :tags: paper
 
 
-Notebooks examples for sorting components
-=========================================
-
-.. post-list::
-   :tags: sortingcomponents_examples   
 
    
 Notebooks with NEW API
