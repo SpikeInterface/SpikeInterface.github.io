@@ -23,11 +23,11 @@
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/archive.html</loc>
-  <lastmod>2022-04-13T10:39:00Z</lastmod>
+  <lastmod>2022-04-13T14:33:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/</loc>
-  <lastmod>2022-04-13T10:38:00Z</lastmod>
+  <lastmod>2022-04-13T14:33:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/check-if-duration-affects-spike-sorting/</loc>
@@ -75,7 +75,7 @@
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/index-1.html</loc>
-  <lastmod>2022-04-13T10:39:00Z</lastmod>
+  <lastmod>2022-04-13T14:33:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/marques-smith-neuropixel-384ch-paired-recording/</loc>
@@ -104,6 +104,10 @@
  <url>
   <loc>https://SpikeInterface.github.io/blog/spikeinterface-motion-estimation/</loc>
   <lastmod>2022-04-13T10:38:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://SpikeInterface.github.io/blog/spikeinterface-peak-detection/</loc>
+  <lastmod>2022-04-13T14:33:00Z</lastmod>
  </url>
  <url>
   <loc>https://SpikeInterface.github.io/blog/spikeinterface-template-matching/</loc>
